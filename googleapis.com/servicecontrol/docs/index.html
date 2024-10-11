@@ -1,0 +1,741 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Service Control API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Service Control API</h1>
+    <div class="app-desc">Provides admission control and telemetry reporting for services integrated with Service Infrastructure.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v2</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Services">Services</a></h4>
+  <ul>
+  <li><a href="#servicecontrol.services.check"><code><span class="http-method">post</span> /v2/services/{serviceName}:check</code></a></li>
+  <li><a href="#servicecontrol.services.report"><code><span class="http-method">post</span> /v2/services/{serviceName}:report</code></a></li>
+  </ul>
+
+  <h1><a name="Services">Services</a></h1>
+  <div class="method"><a name="servicecontrol.services.check"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v2/services/{serviceName}:check</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">servicecontrol.services.check</span>)</div>
+    <div class="method-notes">Private Preview. This feature is only available for approved services. This method provides admission control for services that are integrated with <a href="https://cloud.google.com/service-infrastructure">Service Infrastructure</a>. It checks whether an operation should be allowed based on the service configuration and relevant policies. It must be called before the operation is executed. For more information, see <a href="https://cloud.google.com/service-infrastructure/docs/admission-control">Admission Control</a>. NOTE: The admission control has an expected policy propagation delay of 60s. The caller <strong>must</strong> not depend on the most recent policy changes. NOTE: The admission control has a hard limit of 1 referenced resources per call. If an operation refers to more than 1 resources, the caller must call the Check method multiple times. This method requires the <code>servicemanagement.services.check</code> permission on the specified service. For more information, see <a href="https://cloud.google.com/service-infrastructure/docs/service-control/access-control">Service Control API Access Control</a>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">serviceName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The service name as specified in its service configuration. For example, <code>&quot;pubsub.googleapis.com&quot;</code>. See <a href="https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service">google.api.Service</a> for the definition of a service name. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">CheckRequest <a href="#CheckRequest">CheckRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CheckResponse">CheckResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "headers" : {
+    "key" : "headers"
+  },
+  "status" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#CheckResponse">CheckResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="servicecontrol.services.report"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v2/services/{serviceName}:report</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">servicecontrol.services.report</span>)</div>
+    <div class="method-notes">Private Preview. This feature is only available for approved services. This method provides telemetry reporting for services that are integrated with <a href="https://cloud.google.com/service-infrastructure">Service Infrastructure</a>. It reports a list of operations that have occurred on a service. It must be called after the operations have been executed. For more information, see <a href="https://cloud.google.com/service-infrastructure/docs/telemetry-reporting">Telemetry Reporting</a>. NOTE: The telemetry reporting has a hard limit of 1000 operations and 1MB per Report call. It is recommended to have no more than 100 operations per call. This method requires the <code>servicemanagement.services.report</code> permission on the specified service. For more information, see <a href="https://cloud.google.com/service-infrastructure/docs/service-control/access-control">Service Control API Access Control</a>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">serviceName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The service name as specified in its service configuration. For example, <code>&quot;pubsub.googleapis.com&quot;</code>. See <a href="https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service">google.api.Service</a> for the definition of a service name. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ReportRequest <a href="#ReportRequest">ReportRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Api"><code>Api</code> - </a></li>
+    <li><a href="#AttributeContext"><code>AttributeContext</code> - </a></li>
+    <li><a href="#AuditLog"><code>AuditLog</code> - </a></li>
+    <li><a href="#Auth"><code>Auth</code> - </a></li>
+    <li><a href="#AuthenticationInfo"><code>AuthenticationInfo</code> - </a></li>
+    <li><a href="#AuthorizationInfo"><code>AuthorizationInfo</code> - </a></li>
+    <li><a href="#CheckRequest"><code>CheckRequest</code> - </a></li>
+    <li><a href="#CheckResponse"><code>CheckResponse</code> - </a></li>
+    <li><a href="#FirstPartyPrincipal"><code>FirstPartyPrincipal</code> - </a></li>
+    <li><a href="#OrgPolicyViolationInfo"><code>OrgPolicyViolationInfo</code> - </a></li>
+    <li><a href="#Peer"><code>Peer</code> - </a></li>
+    <li><a href="#PolicyViolationInfo"><code>PolicyViolationInfo</code> - </a></li>
+    <li><a href="#ReportRequest"><code>ReportRequest</code> - </a></li>
+    <li><a href="#Request"><code>Request</code> - </a></li>
+    <li><a href="#RequestMetadata"><code>RequestMetadata</code> - </a></li>
+    <li><a href="#Resource"><code>Resource</code> - </a></li>
+    <li><a href="#ResourceInfo"><code>ResourceInfo</code> - </a></li>
+    <li><a href="#ResourceLocation"><code>ResourceLocation</code> - </a></li>
+    <li><a href="#Response"><code>Response</code> - </a></li>
+    <li><a href="#ServiceAccountDelegationInfo"><code>ServiceAccountDelegationInfo</code> - </a></li>
+    <li><a href="#SpanContext"><code>SpanContext</code> - </a></li>
+    <li><a href="#Status"><code>Status</code> - </a></li>
+    <li><a href="#ThirdPartyPrincipal"><code>ThirdPartyPrincipal</code> - </a></li>
+    <li><a href="#V2HttpRequest"><code>V2HttpRequest</code> - </a></li>
+    <li><a href="#V2LogEntry"><code>V2LogEntry</code> - </a></li>
+    <li><a href="#V2LogEntryOperation"><code>V2LogEntryOperation</code> - </a></li>
+    <li><a href="#V2LogEntrySourceLocation"><code>V2LogEntrySourceLocation</code> - </a></li>
+    <li><a href="#ViolationInfo"><code>ViolationInfo</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Api"><code>Api</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This message defines attributes associated with API operations, such as a network API request. The terminology is based on the conventions used by Google APIs, Istio, and OpenAPI.</div>
+    <div class="field-items">
+      <div class="param">operation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The API operation name. For gRPC requests, it is the fully qualified API method name, such as &quot;google.pubsub.v1.Publisher.Publish&quot;. For OpenAPI requests, it is the <code>operationId</code>, such as &quot;getPet&quot;. </div>
+<div class="param">protocol (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The API protocol used for sending the request, such as &quot;http&quot;, &quot;https&quot;, &quot;grpc&quot;, or &quot;internal&quot;. </div>
+<div class="param">service (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The API service name. It is a logical identifier for a networked API, such as &quot;pubsub.googleapis.com&quot;. The naming syntax depends on the API management system being used for handling the request. </div>
+<div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The API version associated with the API operation above, such as &quot;v1&quot; or &quot;v1alpha1&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AttributeContext"><code>AttributeContext</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This message defines the standard attribute vocabulary for Google APIs. An attribute is a piece of metadata that describes an activity on a network service. For example, the size of an HTTP request, or the status code of an HTTP response. Each attribute has a type and a name, which is logically defined as a proto message field in <code>AttributeContext</code>. The field type becomes the attribute type, and the field path becomes the attribute name. For example, the attribute <code>source.ip</code> maps to field <code>AttributeContext.source.ip</code>. This message definition is guaranteed not to have any wire breaking change. So you can use it directly for passing attributes across different systems. NOTE: Different system may generate different subset of attributes. Please verify the system specification before relying on an attribute generated a system.</div>
+    <div class="field-items">
+      <div class="param">api (optional)</div><div class="param-desc"><span class="param-type"><a href="#Api">Api</a></span>  </div>
+<div class="param">destination (optional)</div><div class="param-desc"><span class="param-type"><a href="#Peer">Peer</a></span>  </div>
+<div class="param">extensions (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">array[map[String, oas_any_type_not_mapped]]</a></span> Supports extensions for advanced use cases, such as logs and metrics. </div>
+<div class="param">origin (optional)</div><div class="param-desc"><span class="param-type"><a href="#Peer">Peer</a></span>  </div>
+<div class="param">request (optional)</div><div class="param-desc"><span class="param-type"><a href="#Request">Request</a></span>  </div>
+<div class="param">resource (optional)</div><div class="param-desc"><span class="param-type"><a href="#Resource">Resource</a></span>  </div>
+<div class="param">response (optional)</div><div class="param-desc"><span class="param-type"><a href="#Response">Response</a></span>  </div>
+<div class="param">source (optional)</div><div class="param-desc"><span class="param-type"><a href="#Peer">Peer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AuditLog"><code>AuditLog</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Common audit log format for Google Cloud Platform API operations.</div>
+    <div class="field-items">
+      <div class="param">authenticationInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#AuthenticationInfo">AuthenticationInfo</a></span>  </div>
+<div class="param">authorizationInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#AuthorizationInfo">array[AuthorizationInfo]</a></span> Authorization information. If there are multiple resources or permissions involved, then there is one AuthorizationInfo element for each {resource, permission} tuple. </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Other service-specific data about the request, response, and other information associated with the current audited event. </div>
+<div class="param">methodName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the service method or operation. For API calls, this should be the name of the API method. For example, &quot;google.cloud.bigquery.v2.TableService.InsertTable&quot; &quot;google.logging.v2.ConfigServiceV2.CreateSink&quot; </div>
+<div class="param">numResponseItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The number of items returned from a List or Query API method, if applicable. format: int64</div>
+<div class="param">policyViolationInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#PolicyViolationInfo">PolicyViolationInfo</a></span>  </div>
+<div class="param">request (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The operation request. This may not include all request parameters, such as those that are too large, privacy-sensitive, or duplicated elsewhere in the log record. It should never include user-generated data, such as file contents. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the <code>@type</code> property. </div>
+<div class="param">requestMetadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#RequestMetadata">RequestMetadata</a></span>  </div>
+<div class="param">resourceLocation (optional)</div><div class="param-desc"><span class="param-type"><a href="#ResourceLocation">ResourceLocation</a></span>  </div>
+<div class="param">resourceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource or collection that is the target of the operation. The name is a scheme-less URI, not including the API service name. For example: &quot;projects/PROJECT_ID/zones/us-central1-a/instances&quot; &quot;projects/PROJECT_ID/datasets/DATASET_ID&quot; </div>
+<div class="param">resourceOriginalState (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The resource's original state before mutation. Present only for operations which have successfully modified the targeted resource(s). In general, this field should contain all changed fields, except those that are already been included in <code>request</code>, <code>response</code>, <code>metadata</code> or <code>service_data</code> fields. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the <code>@type</code> property. </div>
+<div class="param">response (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The operation response. This may not include all response elements, such as those that are too large, privacy-sensitive, or duplicated elsewhere in the log record. It should never include user-generated data, such as file contents. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the <code>@type</code> property. </div>
+<div class="param">serviceData (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Deprecated. Use the <code>metadata</code> field instead. Other service-specific data about the request, response, and other activities. </div>
+<div class="param">serviceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the API service performing the operation. For example, <code>&quot;compute.googleapis.com&quot;</code>. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Auth"><code>Auth</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This message defines request authentication attributes. Terminology is based on the JSON Web Token (JWT) standard, but the terms also correlate to concepts in other standards.</div>
+    <div class="field-items">
+      <div class="param">accessLevels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> A list of access level resource names that allow resources to be accessed by authenticated requester. It is part of Secure GCP processing for the incoming request. An access level string has the format: &quot;//{api_service_name}/accessPolicies/{policy_id}/accessLevels/{short_name}&quot; Example: &quot;//accesscontextmanager.googleapis.com/accessPolicies/MY_POLICY_ID/accessLevels/MY_LEVEL&quot; </div>
+<div class="param">audiences (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The intended audience(s) for this authentication information. Reflects the audience (<code>aud</code>) claim within a JWT. The audience value(s) depends on the <code>issuer</code>, but typically include one or more of the following pieces of information: * The services intended to receive the credential. For example, [&quot;https://pubsub.googleapis.com/&quot;, &quot;https://storage.googleapis.com/&quot;]. * A set of service-based scopes. For example, [&quot;https://www.googleapis.com/auth/cloud-platform&quot;]. * The client id of an app, such as the Firebase project id for JWTs from Firebase Auth. Consult the documentation for the credential issuer to determine the information provided. </div>
+<div class="param">claims (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Structured claims presented with the credential. JWTs include <code>{key: value}</code> pairs for standard and private claims. The following is a subset of the standard required and optional claims that would typically be presented for a Google-based JWT: {'iss': 'accounts.google.com', 'sub': '113289723416554971153', 'aud': ['123456789012', 'pubsub.googleapis.com'], 'azp': '123456789012.apps.googleusercontent.com', 'email': 'jsmith@example.com', 'iat': 1353601026, 'exp': 1353604926} SAML assertions are similarly specified, but with an identity provider dependent structure. </div>
+<div class="param">presenter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The authorized presenter of the credential. Reflects the optional Authorized Presenter (<code>azp</code>) claim within a JWT or the OAuth client id. For example, a Google Cloud Platform client id looks as follows: &quot;123456789012.apps.googleusercontent.com&quot;. </div>
+<div class="param">principal (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The authenticated principal. Reflects the issuer (<code>iss</code>) and subject (<code>sub</code>) claims within a JWT. The issuer and subject should be <code>/</code> delimited, with <code>/</code> percent-encoded within the subject fragment. For Google accounts, the principal format is: &quot;https://accounts.google.com/{id}&quot; </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AuthenticationInfo"><code>AuthenticationInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Authentication information for the operation.</div>
+    <div class="field-items">
+      <div class="param">authoritySelector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The authority selector specified by the requestor, if any. It is not guaranteed that the principal was allowed to use this authority. </div>
+<div class="param">principalEmail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The email address of the authenticated user (or service account on behalf of third party principal) making the request. For third party identity callers, the <code>principal_subject</code> field is populated instead of this field. For privacy reasons, the principal email address is sometimes redacted. For more information, see <a href="https://cloud.google.com/logging/docs/audit#user-id">Caller identities in audit logs</a>. </div>
+<div class="param">principalSubject (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> String representation of identity of requesting party. Populated for both first and third party identities. </div>
+<div class="param">serviceAccountDelegationInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#ServiceAccountDelegationInfo">array[ServiceAccountDelegationInfo]</a></span> Identity delegation history of an authenticated service account that makes the request. It contains information on the real authorities that try to access GCP resources by delegating on a service account. When multiple authorities present, they are guaranteed to be sorted based on the original ordering of the identity delegation events. </div>
+<div class="param">serviceAccountKeyName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the service account key used to create or exchange credentials for authenticating the service account making the request. This is a scheme-less URI full resource name. For example: &quot;//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}&quot; </div>
+<div class="param">thirdPartyPrincipal (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The third party identification (if any) of the authenticated user making the request. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the <code>@type</code> property. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AuthorizationInfo"><code>AuthorizationInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Authorization information for the operation.</div>
+    <div class="field-items">
+      <div class="param">granted (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether or not authorization for <code>resource</code> and <code>permission</code> was granted. </div>
+<div class="param">permission (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The required IAM permission. </div>
+<div class="param">resource (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource being accessed, as a REST-style or cloud resource string. For example: bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID or projects/PROJECTID/datasets/DATASETID </div>
+<div class="param">resourceAttributes (optional)</div><div class="param-desc"><span class="param-type"><a href="#Resource">Resource</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CheckRequest"><code>CheckRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request message for the Check method.</div>
+    <div class="field-items">
+      <div class="param">attributes (optional)</div><div class="param-desc"><span class="param-type"><a href="#AttributeContext">AttributeContext</a></span>  </div>
+<div class="param">flags (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Contains a comma-separated list of flags. </div>
+<div class="param">resources (optional)</div><div class="param-desc"><span class="param-type"><a href="#ResourceInfo">array[ResourceInfo]</a></span> Describes the resources and the policies applied to each resource. </div>
+<div class="param">serviceConfigId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies the version of the service configuration that should be used to process the request. Must not be empty. Set this field to 'latest' to specify using the latest configuration. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CheckResponse"><code>CheckResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for the Check method.</div>
+    <div class="field-items">
+      <div class="param">headers (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Returns a set of request contexts generated from the <code>CheckRequest</code>. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FirstPartyPrincipal"><code>FirstPartyPrincipal</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>First party identity principal.</div>
+    <div class="field-items">
+      <div class="param">principalEmail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The email address of a Google account. . </div>
+<div class="param">serviceMetadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Metadata about the service that uses the service account. . </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OrgPolicyViolationInfo"><code>OrgPolicyViolationInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents OrgPolicy Violation information.</div>
+    <div class="field-items">
+      <div class="param">payload (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Optional. Resource payload that is currently in scope and is subjected to orgpolicy conditions. This payload may be the subset of the actual Resource that may come in the request. This payload should not contain any core content. </div>
+<div class="param">resourceTags (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Optional. Tags referenced on the resource at the time of evaluation. These also include the federated tags, if they are supplied in the CheckOrgPolicy or CheckCustomConstraints Requests. Optional field as of now. These tags are the Cloud tags that are available on the resource during the policy evaluation and will be available as part of the OrgPolicy check response for logging purposes. </div>
+<div class="param">resourceType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Resource type that the orgpolicy is checked against. Example: compute.googleapis.com/Instance, store.googleapis.com/bucket </div>
+<div class="param">violationInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#ViolationInfo">array[ViolationInfo]</a></span> Optional. Policy violations </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Peer"><code>Peer</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This message defines attributes for a node that handles a network request. The node can be either a service or an application that sends, forwards, or receives the request. Service peers should fill in <code>principal</code> and <code>labels</code> as appropriate.</div>
+    <div class="field-items">
+      <div class="param">ip (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The IP address of the peer. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The labels associated with the peer. </div>
+<div class="param">port (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The network port of the peer. format: int64</div>
+<div class="param">principal (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The identity of this peer. Similar to <code>Request.auth.principal</code>, but relative to the peer instead of the request. For example, the identity associated with a load balancer that forwarded the request. </div>
+<div class="param">regionCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The CLDR country/region code associated with the above IP address. If the IP address is private, the <code>region_code</code> should reflect the physical location where this peer is running. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PolicyViolationInfo"><code>PolicyViolationInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information related to policy violations for this request.</div>
+    <div class="field-items">
+      <div class="param">orgPolicyViolationInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#OrgPolicyViolationInfo">OrgPolicyViolationInfo</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRequest"><code>ReportRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request message for the Report method.</div>
+    <div class="field-items">
+      <div class="param">operations (optional)</div><div class="param-desc"><span class="param-type"><a href="#AttributeContext">array[AttributeContext]</a></span> Describes the list of operations to be reported. Each operation is represented as an AttributeContext, and contains all attributes around an API access. </div>
+<div class="param">serviceConfigId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies the version of the service configuration that should be used to process the request. Must not be empty. Set this field to 'latest' to specify using the latest configuration. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Request"><code>Request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This message defines attributes for an HTTP request. If the actual request is not an HTTP request, the runtime system should try to map the actual request to an equivalent HTTP request.</div>
+    <div class="field-items">
+      <div class="param">auth (optional)</div><div class="param-desc"><span class="param-type"><a href="#Auth">Auth</a></span>  </div>
+<div class="param">headers (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The HTTP request headers. If multiple headers share the same key, they must be merged according to the HTTP spec. All header keys must be lowercased, because HTTP header keys are case-insensitive. </div>
+<div class="param">host (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP request <code>Host</code> header value. </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique ID for a request, which can be propagated to downstream systems. The ID should have low probability of collision within a single day for a specific service. </div>
+<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP request method, such as <code>GET</code>, <code>POST</code>. </div>
+<div class="param">path (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP URL path, excluding the query parameters. </div>
+<div class="param">protocol (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The network protocol used with the request, such as &quot;http/1.1&quot;, &quot;spdy/3&quot;, &quot;h2&quot;, &quot;h2c&quot;, &quot;webrtc&quot;, &quot;tcp&quot;, &quot;udp&quot;, &quot;quic&quot;. See https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids for details. </div>
+<div class="param">query (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP URL query in the format of <code>name1=value1&amp;name2=value2</code>, as it appears in the first line of the HTTP request. No decoding is performed. </div>
+<div class="param">reason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A special parameter for request reason. It is used by security systems to associate auditing information with a request. </div>
+<div class="param">scheme (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP URL scheme, such as <code>http</code> and <code>https</code>. </div>
+<div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP request size in bytes. If unknown, it must be -1. format: int64</div>
+<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The timestamp when the <code>destination</code> service receives the last byte of the request. format: google-datetime</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RequestMetadata"><code>RequestMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metadata about the request.</div>
+    <div class="field-items">
+      <div class="param">callerIp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The IP address of the caller. For a caller from the internet, this will be the public IPv4 or IPv6 address. For calls made from inside Google's internal production network from one GCP service to another, <code>caller_ip</code> will be redacted to &quot;private&quot;. For a caller from a Compute Engine VM with a external IP address, <code>caller_ip</code> will be the VM's external IP address. For a caller from a Compute Engine VM without a external IP address, if the VM is in the same organization (or project) as the accessed resource, <code>caller_ip</code> will be the VM's internal IPv4 address, otherwise <code>caller_ip</code> will be redacted to &quot;gce-internal-ip&quot;. See https://cloud.google.com/compute/docs/vpc/ for more information. </div>
+<div class="param">callerNetwork (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The network of the caller. Set only if the network host project is part of the same GCP organization (or project) as the accessed resource. See https://cloud.google.com/compute/docs/vpc/ for more information. This is a scheme-less URI full resource name. For example: &quot;//compute.googleapis.com/projects/PROJECT_ID/global/networks/NETWORK_ID&quot; </div>
+<div class="param">callerSuppliedUserAgent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The user agent of the caller. This information is not authenticated and should be treated accordingly. For example: + <code>google-api-python-client/1.4.0</code>: The request was made by the Google API client for Python. + <code>Cloud SDK Command Line Tool apitools-client/1.0 gcloud/0.9.62</code>: The request was made by the Google Cloud SDK CLI (gcloud). + <code>AppEngine-Google; (+http://code.google.com/appengine; appid: s~my-project</code>: The request was made from the <code>my-project</code> App Engine app. </div>
+<div class="param">destinationAttributes (optional)</div><div class="param-desc"><span class="param-type"><a href="#Peer">Peer</a></span>  </div>
+<div class="param">requestAttributes (optional)</div><div class="param-desc"><span class="param-type"><a href="#Request">Request</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Resource"><code>Resource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This message defines core attributes for a resource. A resource is an addressable (named) entity provided by the destination service. For example, a file stored on a network storage service.</div>
+    <div class="field-items">
+      <div class="param">annotations (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Annotations is an unstructured key-value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ </div>
+<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp when the resource was created. This may be either the time creation was initiated or when it was completed. format: google-datetime</div>
+<div class="param">deleteTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp when the resource was deleted. If the resource is not deleted, this must be empty. format: google-datetime</div>
+<div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Mutable. The display name set by clients. Must be &lt;= 63 characters. </div>
+<div class="param">etag (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. An opaque value that uniquely identifies a version or generation of a resource. It can be used to confirm that the client and server agree on the ordering of a resource being written. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The labels or tags on the resource, such as AWS resource tags and Kubernetes resource labels. </div>
+<div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Immutable. The location of the resource. The location encoding is specific to the service provider, and new encoding may be introduced as the service evolves. For Google Cloud products, the encoding is what is used by Google Cloud APIs, such as <code>us-east1</code>, <code>aws-us-east-1</code>, and <code>azure-eastus2</code>. The semantics of <code>location</code> is identical to the <code>cloud.googleapis.com/location</code> label used by some Google Cloud APIs. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The stable identifier (name) of a resource on the <code>service</code>. A resource can be logically identified as &quot;//{resource.service}/{resource.name}&quot;. The differences between a resource name and a URI are: * Resource name is a logical identifier, independent of network protocol and API version. For example, <code>//pubsub.googleapis.com/projects/123/topics/news-feed</code>. * URI often includes protocol and version information, so it can be used directly by applications. For example, <code>https://pubsub.googleapis.com/v1/projects/123/topics/news-feed</code>. See https://cloud.google.com/apis/design/resource_names for details. </div>
+<div class="param">service (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the service that this resource belongs to, such as <code>pubsub.googleapis.com</code>. The service may be different from the DNS hostname that actually serves the request. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of the resource. The syntax is platform-specific because different platforms define their resources differently. For Google APIs, the type format must be &quot;{service}/{kind}&quot;, such as &quot;pubsub.googleapis.com/Topic&quot;. </div>
+<div class="param">uid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique identifier of the resource. UID is unique in the time and space for this resource within the scope of the service. It is typically generated by the server on successful creation of a resource and must not be changed. UID is used to uniquely identify resources with resource name reuses. This should be a UUID4. </div>
+<div class="param">updateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp when the resource was last updated. Any change to the resource made by users must refresh this value. Changes to a resource made by the service should refresh this value. format: google-datetime</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResourceInfo"><code>ResourceInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Describes a resource referenced in the request.</div>
+    <div class="field-items">
+      <div class="param">container (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The identifier of the container of this resource. For Google Cloud APIs, the resource container must be one of the following formats: - <code>projects/</code> - <code>folders/</code> - <code>organizations/</code> For the policy enforcement on the container level (VPCSC and Location Policy check), this field takes precedence on the container extracted from name when presents. </div>
+<div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The location of the resource. The value must be a valid zone, region or multiregion. For example: &quot;europe-west4&quot; or &quot;northamerica-northeast1-a&quot; </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the resource referenced in the request. </div>
+<div class="param">permission (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource permission needed for this request. The format must be &quot;{service}/{plural}.{verb}&quot;. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource type in the format of &quot;{service}/{kind}&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResourceLocation"><code>ResourceLocation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Location information about a resource.</div>
+    <div class="field-items">
+      <div class="param">currentLocations (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The locations of a resource after the execution of the operation. Requests to create or delete a location based resource must populate the 'current_locations' field and not the 'original_locations' field. For example: &quot;europe-west1-a&quot; &quot;us-east1&quot; &quot;nam3&quot; </div>
+<div class="param">originalLocations (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The locations of a resource prior to the execution of the operation. Requests that mutate the resource's location must populate both the 'original_locations' as well as the 'current_locations' fields. For example: &quot;europe-west1-a&quot; &quot;us-east1&quot; &quot;nam3&quot; </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Response"><code>Response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This message defines attributes for a typical network response. It generally models semantics of an HTTP response.</div>
+    <div class="field-items">
+      <div class="param">backendLatency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The amount of time it takes the backend service to fully respond to a request. Measured from when the destination service starts to send the request to the backend until when the destination service receives the complete response from the backend. format: google-duration</div>
+<div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP response status code, such as <code>200</code> and <code>404</code>. format: int64</div>
+<div class="param">headers (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The HTTP response headers. If multiple headers share the same key, they must be merged according to HTTP spec. All header keys must be lowercased, because HTTP header keys are case-insensitive. </div>
+<div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP response size in bytes. If unknown, it must be -1. format: int64</div>
+<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The timestamp when the <code>destination</code> service sends the last byte of the response. format: google-datetime</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ServiceAccountDelegationInfo"><code>ServiceAccountDelegationInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Identity delegation history of an authenticated service account.</div>
+    <div class="field-items">
+      <div class="param">firstPartyPrincipal (optional)</div><div class="param-desc"><span class="param-type"><a href="#FirstPartyPrincipal">FirstPartyPrincipal</a></span>  </div>
+<div class="param">principalSubject (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A string representing the principal_subject associated with the identity. For most identities, the format will be <code>principal://iam.googleapis.com/{identity pool name}/subject/{subject)</code> except for some GKE identities (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format <code>serviceAccount:{identity pool name}[{subject}]</code> </div>
+<div class="param">thirdPartyPrincipal (optional)</div><div class="param-desc"><span class="param-type"><a href="#ThirdPartyPrincipal">ThirdPartyPrincipal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SpanContext"><code>SpanContext</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The context of a span. This is attached to an Exemplar in Distribution values during aggregation. It contains the name of a span with format: projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]</div>
+    <div class="field-items">
+      <div class="param">spanName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name of the span. The format is: projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID] <code>[TRACE_ID]</code> is a unique identifier for a trace within a project; it is a 32-character hexadecimal encoding of a 16-byte array. <code>[SPAN_ID]</code> is a unique identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte array. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Status"><code>Status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The <code>Status</code> type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by <a href="https://github.com/grpc">gRPC</a>. Each <code>Status</code> message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the <a href="https://cloud.google.com/apis/design/errors">API Design Guide</a>.</div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The status code, which should be an enum value of google.rpc.Code. format: int32</div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">array[map[String, oas_any_type_not_mapped]]</a></span> A list of messages that carry the error details. There is a common set of message types for APIs to use. </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ThirdPartyPrincipal"><code>ThirdPartyPrincipal</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Third party identity principal.</div>
+    <div class="field-items">
+      <div class="param">thirdPartyClaims (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Metadata about third party identity. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="V2HttpRequest"><code>V2HttpRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A common proto for logging HTTP requests. Only contains semantics defined by the HTTP specification. Product-specific logging information MUST be defined in a separate message.</div>
+    <div class="field-items">
+      <div class="param">cacheFillBytes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The number of HTTP response bytes inserted into cache. Set only when a cache fill was attempted. format: int64</div>
+<div class="param">cacheHit (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether or not an entity was served from cache (with or without validation). </div>
+<div class="param">cacheLookup (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether or not a cache lookup was attempted. </div>
+<div class="param">cacheValidatedWithOriginServer (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether or not the response was validated with the origin server before being served from cache. This field is only meaningful if <code>cache_hit</code> is True. </div>
+<div class="param">latency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The request processing latency on the server, from the time the request was received until the response was sent. format: google-duration</div>
+<div class="param">protocol (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Protocol used for the request. Examples: &quot;HTTP/1.1&quot;, &quot;HTTP/2&quot;, &quot;websocket&quot; </div>
+<div class="param">referer (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The referer URL of the request, as defined in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">HTTP/1.1 Header Field Definitions</a>. </div>
+<div class="param">remoteIp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The IP address (IPv4 or IPv6) of the client that issued the HTTP request. Examples: <code>&quot;192.168.1.1&quot;</code>, <code>&quot;FE80::0202:B3FF:FE1E:8329&quot;</code>. </div>
+<div class="param">requestMethod (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The request method. Examples: <code>&quot;GET&quot;</code>, <code>&quot;HEAD&quot;</code>, <code>&quot;PUT&quot;</code>, <code>&quot;POST&quot;</code>. </div>
+<div class="param">requestSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The size of the HTTP request message in bytes, including the request headers and the request body. format: int64</div>
+<div class="param">requestUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The scheme (http, https), the host name, the path, and the query portion of the URL that was requested. Example: <code>&quot;http://example.com/some/info?color=red&quot;</code>. </div>
+<div class="param">responseSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The size of the HTTP response message sent back to the client, in bytes, including the response headers and the response body. format: int64</div>
+<div class="param">serverIp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The IP address (IPv4 or IPv6) of the origin server that the request was sent to. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The response code indicating the status of the response. Examples: 200, 404. format: int32</div>
+<div class="param">userAgent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The user agent sent by the client. Example: <code>&quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET CLR 1.0.3705)&quot;</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="V2LogEntry"><code>V2LogEntry</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An individual log entry.</div>
+    <div class="field-items">
+      <div class="param">httpRequest (optional)</div><div class="param-desc"><span class="param-type"><a href="#V2HttpRequest">V2HttpRequest</a></span>  </div>
+<div class="param">insertId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique ID for the log entry used for deduplication. If omitted, the implementation will generate one based on operation_id. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> A set of user-defined (key, value) data that provides additional information about the log entry. </div>
+<div class="param">monitoredResourceLabels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> A set of user-defined (key, value) data that provides additional information about the moniotored resource that the log entry belongs to. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The log to which this log entry belongs. Examples: <code>&quot;syslog&quot;</code>, <code>&quot;book_log&quot;</code>. </div>
+<div class="param">operation (optional)</div><div class="param-desc"><span class="param-type"><a href="#V2LogEntryOperation">V2LogEntryOperation</a></span>  </div>
+<div class="param">protoPayload (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The log entry payload, represented as a protocol buffer that is expressed as a JSON object. The only accepted type currently is AuditLog. </div>
+<div class="param">severity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The severity of the log entry. The default value is <code>LogSeverity.DEFAULT</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">DEFAULT</div><div class="param-enum">DEBUG</div><div class="param-enum">INFO</div><div class="param-enum">NOTICE</div><div class="param-enum">WARNING</div><div class="param-enum">ERROR</div><div class="param-enum">CRITICAL</div><div class="param-enum">ALERT</div><div class="param-enum">EMERGENCY</div>
+<div class="param">sourceLocation (optional)</div><div class="param-desc"><span class="param-type"><a href="#V2LogEntrySourceLocation">V2LogEntrySourceLocation</a></span>  </div>
+<div class="param">structPayload (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The log entry payload, represented as a structure that is expressed as a JSON object. </div>
+<div class="param">textPayload (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The log entry payload, represented as a Unicode string (UTF-8). </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time the event described by the log entry occurred. If omitted, defaults to operation start time. format: google-datetime</div>
+<div class="param">trace (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Resource name of the trace associated with the log entry, if any. If this field contains a relative resource name, you can assume the name is relative to <code>//tracing.googleapis.com</code>. Example: <code>projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="V2LogEntryOperation"><code>V2LogEntryOperation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Additional information about a potentially long-running operation with which a log entry is associated.</div>
+    <div class="field-items">
+      <div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. Set this to True if this is the first log entry in the operation. </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. An arbitrary operation identifier. Log entries with the same identifier are assumed to be part of the same operation. </div>
+<div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. Set this to True if this is the last log entry in the operation. </div>
+<div class="param">producer (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. An arbitrary producer identifier. The combination of <code>id</code> and <code>producer</code> must be globally unique. Examples for <code>producer</code>: <code>&quot;MyDivision.MyBigCompany.com&quot;</code>, <code>&quot;github.com/MyProject/MyApplication&quot;</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="V2LogEntrySourceLocation"><code>V2LogEntrySourceLocation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Additional information about the source code location that produced the log entry.</div>
+    <div class="field-items">
+      <div class="param">file (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Source file name. Depending on the runtime environment, this might be a simple name or a fully-qualified name. </div>
+<div class="param">function (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Human-readable name of the function or method being invoked, with optional context such as the class or package name. This information may be used in contexts such as the logs viewer, where a file and line number are less meaningful. The format can vary by language. For example: <code>qual.if.ied.Class.method</code> (Java), <code>dir/package.func</code> (Go), <code>function</code> (Python). </div>
+<div class="param">line (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Line within the source file. 1-based; 0 indicates no line number available. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ViolationInfo"><code>ViolationInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Provides information about the Policy violation info for this request.</div>
+    <div class="field-items">
+      <div class="param">checkedValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Value that is being checked for the policy. This could be in encrypted form (if pii sensitive). This field will only be emitted in LIST_POLICY types </div>
+<div class="param">constraint (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Constraint name </div>
+<div class="param">errorMessage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Error message that policy is indicating. </div>
+<div class="param">policyType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Indicates the type of the policy. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">POLICY_TYPE_UNSPECIFIED</div><div class="param-enum">BOOLEAN_CONSTRAINT</div><div class="param-enum">LIST_CONSTRAINT</div><div class="param-enum">CUSTOM_CONSTRAINT</div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

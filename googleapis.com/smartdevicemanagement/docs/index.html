@@ -1,0 +1,744 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Smart Device Management API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Smart Device Management API</h1>
+    <div class="app-desc">Allow select enterprise partners to access, control, and manage Google and Nest devices programmatically.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v1</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Enterprises">Enterprises</a></h4>
+  <ul>
+  <li><a href="#smartdevicemanagement.enterprises.devices.executeCommand"><code><span class="http-method">post</span> /v1/{name}:executeCommand</code></a></li>
+  <li><a href="#smartdevicemanagement.enterprises.devices.list"><code><span class="http-method">get</span> /v1/{parent}/devices</code></a></li>
+  <li><a href="#smartdevicemanagement.enterprises.structures.list"><code><span class="http-method">get</span> /v1/{parent}/structures</code></a></li>
+  <li><a href="#smartdevicemanagement.enterprises.structures.rooms.get"><code><span class="http-method">get</span> /v1/{name}</code></a></li>
+  <li><a href="#smartdevicemanagement.enterprises.structures.rooms.list"><code><span class="http-method">get</span> /v1/{parent}/rooms</code></a></li>
+  </ul>
+
+  <h1><a name="Enterprises">Enterprises</a></h1>
+  <div class="method"><a name="smartdevicemanagement.enterprises.devices.executeCommand"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{name}:executeCommand</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">smartdevicemanagement.enterprises.devices.executeCommand</span>)</div>
+    <div class="method-notes">Executes a command to device managed by the enterprise.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the device requested. For example: &quot;enterprises/XYZ/devices/123&quot; default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest <a href="#GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest">GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse">GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "results" : {
+    "key" : ""
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse">GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="smartdevicemanagement.enterprises.devices.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/devices</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">smartdevicemanagement.enterprises.devices.list</span>)</div>
+    <div class="method-notes">Lists devices managed by the enterprise.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The parent enterprise to list devices under. E.g. &quot;enterprises/XYZ&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional filter to list devices. Filters can be done on: Device custom name (substring match): 'customName=wing' default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional requested page size. Server may return fewer devices than requested. If unspecified, server will pick an appropriate default. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional token of the page to retrieve. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleHomeEnterpriseSdmV1ListDevicesResponse">GoogleHomeEnterpriseSdmV1ListDevicesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "devices" : [ {
+    "traits" : {
+      "key" : ""
+    },
+    "name" : "name",
+    "type" : "type",
+    "parentRelations" : [ {
+      "parent" : "parent",
+      "displayName" : "displayName"
+    }, {
+      "parent" : "parent",
+      "displayName" : "displayName"
+    } ]
+  }, {
+    "traits" : {
+      "key" : ""
+    },
+    "name" : "name",
+    "type" : "type",
+    "parentRelations" : [ {
+      "parent" : "parent",
+      "displayName" : "displayName"
+    }, {
+      "parent" : "parent",
+      "displayName" : "displayName"
+    } ]
+  } ],
+  "nextPageToken" : "nextPageToken"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleHomeEnterpriseSdmV1ListDevicesResponse">GoogleHomeEnterpriseSdmV1ListDevicesResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="smartdevicemanagement.enterprises.structures.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/structures</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">smartdevicemanagement.enterprises.structures.list</span>)</div>
+    <div class="method-notes">Lists structures managed by the enterprise.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The parent enterprise to list structures under. E.g. &quot;enterprises/XYZ&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional filter to list structures. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Requested page size. Server may return fewer structures than requested. If unspecified, server will pick an appropriate default. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The token of the page to retrieve. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleHomeEnterpriseSdmV1ListStructuresResponse">GoogleHomeEnterpriseSdmV1ListStructuresResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "structures" : [ {
+    "traits" : {
+      "key" : ""
+    },
+    "name" : "name"
+  }, {
+    "traits" : {
+      "key" : ""
+    },
+    "name" : "name"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleHomeEnterpriseSdmV1ListStructuresResponse">GoogleHomeEnterpriseSdmV1ListStructuresResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="smartdevicemanagement.enterprises.structures.rooms.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">smartdevicemanagement.enterprises.structures.rooms.get</span>)</div>
+    <div class="method-notes">Gets a room managed by the enterprise.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the room requested. For example: &quot;enterprises/XYZ/structures/ABC/rooms/123&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleHomeEnterpriseSdmV1Room">GoogleHomeEnterpriseSdmV1Room</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "traits" : {
+    "key" : ""
+  },
+  "name" : "name"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleHomeEnterpriseSdmV1Room">GoogleHomeEnterpriseSdmV1Room</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="smartdevicemanagement.enterprises.structures.rooms.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/rooms</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">smartdevicemanagement.enterprises.structures.rooms.list</span>)</div>
+    <div class="method-notes">Lists rooms managed by the enterprise.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The parent resource name of the rooms requested. For example: &quot;enterprises/XYZ/structures/ABC&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Requested page size. Server may return fewer rooms than requested. If unspecified, server will pick an appropriate default. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The token of the page to retrieve. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleHomeEnterpriseSdmV1ListRoomsResponse">GoogleHomeEnterpriseSdmV1ListRoomsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "rooms" : [ {
+    "traits" : {
+      "key" : ""
+    },
+    "name" : "name"
+  }, {
+    "traits" : {
+      "key" : ""
+    },
+    "name" : "name"
+  } ],
+  "nextPageToken" : "nextPageToken"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleHomeEnterpriseSdmV1ListRoomsResponse">GoogleHomeEnterpriseSdmV1ListRoomsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#GoogleHomeEnterpriseSdmV1Device"><code>GoogleHomeEnterpriseSdmV1Device</code> - </a></li>
+    <li><a href="#GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest"><code>GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest</code> - </a></li>
+    <li><a href="#GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse"><code>GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse</code> - </a></li>
+    <li><a href="#GoogleHomeEnterpriseSdmV1ListDevicesResponse"><code>GoogleHomeEnterpriseSdmV1ListDevicesResponse</code> - </a></li>
+    <li><a href="#GoogleHomeEnterpriseSdmV1ListRoomsResponse"><code>GoogleHomeEnterpriseSdmV1ListRoomsResponse</code> - </a></li>
+    <li><a href="#GoogleHomeEnterpriseSdmV1ListStructuresResponse"><code>GoogleHomeEnterpriseSdmV1ListStructuresResponse</code> - </a></li>
+    <li><a href="#GoogleHomeEnterpriseSdmV1ParentRelation"><code>GoogleHomeEnterpriseSdmV1ParentRelation</code> - </a></li>
+    <li><a href="#GoogleHomeEnterpriseSdmV1Room"><code>GoogleHomeEnterpriseSdmV1Room</code> - </a></li>
+    <li><a href="#GoogleHomeEnterpriseSdmV1Structure"><code>GoogleHomeEnterpriseSdmV1Structure</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1Device"><code>GoogleHomeEnterpriseSdmV1Device</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Device resource represents an instance of enterprise managed device in the property.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The resource name of the device. For example: &quot;enterprises/XYZ/devices/123&quot;. </div>
+<div class="param">parentRelations (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleHomeEnterpriseSdmV1ParentRelation">array[GoogleHomeEnterpriseSdmV1ParentRelation]</a></span> Assignee details of the device. </div>
+<div class="param">traits (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Output only. Device traits. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Type of the device for general display purposes. For example: &quot;THERMOSTAT&quot;. The device type should not be used to deduce or infer functionality of the actual device it is assigned to. Instead, use the returned traits for the device. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest"><code>GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request message for SmartDeviceManagementService.ExecuteDeviceCommand</div>
+    <div class="field-items">
+      <div class="param">command (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The command name to execute, represented by the fully qualified protobuf message name. </div>
+<div class="param">params (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The command message to execute, represented as a Struct. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse"><code>GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for SmartDeviceManagementService.ExecuteDeviceCommand</div>
+    <div class="field-items">
+      <div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The results of executing the command. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1ListDevicesResponse"><code>GoogleHomeEnterpriseSdmV1ListDevicesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for SmartDeviceManagementService.ListDevices</div>
+    <div class="field-items">
+      <div class="param">devices (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleHomeEnterpriseSdmV1Device">array[GoogleHomeEnterpriseSdmV1Device]</a></span> The list of devices. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The pagination token to retrieve the next page of results. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1ListRoomsResponse"><code>GoogleHomeEnterpriseSdmV1ListRoomsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for SmartDeviceManagementService.ListRooms</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The pagination token to retrieve the next page of results. If this field is omitted, there are no subsequent pages. </div>
+<div class="param">rooms (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleHomeEnterpriseSdmV1Room">array[GoogleHomeEnterpriseSdmV1Room]</a></span> The list of rooms. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1ListStructuresResponse"><code>GoogleHomeEnterpriseSdmV1ListStructuresResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for SmartDeviceManagementService.ListStructures</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The pagination token to retrieve the next page of results. If this field is omitted, there are no subsequent pages. </div>
+<div class="param">structures (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleHomeEnterpriseSdmV1Structure">array[GoogleHomeEnterpriseSdmV1Structure]</a></span> The list of structures. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1ParentRelation"><code>GoogleHomeEnterpriseSdmV1ParentRelation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents device relationships, for instance, structure/room to which the device is assigned to.</div>
+    <div class="field-items">
+      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The custom name of the relation -- e.g., structure/room where the device is assigned to. </div>
+<div class="param">parent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The name of the relation -- e.g., structure/room where the device is assigned to. For example: &quot;enterprises/XYZ/structures/ABC&quot; or &quot;enterprises/XYZ/structures/ABC/rooms/123&quot; </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1Room"><code>GoogleHomeEnterpriseSdmV1Room</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Room resource represents an instance of sub-space within a structure such as rooms in a hotel suite or rental apartment.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The resource name of the room. For example: &quot;enterprises/XYZ/structures/ABC/rooms/123&quot;. </div>
+<div class="param">traits (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Room traits. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleHomeEnterpriseSdmV1Structure"><code>GoogleHomeEnterpriseSdmV1Structure</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Structure resource represents an instance of enterprise managed home or hotel room.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The resource name of the structure. For example: &quot;enterprises/XYZ/structures/ABC&quot;. </div>
+<div class="param">traits (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Structure traits. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

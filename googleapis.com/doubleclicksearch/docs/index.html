@@ -1,0 +1,2080 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Search Ads 360 API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Search Ads 360 API</h1>
+    <div class="app-desc">The Search Ads 360 API allows developers to automate uploading conversions and downloading reports from Search Ads 360.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v2</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Conversion">Conversion</a></h4>
+  <ul>
+  <li><a href="#doubleclicksearch.conversion.get"><code><span class="http-method">get</span> /doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/engine/{engineAccountId}/conversion</code></a></li>
+  <li><a href="#doubleclicksearch.conversion.getByCustomerId"><code><span class="http-method">get</span> /doubleclicksearch/v2/customer/{customerId}/conversion</code></a></li>
+  <li><a href="#doubleclicksearch.conversion.insert"><code><span class="http-method">post</span> /doubleclicksearch/v2/conversion</code></a></li>
+  <li><a href="#doubleclicksearch.conversion.update"><code><span class="http-method">put</span> /doubleclicksearch/v2/conversion</code></a></li>
+  <li><a href="#doubleclicksearch.conversion.updateAvailability"><code><span class="http-method">post</span> /doubleclicksearch/v2/conversion/updateAvailability</code></a></li>
+  </ul>
+  <h4><a href="#Reports">Reports</a></h4>
+  <ul>
+  <li><a href="#doubleclicksearch.reports.generate"><code><span class="http-method">post</span> /doubleclicksearch/v2/reports/generate</code></a></li>
+  <li><a href="#doubleclicksearch.reports.get"><code><span class="http-method">get</span> /doubleclicksearch/v2/reports/{reportId}</code></a></li>
+  <li><a href="#doubleclicksearch.reports.getFile"><code><span class="http-method">get</span> /doubleclicksearch/v2/reports/{reportId}/files/{reportFragment}</code></a></li>
+  <li><a href="#doubleclicksearch.reports.getIdMappingFile"><code><span class="http-method">get</span> /doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/idmapping</code></a></li>
+  <li><a href="#doubleclicksearch.reports.request"><code><span class="http-method">post</span> /doubleclicksearch/v2/reports</code></a></li>
+  </ul>
+  <h4><a href="#SavedColumns">SavedColumns</a></h4>
+  <ul>
+  <li><a href="#doubleclicksearch.savedColumns.list"><code><span class="http-method">get</span> /doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/savedcolumns</code></a></li>
+  </ul>
+
+  <h1><a name="Conversion">Conversion</a></h1>
+  <div class="method"><a name="doubleclicksearch.conversion.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/engine/{engineAccountId}/conversion</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.conversion.get</span>)</div>
+    <div class="method-notes">Retrieves a list of conversions from a DoubleClick Search engine account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">agencyId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Numeric ID of the agency. default: null </div><div class="param">advertiserId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Numeric ID of the advertiser. default: null </div><div class="param">engineAccountId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Numeric ID of the engine account. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">endDate (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd. default: null </div><div class="param">rowCount (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of conversions to return per call. default: null </div><div class="param">startDate (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; First date (inclusive) on which to retrieve conversions. Format is yyyymmdd. default: null </div><div class="param">startRow (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The 0-based starting index for retrieving conversions results. default: null </div><div class="param">adGroupId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the ad group. default: null </div><div class="param">adId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the ad. default: null </div><div class="param">campaignId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the campaign. default: null </div><div class="param">criterionId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the criterion. default: null </div><div class="param">customerId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Customer ID of a client account in the new Search Ads 360 experience. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ConversionList">ConversionList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "kind" : "kind",
+  "conversion" : [ {
+    "inventoryAccountId" : "inventoryAccountId",
+    "criterionId" : "criterionId",
+    "channel" : "channel",
+    "productGroupId" : "productGroupId",
+    "clickId" : "clickId",
+    "agencyId" : "agencyId",
+    "floodlightOrderId" : "floodlightOrderId",
+    "customMetric" : [ {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    }, {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    } ],
+    "segmentationName" : "segmentationName",
+    "type" : "type",
+    "adGroupId" : "adGroupId",
+    "dsConversionId" : "dsConversionId",
+    "customerId" : "customerId",
+    "conversionModifiedTimestamp" : "conversionModifiedTimestamp",
+    "customDimension" : [ {
+      "name" : "name",
+      "value" : "value"
+    }, {
+      "name" : "name",
+      "value" : "value"
+    } ],
+    "state" : "state",
+    "conversionId" : "conversionId",
+    "segmentationId" : "segmentationId",
+    "quantityMillis" : "quantityMillis",
+    "deviceType" : "deviceType",
+    "productId" : "productId",
+    "campaignId" : "campaignId",
+    "storeId" : "storeId",
+    "advertiserId" : "advertiserId",
+    "attributionModel" : "attributionModel",
+    "adId" : "adId",
+    "productLanguage" : "productLanguage",
+    "countMillis" : "countMillis",
+    "segmentationType" : "segmentationType",
+    "engineAccountId" : "engineAccountId",
+    "productCountry" : "productCountry",
+    "currencyCode" : "currencyCode",
+    "revenueMicros" : "revenueMicros",
+    "conversionTimestamp" : "conversionTimestamp"
+  }, {
+    "inventoryAccountId" : "inventoryAccountId",
+    "criterionId" : "criterionId",
+    "channel" : "channel",
+    "productGroupId" : "productGroupId",
+    "clickId" : "clickId",
+    "agencyId" : "agencyId",
+    "floodlightOrderId" : "floodlightOrderId",
+    "customMetric" : [ {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    }, {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    } ],
+    "segmentationName" : "segmentationName",
+    "type" : "type",
+    "adGroupId" : "adGroupId",
+    "dsConversionId" : "dsConversionId",
+    "customerId" : "customerId",
+    "conversionModifiedTimestamp" : "conversionModifiedTimestamp",
+    "customDimension" : [ {
+      "name" : "name",
+      "value" : "value"
+    }, {
+      "name" : "name",
+      "value" : "value"
+    } ],
+    "state" : "state",
+    "conversionId" : "conversionId",
+    "segmentationId" : "segmentationId",
+    "quantityMillis" : "quantityMillis",
+    "deviceType" : "deviceType",
+    "productId" : "productId",
+    "campaignId" : "campaignId",
+    "storeId" : "storeId",
+    "advertiserId" : "advertiserId",
+    "attributionModel" : "attributionModel",
+    "adId" : "adId",
+    "productLanguage" : "productLanguage",
+    "countMillis" : "countMillis",
+    "segmentationType" : "segmentationType",
+    "engineAccountId" : "engineAccountId",
+    "productCountry" : "productCountry",
+    "currencyCode" : "currencyCode",
+    "revenueMicros" : "revenueMicros",
+    "conversionTimestamp" : "conversionTimestamp"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ConversionList">ConversionList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclicksearch.conversion.getByCustomerId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doubleclicksearch/v2/customer/{customerId}/conversion</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.conversion.getByCustomerId</span>)</div>
+    <div class="method-notes">Retrieves a list of conversions from a DoubleClick Search engine account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">customerId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Customer ID of a client account in the new Search Ads 360 experience. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">endDate (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd. default: null </div><div class="param">rowCount (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of conversions to return per call. default: null </div><div class="param">startDate (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; First date (inclusive) on which to retrieve conversions. Format is yyyymmdd. default: null </div><div class="param">startRow (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The 0-based starting index for retrieving conversions results. default: null </div><div class="param">adGroupId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the ad group. default: null </div><div class="param">adId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the ad. default: null </div><div class="param">advertiserId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the advertiser. default: null </div><div class="param">agencyId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the agency. default: null </div><div class="param">campaignId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the campaign. default: null </div><div class="param">criterionId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the criterion. default: null </div><div class="param">engineAccountId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Numeric ID of the engine account. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ConversionList">ConversionList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "kind" : "kind",
+  "conversion" : [ {
+    "inventoryAccountId" : "inventoryAccountId",
+    "criterionId" : "criterionId",
+    "channel" : "channel",
+    "productGroupId" : "productGroupId",
+    "clickId" : "clickId",
+    "agencyId" : "agencyId",
+    "floodlightOrderId" : "floodlightOrderId",
+    "customMetric" : [ {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    }, {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    } ],
+    "segmentationName" : "segmentationName",
+    "type" : "type",
+    "adGroupId" : "adGroupId",
+    "dsConversionId" : "dsConversionId",
+    "customerId" : "customerId",
+    "conversionModifiedTimestamp" : "conversionModifiedTimestamp",
+    "customDimension" : [ {
+      "name" : "name",
+      "value" : "value"
+    }, {
+      "name" : "name",
+      "value" : "value"
+    } ],
+    "state" : "state",
+    "conversionId" : "conversionId",
+    "segmentationId" : "segmentationId",
+    "quantityMillis" : "quantityMillis",
+    "deviceType" : "deviceType",
+    "productId" : "productId",
+    "campaignId" : "campaignId",
+    "storeId" : "storeId",
+    "advertiserId" : "advertiserId",
+    "attributionModel" : "attributionModel",
+    "adId" : "adId",
+    "productLanguage" : "productLanguage",
+    "countMillis" : "countMillis",
+    "segmentationType" : "segmentationType",
+    "engineAccountId" : "engineAccountId",
+    "productCountry" : "productCountry",
+    "currencyCode" : "currencyCode",
+    "revenueMicros" : "revenueMicros",
+    "conversionTimestamp" : "conversionTimestamp"
+  }, {
+    "inventoryAccountId" : "inventoryAccountId",
+    "criterionId" : "criterionId",
+    "channel" : "channel",
+    "productGroupId" : "productGroupId",
+    "clickId" : "clickId",
+    "agencyId" : "agencyId",
+    "floodlightOrderId" : "floodlightOrderId",
+    "customMetric" : [ {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    }, {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    } ],
+    "segmentationName" : "segmentationName",
+    "type" : "type",
+    "adGroupId" : "adGroupId",
+    "dsConversionId" : "dsConversionId",
+    "customerId" : "customerId",
+    "conversionModifiedTimestamp" : "conversionModifiedTimestamp",
+    "customDimension" : [ {
+      "name" : "name",
+      "value" : "value"
+    }, {
+      "name" : "name",
+      "value" : "value"
+    } ],
+    "state" : "state",
+    "conversionId" : "conversionId",
+    "segmentationId" : "segmentationId",
+    "quantityMillis" : "quantityMillis",
+    "deviceType" : "deviceType",
+    "productId" : "productId",
+    "campaignId" : "campaignId",
+    "storeId" : "storeId",
+    "advertiserId" : "advertiserId",
+    "attributionModel" : "attributionModel",
+    "adId" : "adId",
+    "productLanguage" : "productLanguage",
+    "countMillis" : "countMillis",
+    "segmentationType" : "segmentationType",
+    "engineAccountId" : "engineAccountId",
+    "productCountry" : "productCountry",
+    "currencyCode" : "currencyCode",
+    "revenueMicros" : "revenueMicros",
+    "conversionTimestamp" : "conversionTimestamp"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ConversionList">ConversionList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclicksearch.conversion.insert"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /doubleclicksearch/v2/conversion</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.conversion.insert</span>)</div>
+    <div class="method-notes">Inserts a batch of new conversions into DoubleClick Search.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ConversionList <a href="#ConversionList">ConversionList</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ConversionList">ConversionList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "kind" : "kind",
+  "conversion" : [ {
+    "inventoryAccountId" : "inventoryAccountId",
+    "criterionId" : "criterionId",
+    "channel" : "channel",
+    "productGroupId" : "productGroupId",
+    "clickId" : "clickId",
+    "agencyId" : "agencyId",
+    "floodlightOrderId" : "floodlightOrderId",
+    "customMetric" : [ {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    }, {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    } ],
+    "segmentationName" : "segmentationName",
+    "type" : "type",
+    "adGroupId" : "adGroupId",
+    "dsConversionId" : "dsConversionId",
+    "customerId" : "customerId",
+    "conversionModifiedTimestamp" : "conversionModifiedTimestamp",
+    "customDimension" : [ {
+      "name" : "name",
+      "value" : "value"
+    }, {
+      "name" : "name",
+      "value" : "value"
+    } ],
+    "state" : "state",
+    "conversionId" : "conversionId",
+    "segmentationId" : "segmentationId",
+    "quantityMillis" : "quantityMillis",
+    "deviceType" : "deviceType",
+    "productId" : "productId",
+    "campaignId" : "campaignId",
+    "storeId" : "storeId",
+    "advertiserId" : "advertiserId",
+    "attributionModel" : "attributionModel",
+    "adId" : "adId",
+    "productLanguage" : "productLanguage",
+    "countMillis" : "countMillis",
+    "segmentationType" : "segmentationType",
+    "engineAccountId" : "engineAccountId",
+    "productCountry" : "productCountry",
+    "currencyCode" : "currencyCode",
+    "revenueMicros" : "revenueMicros",
+    "conversionTimestamp" : "conversionTimestamp"
+  }, {
+    "inventoryAccountId" : "inventoryAccountId",
+    "criterionId" : "criterionId",
+    "channel" : "channel",
+    "productGroupId" : "productGroupId",
+    "clickId" : "clickId",
+    "agencyId" : "agencyId",
+    "floodlightOrderId" : "floodlightOrderId",
+    "customMetric" : [ {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    }, {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    } ],
+    "segmentationName" : "segmentationName",
+    "type" : "type",
+    "adGroupId" : "adGroupId",
+    "dsConversionId" : "dsConversionId",
+    "customerId" : "customerId",
+    "conversionModifiedTimestamp" : "conversionModifiedTimestamp",
+    "customDimension" : [ {
+      "name" : "name",
+      "value" : "value"
+    }, {
+      "name" : "name",
+      "value" : "value"
+    } ],
+    "state" : "state",
+    "conversionId" : "conversionId",
+    "segmentationId" : "segmentationId",
+    "quantityMillis" : "quantityMillis",
+    "deviceType" : "deviceType",
+    "productId" : "productId",
+    "campaignId" : "campaignId",
+    "storeId" : "storeId",
+    "advertiserId" : "advertiserId",
+    "attributionModel" : "attributionModel",
+    "adId" : "adId",
+    "productLanguage" : "productLanguage",
+    "countMillis" : "countMillis",
+    "segmentationType" : "segmentationType",
+    "engineAccountId" : "engineAccountId",
+    "productCountry" : "productCountry",
+    "currencyCode" : "currencyCode",
+    "revenueMicros" : "revenueMicros",
+    "conversionTimestamp" : "conversionTimestamp"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ConversionList">ConversionList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclicksearch.conversion.update"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /doubleclicksearch/v2/conversion</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.conversion.update</span>)</div>
+    <div class="method-notes">Updates a batch of conversions in DoubleClick Search.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ConversionList <a href="#ConversionList">ConversionList</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ConversionList">ConversionList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "kind" : "kind",
+  "conversion" : [ {
+    "inventoryAccountId" : "inventoryAccountId",
+    "criterionId" : "criterionId",
+    "channel" : "channel",
+    "productGroupId" : "productGroupId",
+    "clickId" : "clickId",
+    "agencyId" : "agencyId",
+    "floodlightOrderId" : "floodlightOrderId",
+    "customMetric" : [ {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    }, {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    } ],
+    "segmentationName" : "segmentationName",
+    "type" : "type",
+    "adGroupId" : "adGroupId",
+    "dsConversionId" : "dsConversionId",
+    "customerId" : "customerId",
+    "conversionModifiedTimestamp" : "conversionModifiedTimestamp",
+    "customDimension" : [ {
+      "name" : "name",
+      "value" : "value"
+    }, {
+      "name" : "name",
+      "value" : "value"
+    } ],
+    "state" : "state",
+    "conversionId" : "conversionId",
+    "segmentationId" : "segmentationId",
+    "quantityMillis" : "quantityMillis",
+    "deviceType" : "deviceType",
+    "productId" : "productId",
+    "campaignId" : "campaignId",
+    "storeId" : "storeId",
+    "advertiserId" : "advertiserId",
+    "attributionModel" : "attributionModel",
+    "adId" : "adId",
+    "productLanguage" : "productLanguage",
+    "countMillis" : "countMillis",
+    "segmentationType" : "segmentationType",
+    "engineAccountId" : "engineAccountId",
+    "productCountry" : "productCountry",
+    "currencyCode" : "currencyCode",
+    "revenueMicros" : "revenueMicros",
+    "conversionTimestamp" : "conversionTimestamp"
+  }, {
+    "inventoryAccountId" : "inventoryAccountId",
+    "criterionId" : "criterionId",
+    "channel" : "channel",
+    "productGroupId" : "productGroupId",
+    "clickId" : "clickId",
+    "agencyId" : "agencyId",
+    "floodlightOrderId" : "floodlightOrderId",
+    "customMetric" : [ {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    }, {
+      "name" : "name",
+      "value" : 0.8008281904610115
+    } ],
+    "segmentationName" : "segmentationName",
+    "type" : "type",
+    "adGroupId" : "adGroupId",
+    "dsConversionId" : "dsConversionId",
+    "customerId" : "customerId",
+    "conversionModifiedTimestamp" : "conversionModifiedTimestamp",
+    "customDimension" : [ {
+      "name" : "name",
+      "value" : "value"
+    }, {
+      "name" : "name",
+      "value" : "value"
+    } ],
+    "state" : "state",
+    "conversionId" : "conversionId",
+    "segmentationId" : "segmentationId",
+    "quantityMillis" : "quantityMillis",
+    "deviceType" : "deviceType",
+    "productId" : "productId",
+    "campaignId" : "campaignId",
+    "storeId" : "storeId",
+    "advertiserId" : "advertiserId",
+    "attributionModel" : "attributionModel",
+    "adId" : "adId",
+    "productLanguage" : "productLanguage",
+    "countMillis" : "countMillis",
+    "segmentationType" : "segmentationType",
+    "engineAccountId" : "engineAccountId",
+    "productCountry" : "productCountry",
+    "currencyCode" : "currencyCode",
+    "revenueMicros" : "revenueMicros",
+    "conversionTimestamp" : "conversionTimestamp"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ConversionList">ConversionList</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclicksearch.conversion.updateAvailability"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /doubleclicksearch/v2/conversion/updateAvailability</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.conversion.updateAvailability</span>)</div>
+    <div class="method-notes">Updates the availabilities of a batch of floodlight activities in DoubleClick Search.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpdateAvailabilityRequest <a href="#UpdateAvailabilityRequest">UpdateAvailabilityRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UpdateAvailabilityResponse">UpdateAvailabilityResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "availabilities" : [ {
+    "availabilityTimestamp" : "availabilityTimestamp",
+    "customerId" : "customerId",
+    "segmentationType" : "segmentationType",
+    "agencyId" : "agencyId",
+    "segmentationName" : "segmentationName",
+    "segmentationId" : "segmentationId",
+    "advertiserId" : "advertiserId"
+  }, {
+    "availabilityTimestamp" : "availabilityTimestamp",
+    "customerId" : "customerId",
+    "segmentationType" : "segmentationType",
+    "agencyId" : "agencyId",
+    "segmentationName" : "segmentationName",
+    "segmentationId" : "segmentationId",
+    "advertiserId" : "advertiserId"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#UpdateAvailabilityResponse">UpdateAvailabilityResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Reports">Reports</a></h1>
+  <div class="method"><a name="doubleclicksearch.reports.generate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /doubleclicksearch/v2/reports/generate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.reports.generate</span>)</div>
+    <div class="method-notes">Generates and returns a report immediately.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ReportRequest <a href="#ReportRequest">ReportRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Report">Report</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "isReportReady" : true,
+  "request" : {
+    "maxRowsPerFile" : 0,
+    "startRow" : 1,
+    "columns" : [ {
+      "productReportPerspective" : "productReportPerspective",
+      "savedColumnName" : "savedColumnName",
+      "headerText" : "headerText",
+      "endDate" : "endDate",
+      "customDimensionName" : "customDimensionName",
+      "groupByColumn" : true,
+      "customMetricName" : "customMetricName",
+      "startDate" : "startDate",
+      "columnName" : "columnName",
+      "platformSource" : "platformSource"
+    }, {
+      "productReportPerspective" : "productReportPerspective",
+      "savedColumnName" : "savedColumnName",
+      "headerText" : "headerText",
+      "endDate" : "endDate",
+      "customDimensionName" : "customDimensionName",
+      "groupByColumn" : true,
+      "customMetricName" : "customMetricName",
+      "startDate" : "startDate",
+      "columnName" : "columnName",
+      "platformSource" : "platformSource"
+    } ],
+    "downloadFormat" : "downloadFormat",
+    "orderBy" : [ {
+      "sortOrder" : "sortOrder",
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      }
+    }, {
+      "sortOrder" : "sortOrder",
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      }
+    } ],
+    "statisticsCurrency" : "statisticsCurrency",
+    "filters" : [ {
+      "values" : [ "", "" ],
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      },
+      "operator" : "operator"
+    }, {
+      "values" : [ "", "" ],
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      },
+      "operator" : "operator"
+    } ],
+    "reportType" : "reportType",
+    "verifySingleTimeZone" : true,
+    "includeDeletedEntities" : true,
+    "rowCount" : 6,
+    "includeRemovedEntities" : true,
+    "reportScope" : {
+      "keywordId" : "keywordId",
+      "adId" : "adId",
+      "campaignId" : "campaignId",
+      "agencyId" : "agencyId",
+      "engineAccountId" : "engineAccountId",
+      "adGroupId" : "adGroupId",
+      "advertiserId" : "advertiserId"
+    },
+    "timeRange" : {
+      "changedMetricsSinceTimestamp" : "changedMetricsSinceTimestamp",
+      "endDate" : "endDate",
+      "changedAttributesSinceTimestamp" : "changedAttributesSinceTimestamp",
+      "startDate" : "startDate"
+    }
+  },
+  "statisticsCurrencyCode" : "statisticsCurrencyCode",
+  "kind" : "kind",
+  "files" : [ {
+    "byteCount" : "byteCount",
+    "url" : "url"
+  }, {
+    "byteCount" : "byteCount",
+    "url" : "url"
+  } ],
+  "id" : "id",
+  "rowCount" : 5,
+  "rows" : [ null, null ],
+  "statisticsTimeZone" : "statisticsTimeZone"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Report">Report</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclicksearch.reports.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doubleclicksearch/v2/reports/{reportId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.reports.get</span>)</div>
+    <div class="method-notes">Polls for the status of a report request.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">reportId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the report request being polled. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Report">Report</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "isReportReady" : true,
+  "request" : {
+    "maxRowsPerFile" : 0,
+    "startRow" : 1,
+    "columns" : [ {
+      "productReportPerspective" : "productReportPerspective",
+      "savedColumnName" : "savedColumnName",
+      "headerText" : "headerText",
+      "endDate" : "endDate",
+      "customDimensionName" : "customDimensionName",
+      "groupByColumn" : true,
+      "customMetricName" : "customMetricName",
+      "startDate" : "startDate",
+      "columnName" : "columnName",
+      "platformSource" : "platformSource"
+    }, {
+      "productReportPerspective" : "productReportPerspective",
+      "savedColumnName" : "savedColumnName",
+      "headerText" : "headerText",
+      "endDate" : "endDate",
+      "customDimensionName" : "customDimensionName",
+      "groupByColumn" : true,
+      "customMetricName" : "customMetricName",
+      "startDate" : "startDate",
+      "columnName" : "columnName",
+      "platformSource" : "platformSource"
+    } ],
+    "downloadFormat" : "downloadFormat",
+    "orderBy" : [ {
+      "sortOrder" : "sortOrder",
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      }
+    }, {
+      "sortOrder" : "sortOrder",
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      }
+    } ],
+    "statisticsCurrency" : "statisticsCurrency",
+    "filters" : [ {
+      "values" : [ "", "" ],
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      },
+      "operator" : "operator"
+    }, {
+      "values" : [ "", "" ],
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      },
+      "operator" : "operator"
+    } ],
+    "reportType" : "reportType",
+    "verifySingleTimeZone" : true,
+    "includeDeletedEntities" : true,
+    "rowCount" : 6,
+    "includeRemovedEntities" : true,
+    "reportScope" : {
+      "keywordId" : "keywordId",
+      "adId" : "adId",
+      "campaignId" : "campaignId",
+      "agencyId" : "agencyId",
+      "engineAccountId" : "engineAccountId",
+      "adGroupId" : "adGroupId",
+      "advertiserId" : "advertiserId"
+    },
+    "timeRange" : {
+      "changedMetricsSinceTimestamp" : "changedMetricsSinceTimestamp",
+      "endDate" : "endDate",
+      "changedAttributesSinceTimestamp" : "changedAttributesSinceTimestamp",
+      "startDate" : "startDate"
+    }
+  },
+  "statisticsCurrencyCode" : "statisticsCurrencyCode",
+  "kind" : "kind",
+  "files" : [ {
+    "byteCount" : "byteCount",
+    "url" : "url"
+  }, {
+    "byteCount" : "byteCount",
+    "url" : "url"
+  } ],
+  "id" : "id",
+  "rowCount" : 5,
+  "rows" : [ null, null ],
+  "statisticsTimeZone" : "statisticsTimeZone"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Report">Report</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclicksearch.reports.getFile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doubleclicksearch/v2/reports/{reportId}/files/{reportFragment}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.reports.getFile</span>)</div>
+    <div class="method-notes">Downloads a report file encoded in UTF-8.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">reportId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the report. default: null </div><div class="param">reportFragment (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The index of the report fragment to download. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclicksearch.reports.getIdMappingFile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/idmapping</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.reports.getIdMappingFile</span>)</div>
+    <div class="method-notes">Downloads a csv file(encoded in UTF-8) that contains ID mappings between legacy SA360 and new SA360. The file includes all children entities of the given advertiser(e.g. engine accounts, campaigns, ad groups, etc.) that exist in both legacy SA360 and new SA360.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">agencyId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Legacy SA360 agency ID. default: null </div><div class="param">advertiserId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Legacy SA360 advertiser ID. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclicksearch.reports.request"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /doubleclicksearch/v2/reports</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.reports.request</span>)</div>
+    <div class="method-notes">Inserts a report request into the reporting system.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ReportRequest <a href="#ReportRequest">ReportRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Report">Report</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "isReportReady" : true,
+  "request" : {
+    "maxRowsPerFile" : 0,
+    "startRow" : 1,
+    "columns" : [ {
+      "productReportPerspective" : "productReportPerspective",
+      "savedColumnName" : "savedColumnName",
+      "headerText" : "headerText",
+      "endDate" : "endDate",
+      "customDimensionName" : "customDimensionName",
+      "groupByColumn" : true,
+      "customMetricName" : "customMetricName",
+      "startDate" : "startDate",
+      "columnName" : "columnName",
+      "platformSource" : "platformSource"
+    }, {
+      "productReportPerspective" : "productReportPerspective",
+      "savedColumnName" : "savedColumnName",
+      "headerText" : "headerText",
+      "endDate" : "endDate",
+      "customDimensionName" : "customDimensionName",
+      "groupByColumn" : true,
+      "customMetricName" : "customMetricName",
+      "startDate" : "startDate",
+      "columnName" : "columnName",
+      "platformSource" : "platformSource"
+    } ],
+    "downloadFormat" : "downloadFormat",
+    "orderBy" : [ {
+      "sortOrder" : "sortOrder",
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      }
+    }, {
+      "sortOrder" : "sortOrder",
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      }
+    } ],
+    "statisticsCurrency" : "statisticsCurrency",
+    "filters" : [ {
+      "values" : [ "", "" ],
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      },
+      "operator" : "operator"
+    }, {
+      "values" : [ "", "" ],
+      "column" : {
+        "productReportPerspective" : "productReportPerspective",
+        "savedColumnName" : "savedColumnName",
+        "headerText" : "headerText",
+        "endDate" : "endDate",
+        "customDimensionName" : "customDimensionName",
+        "groupByColumn" : true,
+        "customMetricName" : "customMetricName",
+        "startDate" : "startDate",
+        "columnName" : "columnName",
+        "platformSource" : "platformSource"
+      },
+      "operator" : "operator"
+    } ],
+    "reportType" : "reportType",
+    "verifySingleTimeZone" : true,
+    "includeDeletedEntities" : true,
+    "rowCount" : 6,
+    "includeRemovedEntities" : true,
+    "reportScope" : {
+      "keywordId" : "keywordId",
+      "adId" : "adId",
+      "campaignId" : "campaignId",
+      "agencyId" : "agencyId",
+      "engineAccountId" : "engineAccountId",
+      "adGroupId" : "adGroupId",
+      "advertiserId" : "advertiserId"
+    },
+    "timeRange" : {
+      "changedMetricsSinceTimestamp" : "changedMetricsSinceTimestamp",
+      "endDate" : "endDate",
+      "changedAttributesSinceTimestamp" : "changedAttributesSinceTimestamp",
+      "startDate" : "startDate"
+    }
+  },
+  "statisticsCurrencyCode" : "statisticsCurrencyCode",
+  "kind" : "kind",
+  "files" : [ {
+    "byteCount" : "byteCount",
+    "url" : "url"
+  }, {
+    "byteCount" : "byteCount",
+    "url" : "url"
+  } ],
+  "id" : "id",
+  "rowCount" : 5,
+  "rows" : [ null, null ],
+  "statisticsTimeZone" : "statisticsTimeZone"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Report">Report</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="SavedColumns">SavedColumns</a></h1>
+  <div class="method"><a name="doubleclicksearch.savedColumns.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/savedcolumns</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclicksearch.savedColumns.list</span>)</div>
+    <div class="method-notes">Retrieve the list of saved columns for a specified advertiser.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">agencyId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; DS ID of the agency. default: null </div><div class="param">advertiserId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; DS ID of the advertiser. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#SavedColumnList">SavedColumnList</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "kind" : "kind",
+  "items" : [ {
+    "savedColumnName" : "savedColumnName",
+    "kind" : "kind",
+    "type" : "type"
+  }, {
+    "savedColumnName" : "savedColumnName",
+    "kind" : "kind",
+    "type" : "type"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#SavedColumnList">SavedColumnList</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Availability"><code>Availability</code> - </a></li>
+    <li><a href="#Conversion"><code>Conversion</code> - </a></li>
+    <li><a href="#ConversionList"><code>ConversionList</code> - </a></li>
+    <li><a href="#CustomDimension"><code>CustomDimension</code> - </a></li>
+    <li><a href="#CustomMetric"><code>CustomMetric</code> - </a></li>
+    <li><a href="#Report"><code>Report</code> - </a></li>
+    <li><a href="#ReportApiColumnSpec"><code>ReportApiColumnSpec</code> - </a></li>
+    <li><a href="#ReportRequest"><code>ReportRequest</code> - </a></li>
+    <li><a href="#ReportRequest_filters_inner"><code>ReportRequest_filters_inner</code> - </a></li>
+    <li><a href="#ReportRequest_orderBy_inner"><code>ReportRequest_orderBy_inner</code> - </a></li>
+    <li><a href="#ReportRequest_reportScope"><code>ReportRequest_reportScope</code> - </a></li>
+    <li><a href="#ReportRequest_timeRange"><code>ReportRequest_timeRange</code> - </a></li>
+    <li><a href="#Report_files_inner"><code>Report_files_inner</code> - </a></li>
+    <li><a href="#SavedColumn"><code>SavedColumn</code> - </a></li>
+    <li><a href="#SavedColumnList"><code>SavedColumnList</code> - </a></li>
+    <li><a href="#UpdateAvailabilityRequest"><code>UpdateAvailabilityRequest</code> - </a></li>
+    <li><a href="#UpdateAvailabilityResponse"><code>UpdateAvailabilityResponse</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Availability"><code>Availability</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A message containing availability data relevant to DoubleClick Search.</div>
+    <div class="field-items">
+      <div class="param">advertiserId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS advertiser ID. format: int64</div>
+<div class="param">agencyId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS agency ID. format: int64</div>
+<div class="param">availabilityTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time by which all conversions have been uploaded, in epoch millis UTC. format: int64</div>
+<div class="param">customerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Customer ID of a client account in the new Search Ads 360 experience. </div>
+<div class="param">segmentationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The numeric segmentation identifier (for example, DoubleClick Search Floodlight activity ID). format: int64</div>
+<div class="param">segmentationName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The friendly segmentation identifier (for example, DoubleClick Search Floodlight activity name). </div>
+<div class="param">segmentationType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The segmentation type that this availability is for (its default value is <code>FLOODLIGHT</code>). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Conversion"><code>Conversion</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A conversion containing data relevant to DoubleClick Search.</div>
+    <div class="field-items">
+      <div class="param">adGroupId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS ad group ID. format: int64</div>
+<div class="param">adId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS ad ID. format: int64</div>
+<div class="param">advertiserId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS advertiser ID. format: int64</div>
+<div class="param">agencyId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS agency ID. format: int64</div>
+<div class="param">attributionModel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Available to advertisers only after contacting DoubleClick Search customer support. </div>
+<div class="param">campaignId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS campaign ID. format: int64</div>
+<div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sales channel for the product. Acceptable values are: - &quot;<code>local</code>&quot;: a physical store - &quot;<code>online</code>&quot;: an online store </div>
+<div class="param">clickId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS click ID for the conversion. </div>
+<div class="param">conversionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> For offline conversions, advertisers provide this ID. Advertisers can specify any ID that is meaningful to them. Each conversion in a request must specify a unique ID, and the combination of ID and timestamp must be unique amongst all conversions within the advertiser. For online conversions, DS copies the <code>dsConversionId</code> or <code>floodlightOrderId</code> into this property depending on the advertiser's Floodlight instructions. </div>
+<div class="param">conversionModifiedTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time at which the conversion was last modified, in epoch millis UTC. format: int64</div>
+<div class="param">conversionTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time at which the conversion took place, in epoch millis UTC. </div>
+<div class="param">countMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Available to advertisers only after contacting DoubleClick Search customer support. format: int64</div>
+<div class="param">criterionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS criterion (keyword) ID. format: int64</div>
+<div class="param">currencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The currency code for the conversion's revenue. Should be in ISO 4217 alphabetic (3-char) format. </div>
+<div class="param">customDimension (optional)</div><div class="param-desc"><span class="param-type"><a href="#CustomDimension">array[CustomDimension]</a></span> Custom dimensions for the conversion, which can be used to filter data in a report. </div>
+<div class="param">customMetric (optional)</div><div class="param-desc"><span class="param-type"><a href="#CustomMetric">array[CustomMetric]</a></span> Custom metrics for the conversion. </div>
+<div class="param">customerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Customer ID of a client account in the new Search Ads 360 experience. </div>
+<div class="param">deviceType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of device on which the conversion occurred. </div>
+<div class="param">dsConversionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> ID that DoubleClick Search generates for each conversion. format: int64</div>
+<div class="param">engineAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS engine account ID. format: int64</div>
+<div class="param">floodlightOrderId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Floodlight order ID provided by the advertiser for the conversion. </div>
+<div class="param">inventoryAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> ID that DS generates and uses to uniquely identify the inventory account that contains the product. format: int64</div>
+<div class="param">productCountry (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The country registered for the Merchant Center feed that contains the product. Use an ISO 3166 code to specify a country. </div>
+<div class="param">productGroupId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS product group ID. format: int64</div>
+<div class="param">productId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The product ID (SKU). </div>
+<div class="param">productLanguage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The language registered for the Merchant Center feed that contains the product. Use an ISO 639 code to specify a language. </div>
+<div class="param">quantityMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The quantity of this conversion, in millis. format: int64</div>
+<div class="param">revenueMicros (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The revenue amount of this <code>TRANSACTION</code> conversion, in micros (value multiplied by 1000000, no decimal). For example, to specify a revenue value of &quot;10&quot; enter &quot;10000000&quot; (10 million) in your request. </div>
+<div class="param">segmentationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The numeric segmentation identifier (for example, DoubleClick Search Floodlight activity ID). format: int64</div>
+<div class="param">segmentationName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The friendly segmentation identifier (for example, DoubleClick Search Floodlight activity name). </div>
+<div class="param">segmentationType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The segmentation type of this conversion (for example, <code>FLOODLIGHT</code>). </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The state of the conversion, that is, either <code>ACTIVE</code> or <code>REMOVED</code>. Note: state DELETED is deprecated. </div>
+<div class="param">storeId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the local store for which the product was advertised. Applicable only when the channel is &quot;<code>local</code>&quot;. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of the conversion, that is, either <code>ACTION</code> or <code>TRANSACTION</code>. An <code>ACTION</code> conversion is an action by the user that has no monetarily quantifiable value, while a <code>TRANSACTION</code> conversion is an action that does have a monetarily quantifiable value. Examples are email list signups (<code>ACTION</code>) versus ecommerce purchases (<code>TRANSACTION</code>). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConversionList"><code>ConversionList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A list of conversions.</div>
+    <div class="field-items">
+      <div class="param">conversion (optional)</div><div class="param-desc"><span class="param-type"><a href="#Conversion">array[Conversion]</a></span> The conversions being requested. </div>
+<div class="param">kind (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies this as a ConversionList resource. Value: the fixed string doubleclicksearch#conversionList. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CustomDimension"><code>CustomDimension</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A message containing the custom dimension.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Custom dimension name. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Custom dimension value. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CustomMetric"><code>CustomMetric</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A message containing the custom metric.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Custom metric name. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Custom metric numeric value. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Report"><code>Report</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A DoubleClick Search report. This object contains the report request, some report metadata such as currency code, and the generated report rows or report files.</div>
+    <div class="field-items">
+      <div class="param">files (optional)</div><div class="param-desc"><span class="param-type"><a href="#Report_files_inner">array[Report_files_inner]</a></span> Asynchronous report only. Contains a list of generated report files once the report has successfully completed. </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Asynchronous report only. Id of the report. </div>
+<div class="param">isReportReady (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Asynchronous report only. True if and only if the report has completed successfully and the report files are ready to be downloaded. </div>
+<div class="param">kind (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies this as a Report resource. Value: the fixed string <code>doubleclicksearch#report</code>. </div>
+<div class="param">request (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRequest">ReportRequest</a></span>  </div>
+<div class="param">rowCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of report rows generated by the report, not including headers. format: int32</div>
+<div class="param">rows (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">array[Map]</a></span> Synchronous report only. Generated report rows. </div>
+<div class="param">statisticsCurrencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The currency code of all monetary values produced in the report, including values that are set by users (e.g., keyword bid settings) and metrics (e.g., cost and revenue). The currency code of a report is determined by the <code>statisticsCurrency</code> field of the report request. </div>
+<div class="param">statisticsTimeZone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If all statistics of the report are sourced from the same time zone, this would be it. Otherwise the field is unset. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportApiColumnSpec"><code>ReportApiColumnSpec</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A request object used to create a DoubleClick Search report.</div>
+    <div class="field-items">
+      <div class="param">columnName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of a DoubleClick Search column to include in the report. </div>
+<div class="param">customDimensionName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Segments a report by a custom dimension. The report must be scoped to an advertiser or lower, and the custom dimension must already be set up in DoubleClick Search. The custom dimension name, which appears in DoubleClick Search, is case sensitive.\ If used in a conversion report, returns the value of the specified custom dimension for the given conversion, if set. This column does not segment the conversion report. </div>
+<div class="param">customMetricName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of a custom metric to include in the report. The report must be scoped to an advertiser or lower, and the custom metric must already be set up in DoubleClick Search. The custom metric name, which appears in DoubleClick Search, is case sensitive. </div>
+<div class="param">endDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Inclusive day in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together with <code>startDate</code>. </div>
+<div class="param">groupByColumn (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Synchronous report only. Set to <code>true</code> to group by this column. Defaults to <code>false</code>. </div>
+<div class="param">headerText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Text used to identify this column in the report output; defaults to <code>columnName</code> or <code>savedColumnName</code> when not specified. This can be used to prevent collisions between DoubleClick Search columns and saved columns with the same name. </div>
+<div class="param">platformSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The platform that is used to provide data for the custom dimension. Acceptable values are &quot;floodlight&quot;. </div>
+<div class="param">productReportPerspective (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Returns metrics only for a specific type of product activity. Accepted values are: - &quot;<code>sold</code>&quot;: returns metrics only for products that were sold - &quot;<code>advertised</code>&quot;: returns metrics only for products that were advertised in a Shopping campaign, and that might or might not have been sold </div>
+<div class="param">savedColumnName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of a saved column to include in the report. The report must be scoped at advertiser or lower, and this saved column must already be created in the DoubleClick Search UI. </div>
+<div class="param">startDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Inclusive date in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together with <code>endDate</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRequest"><code>ReportRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A request object used to create a DoubleClick Search report.</div>
+    <div class="field-items">
+      <div class="param">columns (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportApiColumnSpec">array[ReportApiColumnSpec]</a></span> The columns to include in the report. This includes both DoubleClick Search columns and saved columns. For DoubleClick Search columns, only the <code>columnName</code> parameter is required. For saved columns only the <code>savedColumnName</code> parameter is required. Both <code>columnName</code> and <code>savedColumnName</code> cannot be set in the same stanza.\ The maximum number of columns per request is 300. </div>
+<div class="param">downloadFormat (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Format that the report should be returned in. Currently <code>csv</code> or <code>tsv</code> is supported. </div>
+<div class="param">filters (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRequest_filters_inner">array[ReportRequest_filters_inner]</a></span> A list of filters to be applied to the report.\ The maximum number of filters per request is 300. </div>
+<div class="param">includeDeletedEntities (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Determines if removed entities should be included in the report. Defaults to <code>false</code>. Deprecated, please use <code>includeRemovedEntities</code> instead. </div>
+<div class="param">includeRemovedEntities (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Determines if removed entities should be included in the report. Defaults to <code>false</code>. </div>
+<div class="param">maxRowsPerFile (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Asynchronous report only. The maximum number of rows per report file. A large report is split into many files based on this field. Acceptable values are <code>1000000</code> to <code>100000000</code>, inclusive. format: int32</div>
+<div class="param">orderBy (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRequest_orderBy_inner">array[ReportRequest_orderBy_inner]</a></span> Synchronous report only. A list of columns and directions defining sorting to be performed on the report rows.\ The maximum number of orderings per request is 300. </div>
+<div class="param">reportScope (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRequest_reportScope">ReportRequest_reportScope</a></span>  </div>
+<div class="param">reportType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Determines the type of rows that are returned in the report. For example, if you specify <code>reportType: keyword</code>, each row in the report will contain data about a keyword. See the <a href="/search-ads/v2/report-types/">Types of Reports</a> reference for the columns that are available for each type. </div>
+<div class="param">rowCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Synchronous report only. The maximum number of rows to return; additional rows are dropped. Acceptable values are <code>0</code> to <code>10000</code>, inclusive. Defaults to <code>10000</code>. format: int32</div>
+<div class="param">startRow (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Synchronous report only. Zero-based index of the first row to return. Acceptable values are <code>0</code> to <code>50000</code>, inclusive. Defaults to <code>0</code>. format: int32</div>
+<div class="param">statisticsCurrency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies the currency in which monetary will be returned. Possible values are: <code>usd</code>, <code>agency</code> (valid if the report is scoped to agency or lower), <code>advertiser</code> (valid if the report is scoped to * advertiser or lower), or <code>account</code> (valid if the report is scoped to engine account or lower). </div>
+<div class="param">timeRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRequest_timeRange">ReportRequest_timeRange</a></span>  </div>
+<div class="param">verifySingleTimeZone (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If <code>true</code>, the report would only be created if all the requested stat data are sourced from a single timezone. Defaults to <code>false</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRequest_filters_inner"><code>ReportRequest_filters_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">column (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportApiColumnSpec">ReportApiColumnSpec</a></span>  </div>
+<div class="param">operator (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Operator to use in the filter. See the filter reference for a list of available operators. </div>
+<div class="param">values (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> A list of values to filter the column value against.\ The maximum number of filter values per request is 300. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRequest_orderBy_inner"><code>ReportRequest_orderBy_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">column (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportApiColumnSpec">ReportApiColumnSpec</a></span>  </div>
+<div class="param">sortOrder (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The sort direction, which is either <code>ascending</code> or <code>descending</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRequest_reportScope"><code>ReportRequest_reportScope</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The reportScope is a set of IDs that are used to determine which subset of entities will be returned in the report. The full lineage of IDs from the lowest scoped level desired up through agency is required.</div>
+    <div class="field-items">
+      <div class="param">adGroupId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS ad group ID. format: int64</div>
+<div class="param">adId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS ad ID. format: int64</div>
+<div class="param">advertiserId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS advertiser ID. format: int64</div>
+<div class="param">agencyId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS agency ID. format: int64</div>
+<div class="param">campaignId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS campaign ID. format: int64</div>
+<div class="param">engineAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS engine account ID. format: int64</div>
+<div class="param">keywordId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DS keyword ID. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRequest_timeRange"><code>ReportRequest_timeRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>If metrics are requested in a report, this argument will be used to restrict the metrics to a specific time range.</div>
+    <div class="field-items">
+      <div class="param">changedAttributesSinceTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Inclusive UTC timestamp in RFC format, e.g., <code>2013-07-16T10:16:23.555Z</code>. See additional references on how changed attribute reports work. </div>
+<div class="param">changedMetricsSinceTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Inclusive UTC timestamp in RFC format, e.g., <code>2013-07-16T10:16:23.555Z</code>. See additional references on how changed metrics reports work. </div>
+<div class="param">endDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Inclusive date in YYYY-MM-DD format. </div>
+<div class="param">startDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Inclusive date in YYYY-MM-DD format. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Report_files_inner"><code>Report_files_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">byteCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The size of this report file in bytes. format: int64</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Use this url to download the report file. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SavedColumn"><code>SavedColumn</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A saved column</div>
+    <div class="field-items">
+      <div class="param">kind (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies this as a SavedColumn resource. Value: the fixed string doubleclicksearch#savedColumn. </div>
+<div class="param">savedColumnName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the saved column. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of data this saved column will produce. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SavedColumnList"><code>SavedColumnList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A list of saved columns. Advertisers create saved columns to report on Floodlight activities, Google Analytics goals, or custom KPIs. To request reports with saved columns, you'll need the saved column names that are available from this list.</div>
+    <div class="field-items">
+      <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#SavedColumn">array[SavedColumn]</a></span> The saved columns being requested. </div>
+<div class="param">kind (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies this as a SavedColumnList resource. Value: the fixed string doubleclicksearch#savedColumnList. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateAvailabilityRequest"><code>UpdateAvailabilityRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The request to update availability.</div>
+    <div class="field-items">
+      <div class="param">availabilities (optional)</div><div class="param-desc"><span class="param-type"><a href="#Availability">array[Availability]</a></span> The availabilities being requested. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateAvailabilityResponse"><code>UpdateAvailabilityResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response to a update availability request.</div>
+    <div class="field-items">
+      <div class="param">availabilities (optional)</div><div class="param-desc"><span class="param-type"><a href="#Availability">array[Availability]</a></span> The availabilities being returned. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

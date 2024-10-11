@@ -1,0 +1,645 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Account API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Account API</h1>
+    <div class="app-desc"><p>The Vonage Business Cloud Account API enables you to retrieve information about accounts.</p>
+<p>Your application must subscribe to the Provisioning API suite to use this API.</p>
+</div>
+    <div class="app-desc">More information: <a href="https://businesssupport.vonage.com/contactus">https://businesssupport.vonage.com/contactus</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.11.8</div>
+    <div class="app-desc">BasePath:/t/vbc.prod/provisioning</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>HTTP Bearer Token authentication (OAuth)</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#accountCtrl.getAccountServicesByAccountID"><code><span class="http-method">get</span> /api/accounts/{account_id}</code></a></li>
+  <li><a href="#accountCtrl.getLocationByID"><code><span class="http-method">get</span> /api/accounts/{account_id}/locations/{location_id}</code></a></li>
+  <li><a href="#accountCtrl.getLocationsByAccountID"><code><span class="http-method">get</span> /api/accounts/{account_id}/locations</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="accountCtrl.getAccountServicesByAccountID"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/accounts/{account_id}</code></pre></div>
+    <div class="method-summary">Get account data by ID (<span class="nickname">accountCtrl.getAccountServicesByAccountID</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">account_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Vonage Business Cloud account ID default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AccountHalResponse">AccountHalResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "_embedded" : {
+    "data" : {
+      "address" : {
+        "country" : "US",
+        "city" : "Holmdel",
+        "address_1" : "123 Example Street",
+        "address_2" : "Apt. 456",
+        "state" : "NJ",
+        "postal_code" : "07733"
+      },
+      "name" : "Vonage",
+      "id" : 571700,
+      "status" : "ACTIVE"
+    }
+  },
+  "_links" : {
+    "next" : {
+      "href" : "href"
+    },
+    "last" : {
+      "href" : "href"
+    },
+    "prev" : {
+      "href" : "href"
+    },
+    "self" : {
+      "href" : "href"
+    },
+    "first" : {
+      "href" : "href"
+    }
+  },
+  "page" : 1,
+  "total_pages" : 10,
+  "total_items" : 100,
+  "page_size" : 100
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#AccountHalResponse">AccountHalResponse</a>
+    <h4 class="field-label">404</h4>
+    Account not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="accountCtrl.getLocationByID"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/accounts/{account_id}/locations/{location_id}</code></pre></div>
+    <div class="method-summary">Get location data by account ID and location ID (<span class="nickname">accountCtrl.getLocationByID</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">account_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Vonage Business Cloud account ID default: null </div><div class="param">location_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Vonage Business Cloud location ID default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LocationHalResponse">LocationHalResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "_embedded" : {
+    "data" : {
+      "address" : {
+        "country" : "US",
+        "city" : "Holmdel",
+        "address_1" : "123 Example Street",
+        "address_2" : "Apt. 456",
+        "state" : "NJ",
+        "postal_code" : "07733",
+        "time_zone" : "America/New York"
+      },
+      "name" : "Headquarters",
+      "id" : 327910
+    }
+  },
+  "_links" : {
+    "next" : {
+      "href" : "href"
+    },
+    "last" : {
+      "href" : "href"
+    },
+    "prev" : {
+      "href" : "href"
+    },
+    "self" : {
+      "href" : "href"
+    },
+    "first" : {
+      "href" : "href"
+    }
+  },
+  "page" : 1,
+  "total_pages" : 10,
+  "total_items" : 100,
+  "page_size" : 100
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#LocationHalResponse">LocationHalResponse</a>
+    <h4 class="field-label">404</h4>
+    Location not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="accountCtrl.getLocationsByAccountID"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/accounts/{account_id}/locations</code></pre></div>
+    <div class="method-summary">Get account locations data by account ID (<span class="nickname">accountCtrl.getLocationsByAccountID</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">account_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Vonage Business Cloud account ID default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LocationsHalResponse">LocationsHalResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "_embedded" : {
+    "data" : [ {
+      "address" : {
+        "country" : "US",
+        "city" : "Holmdel",
+        "address_1" : "123 Example Street",
+        "address_2" : "Apt. 456",
+        "state" : "NJ",
+        "postal_code" : "07733",
+        "time_zone" : "America/New York"
+      },
+      "name" : "Headquarters",
+      "id" : 327910
+    }, {
+      "address" : {
+        "country" : "US",
+        "city" : "Holmdel",
+        "address_1" : "123 Example Street",
+        "address_2" : "Apt. 456",
+        "state" : "NJ",
+        "postal_code" : "07733",
+        "time_zone" : "America/New York"
+      },
+      "name" : "Headquarters",
+      "id" : 327910
+    } ]
+  },
+  "_links" : {
+    "next" : {
+      "href" : "href"
+    },
+    "last" : {
+      "href" : "href"
+    },
+    "prev" : {
+      "href" : "href"
+    },
+    "self" : {
+      "href" : "href"
+    },
+    "first" : {
+      "href" : "href"
+    }
+  },
+  "page" : 1,
+  "total_pages" : 10,
+  "total_items" : 100,
+  "page_size" : 100
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#LocationsHalResponse">LocationsHalResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Account"><code>Account</code> - </a></li>
+    <li><a href="#AccountEmbeddedObject"><code>AccountEmbeddedObject</code> - </a></li>
+    <li><a href="#AccountHalResponse"><code>AccountHalResponse</code> - </a></li>
+    <li><a href="#Address"><code>Address</code> - </a></li>
+    <li><a href="#AddressWithTimeZone"><code>AddressWithTimeZone</code> - </a></li>
+    <li><a href="#FirstHref"><code>FirstHref</code> - </a></li>
+    <li><a href="#LastHref"><code>LastHref</code> - </a></li>
+    <li><a href="#Links"><code>Links</code> - </a></li>
+    <li><a href="#Location"><code>Location</code> - </a></li>
+    <li><a href="#LocationEmbeddedObject"><code>LocationEmbeddedObject</code> - </a></li>
+    <li><a href="#LocationHalResponse"><code>LocationHalResponse</code> - </a></li>
+    <li><a href="#LocationsEmbeddedObject"><code>LocationsEmbeddedObject</code> - </a></li>
+    <li><a href="#LocationsHalResponse"><code>LocationsHalResponse</code> - </a></li>
+    <li><a href="#NextHref"><code>NextHref</code> - </a></li>
+    <li><a href="#PrevHref"><code>PrevHref</code> - </a></li>
+    <li><a href="#SelfHref"><code>SelfHref</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Account"><code>Account</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#Address">Address</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Unique identifier of the account </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the account </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Status of the account </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountEmbeddedObject"><code>AccountEmbeddedObject</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Account object</div>
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#Account">Account</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountHalResponse"><code>AccountHalResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">_embedded (optional)</div><div class="param-desc"><span class="param-type"><a href="#AccountEmbeddedObject">AccountEmbeddedObject</a></span>  </div>
+<div class="param">_links (optional)</div><div class="param-desc"><span class="param-type"><a href="#Links">Links</a></span>  </div>
+<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Current page number </div>
+<div class="param">page_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Number of records per page </div>
+<div class="param">total_items (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Total number of records </div>
+<div class="param">total_pages (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Total number of pages </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Address"><code>Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">address_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Street portion of the address </div>
+<div class="param">address_2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional address information </div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> City name </div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Country code </div>
+<div class="param">postal_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Postal code </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State/Province code </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AddressWithTimeZone"><code>AddressWithTimeZone</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">address_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Street portion of the address </div>
+<div class="param">address_2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional address information </div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> City name </div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Country code </div>
+<div class="param">postal_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Postal code </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State/Province code </div>
+<div class="param">time_zone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Time zone </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FirstHref"><code>FirstHref</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>URL to the first page of records</div>
+    <div class="field-items">
+      <div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LastHref"><code>LastHref</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>URL to the last page of records</div>
+    <div class="field-items">
+      <div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Links"><code>Links</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#FirstHref">FirstHref</a></span>  </div>
+<div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#LastHref">LastHref</a></span>  </div>
+<div class="param">next (optional)</div><div class="param-desc"><span class="param-type"><a href="#NextHref">NextHref</a></span>  </div>
+<div class="param">prev (optional)</div><div class="param-desc"><span class="param-type"><a href="#PrevHref">PrevHref</a></span>  </div>
+<div class="param">self (optional)</div><div class="param-desc"><span class="param-type"><a href="#SelfHref">SelfHref</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Location"><code>Location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#AddressWithTimeZone">AddressWithTimeZone</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Unique identifier of the location </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the location </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LocationEmbeddedObject"><code>LocationEmbeddedObject</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Location object</div>
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">Location</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LocationHalResponse"><code>LocationHalResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">_embedded (optional)</div><div class="param-desc"><span class="param-type"><a href="#LocationEmbeddedObject">LocationEmbeddedObject</a></span>  </div>
+<div class="param">_links (optional)</div><div class="param-desc"><span class="param-type"><a href="#Links">Links</a></span>  </div>
+<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Current page number </div>
+<div class="param">page_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Number of records per page </div>
+<div class="param">total_items (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Total number of records </div>
+<div class="param">total_pages (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Total number of pages </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LocationsEmbeddedObject"><code>LocationsEmbeddedObject</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Collection of location objects</div>
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">array[Location]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LocationsHalResponse"><code>LocationsHalResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">_embedded (optional)</div><div class="param-desc"><span class="param-type"><a href="#LocationsEmbeddedObject">LocationsEmbeddedObject</a></span>  </div>
+<div class="param">_links (optional)</div><div class="param-desc"><span class="param-type"><a href="#Links">Links</a></span>  </div>
+<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">page_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">total_items (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">total_pages (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NextHref"><code>NextHref</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>URL to the next page of records</div>
+    <div class="field-items">
+      <div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PrevHref"><code>PrevHref</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>URL to the previous page of records</div>
+    <div class="field-items">
+      <div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SelfHref"><code>SelfHref</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>URL to the current page of records</div>
+    <div class="field-items">
+      <div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

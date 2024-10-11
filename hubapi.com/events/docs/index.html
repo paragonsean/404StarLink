@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HubSpot Events API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>HubSpot Events API</h1>
+    <div class="app-desc">API for accessing CRM object events.</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v3</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:hapikey KeyInQuery:true KeyInHeader:false</li>
+      <li>OAuth AuthorizationUrl:https://app.hubspot.com/oauth/authorizeTokenUrl:https://api.hubapi.com/oauth/v1/token</li>
+      <li>APIKey KeyParamName:private-app-legacy KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Events">Events</a></h4>
+  <ul>
+  <li><a href="#get/events/v3/eventsGetPage"><code><span class="http-method">get</span> /events/v3/events</code></a></li>
+  </ul>
+
+  <h1><a name="Events">Events</a></h1>
+  <div class="method"><a name="get/events/v3/eventsGetPage"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /events/v3/events</code></pre></div>
+    <div class="method-summary">Returns a collection of events matching a query. (<span class="nickname">get/events/v3/eventsGetPage</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">occurredAfter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The starting time as an ISO 8601 timestamp. default: null format: date-time</div><div class="param">occurredBefore (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The ending time as an ISO 8601 timestamp. default: null format: date-time</div><div class="param">objectType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of object being selected. Valid values are hubspot named object types (e.g. <code>contact</code>). default: null </div><div class="param">objectId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The id of the selected object. If not present, then the <code>objectProperty</code> parameter is required. default: null format: int64</div><div class="param">eventType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Limits the response to the specified event type.  For example <code>&amp;eventType=e_visited_page</code> returns only <code>e_visited_page</code> events.  If not present all event types are returned. default: null </div><div class="param">after (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An additional parameter that may be used to get the next <code>limit</code> set of results. default: null </div><div class="param">before (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of events to return, defaults to 20. default: null format: int32</div><div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selects the sort field and order. Defaults to ascending, prefix with <code>-</code> for descending order. <code>occurredAt</code> is the only field supported for sorting. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CollectionResponseExternalUnifiedEvent">CollectionResponseExternalUnifiedEvent</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "paging" : {
+    "next" : {
+      "link" : "link",
+      "after" : "after"
+    }
+  },
+  "results" : [ {
+    "occurredAt" : "2000-01-23T04:56:07.000+00:00",
+    "eventType" : "eventType",
+    "id" : "id",
+    "objectId" : "objectId",
+    "properties" : {
+      "key" : "properties"
+    },
+    "objectType" : "objectType"
+  }, {
+    "occurredAt" : "2000-01-23T04:56:07.000+00:00",
+    "eventType" : "eventType",
+    "id" : "id",
+    "objectId" : "objectId",
+    "properties" : {
+      "key" : "properties"
+    },
+    "objectType" : "objectType"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "category" : "VALIDATION_ERROR",
+  "correlationId" : "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+  "links" : {
+    "knowledge-base" : "https://www.hubspot.com/products/service/knowledge-base"
+  },
+  "message" : "Invalid input (details will vary based on the error)"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#CollectionResponseExternalUnifiedEvent">CollectionResponseExternalUnifiedEvent</a>
+    <h4 class="field-label">default</h4>
+    An error occurred.
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#CollectionResponseExternalUnifiedEvent"><code>CollectionResponseExternalUnifiedEvent</code> - </a></li>
+    <li><a href="#Error"><code>Error</code> - </a></li>
+    <li><a href="#ErrorDetail"><code>ErrorDetail</code> - </a></li>
+    <li><a href="#ExternalUnifiedEvent"><code>ExternalUnifiedEvent</code> - </a></li>
+    <li><a href="#NextPage"><code>NextPage</code> - </a></li>
+    <li><a href="#Paging"><code>Paging</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="CollectionResponseExternalUnifiedEvent"><code>CollectionResponseExternalUnifiedEvent</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">paging (optional)</div><div class="param-desc"><span class="param-type"><a href="#Paging">Paging</a></span>  </div>
+<div class="param">results </div><div class="param-desc"><span class="param-type"><a href="#ExternalUnifiedEvent">array[ExternalUnifiedEvent]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Error"><code>Error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">category </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The error category </div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">map[String, array[String]]</a></span> Context about the error condition </div>
+<div class="param">correlationId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique identifier for the request. Include this value with any error reports or support tickets format: uuid</div>
+<div class="param">errors (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorDetail">array[ErrorDetail]</a></span> further information about the error </div>
+<div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> A map of link names to associated URIs containing documentation about the error or recommended remediation steps </div>
+<div class="param">message </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human readable message describing the error along with remediation steps where appropriate </div>
+<div class="param">subCategory (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A specific category that contains more specific detail about the error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorDetail"><code>ErrorDetail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The status code associated with the error detail </div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">map[String, array[String]]</a></span> Context about the error condition </div>
+<div class="param">in (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the field or parameter in which the error was found. </div>
+<div class="param">message </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human readable message describing the error along with remediation steps where appropriate </div>
+<div class="param">subCategory (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A specific category that contains more specific detail about the error </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExternalUnifiedEvent"><code>ExternalUnifiedEvent</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>Used to represent any event. With this format, the <code>objectType</code> and <code>eventType</code> values are stringified CRM types. Example object:
+<br/></p>
+<pre><code> {
+      &quot;objectType&quot;: &quot;CONTACT&quot;,
+      &quot;objectId&quot;: 208451632,
+      &quot;eventType&quot;: &quot;e_visited_page&quot;,
+      &quot;occurredAt&quot;: 1567377501421,
+      &quot;id&quot;: &quot;leviathan-be3335d3-46f1-3985-988e-ff38e6e7b9d8&quot;,
+      &quot;properties&quot;: {
+          &quot;hs_url&quot;: &quot;https://some-website.com/&quot;,
+          &quot;hs_title&quot;: &quot;Home&quot;,
+          &quot;hs_referrer&quot;: &quot;https://some-other-website.com/blog/why-we-love-big-data-and-you-should-too&quot;,
+          &quot;hs_userAgent&quot;: &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36&quot;,
+          &quot;hs_city&quot;: &quot;lund&quot;,
+          &quot;hs_region&quot;: &quot;m&quot;,
+          &quot;hs_country&quot;: &quot;se&quot;,
+          &quot;hs_session_id&quot; : &quot;leviathan-be3335d3-46f1-3985-988e-ff38e6e7b9d8&quot;,
+          &quot;hs_session_source&quot; : &quot;DIRECT&quot;
+      }
+  }      
+</code></pre>
+</div>
+    <div class="field-items">
+      <div class="param">eventType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the <code>eventType</code> string is <code>ae{appId}_{eventTypeLabel}</code>, <code>pe{portalId}_{eventTypeLabel}</code>, or just <code>e_{eventTypeLabel}</code> for HubSpot events. </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique identifier for the event. </div>
+<div class="param">objectId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The objectId of the object which did the event. </div>
+<div class="param">objectType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The objectType for the object which did the event. </div>
+<div class="param">occurredAt </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> An ISO 8601 timestamp when the event occurred. format: date-time</div>
+<div class="param">properties </div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NextPage"><code>NextPage</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">after </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">link (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Paging"><code>Paging</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">next (optional)</div><div class="param-desc"><span class="param-type"><a href="#NextPage">NextPage</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

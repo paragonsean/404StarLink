@@ -1,0 +1,1916 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Cloud Translation API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Cloud Translation API</h1>
+    <div class="app-desc">Integrates text translation into your website or application.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v3beta1</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Projects">Projects</a></h4>
+  <ul>
+  <li><a href="#translate.projects.locations.batchTranslateDocument"><code><span class="http-method">post</span> /v3beta1/{parent}:batchTranslateDocument</code></a></li>
+  <li><a href="#translate.projects.locations.batchTranslateText"><code><span class="http-method">post</span> /v3beta1/{parent}:batchTranslateText</code></a></li>
+  <li><a href="#translate.projects.locations.detectLanguage"><code><span class="http-method">post</span> /v3beta1/{parent}:detectLanguage</code></a></li>
+  <li><a href="#translate.projects.locations.getSupportedLanguages"><code><span class="http-method">get</span> /v3beta1/{parent}/supportedLanguages</code></a></li>
+  <li><a href="#translate.projects.locations.glossaries.create"><code><span class="http-method">post</span> /v3beta1/{parent}/glossaries</code></a></li>
+  <li><a href="#translate.projects.locations.glossaries.list"><code><span class="http-method">get</span> /v3beta1/{parent}/glossaries</code></a></li>
+  <li><a href="#translate.projects.locations.list"><code><span class="http-method">get</span> /v3beta1/{name}/locations</code></a></li>
+  <li><a href="#translate.projects.locations.operations.cancel"><code><span class="http-method">post</span> /v3beta1/{name}:cancel</code></a></li>
+  <li><a href="#translate.projects.locations.operations.delete"><code><span class="http-method">delete</span> /v3beta1/{name}</code></a></li>
+  <li><a href="#translate.projects.locations.operations.get"><code><span class="http-method">get</span> /v3beta1/{name}</code></a></li>
+  <li><a href="#translate.projects.locations.operations.list"><code><span class="http-method">get</span> /v3beta1/{name}/operations</code></a></li>
+  <li><a href="#translate.projects.locations.operations.wait"><code><span class="http-method">post</span> /v3beta1/{name}:wait</code></a></li>
+  <li><a href="#translate.projects.locations.translateDocument"><code><span class="http-method">post</span> /v3beta1/{parent}:translateDocument</code></a></li>
+  <li><a href="#translate.projects.locations.translateText"><code><span class="http-method">post</span> /v3beta1/{parent}:translateText</code></a></li>
+  </ul>
+
+  <h1><a name="Projects">Projects</a></h1>
+  <div class="method"><a name="translate.projects.locations.batchTranslateDocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v3beta1/{parent}:batchTranslateDocument</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.batchTranslateDocument</span>)</div>
+    <div class="method-notes">Translates a large volume of document in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Location to make a regional call. Format: <code>projects/{project-number-or-id}/locations/{location-id}</code>. The <code>global</code> location is not supported for batch translation. Only AutoML Translation models or glossaries within the same region (have the same location-id) can be used, otherwise an INVALID_ARGUMENT (400) error is returned. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">BatchTranslateDocumentRequest <a href="#BatchTranslateDocumentRequest">BatchTranslateDocumentRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.batchTranslateText"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v3beta1/{parent}:batchTranslateText</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.batchTranslateText</span>)</div>
+    <div class="method-notes">Translates a large volume of text in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use google.longrunning.Operation.name to poll the status of the call.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Location to make a call. Must refer to a caller's project. Format: <code>projects/{project-number-or-id}/locations/{location-id}</code>. The <code>global</code> location is not supported for batch translation. Only AutoML Translation models or glossaries within the same region (have the same location-id) can be used, otherwise an INVALID_ARGUMENT (400) error is returned. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">BatchTranslateTextRequest <a href="#BatchTranslateTextRequest">BatchTranslateTextRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.detectLanguage"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v3beta1/{parent}:detectLanguage</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.detectLanguage</span>)</div>
+    <div class="method-notes">Detects the language of text within a request.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Project or location to make a call. Must refer to a caller's project. Format: <code>projects/{project-number-or-id}/locations/{location-id}</code> or <code>projects/{project-number-or-id}</code>. For global calls, use <code>projects/{project-number-or-id}/locations/global</code> or <code>projects/{project-number-or-id}</code>. Only models within the same region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DetectLanguageRequest <a href="#DetectLanguageRequest">DetectLanguageRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DetectLanguageResponse">DetectLanguageResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "languages" : [ {
+    "confidence" : 0.8008282,
+    "languageCode" : "languageCode"
+  }, {
+    "confidence" : 0.8008282,
+    "languageCode" : "languageCode"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#DetectLanguageResponse">DetectLanguageResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.getSupportedLanguages"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v3beta1/{parent}/supportedLanguages</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.getSupportedLanguages</span>)</div>
+    <div class="method-notes">Returns a list of supported languages for translation.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Project or location to make a call. Must refer to a caller's project. Format: <code>projects/{project-number-or-id}</code> or <code>projects/{project-number-or-id}/locations/{location-id}</code>. For global calls, use <code>projects/{project-number-or-id}/locations/global</code> or <code>projects/{project-number-or-id}</code>. Non-global location is required for AutoML models. Only models within the same region (have same location-id) can be used, otherwise an INVALID_ARGUMENT (400) error is returned. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">displayLanguageCode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The language to use to return localized, human readable names of supported languages. If missing, then display names are not returned in a response. default: null </div><div class="param">model (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. Get supported languages of this model. The format depends on model type: - AutoML Translation models: <code>projects/{project-number-or-id}/locations/{location-id}/models/{model-id}</code> - General (built-in) models: <code>projects/{project-number-or-id}/locations/{location-id}/models/general/nmt</code>, Returns languages supported by the specified model. If missing, we get supported languages of Google general NMT model. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#SupportedLanguages">SupportedLanguages</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "languages" : [ {
+    "supportTarget" : true,
+    "displayName" : "displayName",
+    "languageCode" : "languageCode",
+    "supportSource" : true
+  }, {
+    "supportTarget" : true,
+    "displayName" : "displayName",
+    "languageCode" : "languageCode",
+    "supportSource" : true
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#SupportedLanguages">SupportedLanguages</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.glossaries.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v3beta1/{parent}/glossaries</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.glossaries.create</span>)</div>
+    <div class="method-notes">Creates a glossary and returns the long-running operation. Returns NOT_FOUND, if the project doesn't exist.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The project name. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Glossary <a href="#Glossary">Glossary</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.glossaries.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v3beta1/{parent}/glossaries</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.glossaries.list</span>)</div>
+    <div class="method-notes">Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't exist.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the project from which to list all of the glossaries. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. Filter specifying constraints of a list operation. Specify the constraint by the format of &quot;key=value&quot;, where key must be &quot;src&quot; or &quot;tgt&quot;, and the value must be a valid language code. For multiple restrictions, concatenate them by &quot;AND&quot; (uppercase only), such as: &quot;src=en-US AND tgt=zh-CN&quot;. Notice that the exact match is used here, which means using 'en-US' and 'en' can lead to different results, which depends on the language code you used when you create the glossary. For the unidirectional glossaries, the &quot;src&quot; and &quot;tgt&quot; add restrictions on the source and target language code separately. For the equivalent term set glossaries, the &quot;src&quot; and/or &quot;tgt&quot; add restrictions on the term set. For example: &quot;src=en-US AND tgt=zh-CN&quot; will only pick the unidirectional glossaries which exactly match the source language code as &quot;en-US&quot; and the target language code &quot;zh-CN&quot;, but all equivalent term set glossaries which contain &quot;en-US&quot; and &quot;zh-CN&quot; in their language set will be picked. If missing, no filtering is performed. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. Requested page size. The server may return fewer glossaries than requested. If unspecified, the server picks an appropriate default. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. A token identifying a page of results the server should return. Typically, this is the value of [ListGlossariesResponse.next_page_token] returned from the previous call to <code>ListGlossaries</code> method. The first page is returned if <code>page_token</code>is empty or missing. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListGlossariesResponse">ListGlossariesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "glossaries" : [ {
+    "inputConfig" : {
+      "gcsSource" : {
+        "inputUri" : "inputUri"
+      }
+    },
+    "entryCount" : 0,
+    "submitTime" : "submitTime",
+    "languageCodesSet" : {
+      "languageCodes" : [ "languageCodes", "languageCodes" ]
+    },
+    "name" : "name",
+    "endTime" : "endTime",
+    "languagePair" : {
+      "sourceLanguageCode" : "sourceLanguageCode",
+      "targetLanguageCode" : "targetLanguageCode"
+    }
+  }, {
+    "inputConfig" : {
+      "gcsSource" : {
+        "inputUri" : "inputUri"
+      }
+    },
+    "entryCount" : 0,
+    "submitTime" : "submitTime",
+    "languageCodesSet" : {
+      "languageCodes" : [ "languageCodes", "languageCodes" ]
+    },
+    "name" : "name",
+    "endTime" : "endTime",
+    "languagePair" : {
+      "sourceLanguageCode" : "sourceLanguageCode",
+      "targetLanguageCode" : "targetLanguageCode"
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListGlossariesResponse">ListGlossariesResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v3beta1/{name}/locations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.list</span>)</div>
+    <div class="method-notes">Lists information about the supported locations for this service.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource that owns the locations collection, if applicable. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A filter to narrow down results to a preferred subset. The filtering language accepts strings like <code>&quot;displayName=tokyo&quot;</code>, and is documented in more detail in <a href="https://google.aip.dev/160">AIP-160</a>. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return. If not set, the service selects a default. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A page token received from the <code>next_page_token</code> field in the response. Send that page token to receive the subsequent page. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListLocationsResponse">ListLocationsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "locations" : [ {
+    "metadata" : {
+      "key" : ""
+    },
+    "displayName" : "displayName",
+    "locationId" : "locationId",
+    "name" : "name",
+    "labels" : {
+      "key" : "labels"
+    }
+  }, {
+    "metadata" : {
+      "key" : ""
+    },
+    "displayName" : "displayName",
+    "locationId" : "locationId",
+    "name" : "name",
+    "labels" : {
+      "key" : "labels"
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListLocationsResponse">ListLocationsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.operations.cancel"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v3beta1/{name}:cancel</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.operations.cancel</span>)</div>
+    <div class="method-notes">Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns <code>google.rpc.Code.UNIMPLEMENTED</code>. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to <code>Code.CANCELLED</code>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource to be cancelled. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#object">object</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.operations.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v3beta1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.operations.delete</span>)</div>
+    <div class="method-notes">Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns <code>google.rpc.Code.UNIMPLEMENTED</code>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource to be deleted. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.operations.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v3beta1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.operations.get</span>)</div>
+    <div class="method-notes">Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.operations.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v3beta1/{name}/operations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.operations.list</span>)</div>
+    <div class="method-notes">Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns <code>UNIMPLEMENTED</code>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation's parent resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list filter. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page size. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page token. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListOperationsResponse">ListOperationsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "operations" : [ {
+    "metadata" : {
+      "key" : ""
+    },
+    "response" : {
+      "key" : ""
+    },
+    "name" : "name",
+    "error" : {
+      "code" : 0,
+      "details" : [ {
+        "key" : ""
+      }, {
+        "key" : ""
+      } ],
+      "message" : "message"
+    },
+    "done" : true
+  }, {
+    "metadata" : {
+      "key" : ""
+    },
+    "response" : {
+      "key" : ""
+    },
+    "name" : "name",
+    "error" : {
+      "code" : 0,
+      "details" : [ {
+        "key" : ""
+      }, {
+        "key" : ""
+      } ],
+      "message" : "message"
+    },
+    "done" : true
+  } ],
+  "nextPageToken" : "nextPageToken"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListOperationsResponse">ListOperationsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.operations.wait"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v3beta1/{name}:wait</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.operations.wait</span>)</div>
+    <div class="method-notes">Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns <code>google.rpc.Code.UNIMPLEMENTED</code>. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource to wait on. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">WaitOperationRequest <a href="#WaitOperationRequest">WaitOperationRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.translateDocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v3beta1/{parent}:translateDocument</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.translateDocument</span>)</div>
+    <div class="method-notes">Translates documents in synchronous mode.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Location to make a regional call. Format: <code>projects/{project-number-or-id}/locations/{location-id}</code>. For global calls, use <code>projects/{project-number-or-id}/locations/global</code>. Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be within the same region (have the same location-id), otherwise an INVALID_ARGUMENT (400) error is returned. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">TranslateDocumentRequest <a href="#TranslateDocumentRequest">TranslateDocumentRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TranslateDocumentResponse">TranslateDocumentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "documentTranslation" : {
+    "byteStreamOutputs" : [ "byteStreamOutputs", "byteStreamOutputs" ],
+    "mimeType" : "mimeType",
+    "detectedLanguageCode" : "detectedLanguageCode"
+  },
+  "glossaryDocumentTranslation" : {
+    "byteStreamOutputs" : [ "byteStreamOutputs", "byteStreamOutputs" ],
+    "mimeType" : "mimeType",
+    "detectedLanguageCode" : "detectedLanguageCode"
+  },
+  "model" : "model",
+  "glossaryConfig" : {
+    "glossary" : "glossary",
+    "ignoreCase" : true
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#TranslateDocumentResponse">TranslateDocumentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="translate.projects.locations.translateText"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v3beta1/{parent}:translateText</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">translate.projects.locations.translateText</span>)</div>
+    <div class="method-notes">Translates input text and returns translated text.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Project or location to make a call. Must refer to a caller's project. Format: <code>projects/{project-number-or-id}</code> or <code>projects/{project-number-or-id}/locations/{location-id}</code>. For global calls, use <code>projects/{project-number-or-id}/locations/global</code> or <code>projects/{project-number-or-id}</code>. Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be within the same region (have same location-id), otherwise an INVALID_ARGUMENT (400) error is returned. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">TranslateTextRequest <a href="#TranslateTextRequest">TranslateTextRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TranslateTextResponse">TranslateTextResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "translations" : [ {
+    "translatedText" : "translatedText",
+    "model" : "model",
+    "glossaryConfig" : {
+      "glossary" : "glossary",
+      "ignoreCase" : true
+    },
+    "detectedLanguageCode" : "detectedLanguageCode"
+  }, {
+    "translatedText" : "translatedText",
+    "model" : "model",
+    "glossaryConfig" : {
+      "glossary" : "glossary",
+      "ignoreCase" : true
+    },
+    "detectedLanguageCode" : "detectedLanguageCode"
+  } ],
+  "glossaryTranslations" : [ {
+    "translatedText" : "translatedText",
+    "model" : "model",
+    "glossaryConfig" : {
+      "glossary" : "glossary",
+      "ignoreCase" : true
+    },
+    "detectedLanguageCode" : "detectedLanguageCode"
+  }, {
+    "translatedText" : "translatedText",
+    "model" : "model",
+    "glossaryConfig" : {
+      "glossary" : "glossary",
+      "ignoreCase" : true
+    },
+    "detectedLanguageCode" : "detectedLanguageCode"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#TranslateTextResponse">TranslateTextResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#BatchDocumentInputConfig"><code>BatchDocumentInputConfig</code> - </a></li>
+    <li><a href="#BatchDocumentOutputConfig"><code>BatchDocumentOutputConfig</code> - </a></li>
+    <li><a href="#BatchTranslateDocumentRequest"><code>BatchTranslateDocumentRequest</code> - </a></li>
+    <li><a href="#BatchTranslateTextRequest"><code>BatchTranslateTextRequest</code> - </a></li>
+    <li><a href="#DetectLanguageRequest"><code>DetectLanguageRequest</code> - </a></li>
+    <li><a href="#DetectLanguageResponse"><code>DetectLanguageResponse</code> - </a></li>
+    <li><a href="#DetectedLanguage"><code>DetectedLanguage</code> - </a></li>
+    <li><a href="#DocumentInputConfig"><code>DocumentInputConfig</code> - </a></li>
+    <li><a href="#DocumentOutputConfig"><code>DocumentOutputConfig</code> - </a></li>
+    <li><a href="#DocumentTranslation"><code>DocumentTranslation</code> - </a></li>
+    <li><a href="#GcsDestination"><code>GcsDestination</code> - </a></li>
+    <li><a href="#GcsSource"><code>GcsSource</code> - </a></li>
+    <li><a href="#Glossary"><code>Glossary</code> - </a></li>
+    <li><a href="#GlossaryInputConfig"><code>GlossaryInputConfig</code> - </a></li>
+    <li><a href="#InputConfig"><code>InputConfig</code> - </a></li>
+    <li><a href="#LanguageCodePair"><code>LanguageCodePair</code> - </a></li>
+    <li><a href="#LanguageCodesSet"><code>LanguageCodesSet</code> - </a></li>
+    <li><a href="#ListGlossariesResponse"><code>ListGlossariesResponse</code> - </a></li>
+    <li><a href="#ListLocationsResponse"><code>ListLocationsResponse</code> - </a></li>
+    <li><a href="#ListOperationsResponse"><code>ListOperationsResponse</code> - </a></li>
+    <li><a href="#Location"><code>Location</code> - </a></li>
+    <li><a href="#Operation"><code>Operation</code> - </a></li>
+    <li><a href="#OutputConfig"><code>OutputConfig</code> - </a></li>
+    <li><a href="#Status"><code>Status</code> - </a></li>
+    <li><a href="#SupportedLanguage"><code>SupportedLanguage</code> - </a></li>
+    <li><a href="#SupportedLanguages"><code>SupportedLanguages</code> - </a></li>
+    <li><a href="#TranslateDocumentRequest"><code>TranslateDocumentRequest</code> - </a></li>
+    <li><a href="#TranslateDocumentResponse"><code>TranslateDocumentResponse</code> - </a></li>
+    <li><a href="#TranslateTextGlossaryConfig"><code>TranslateTextGlossaryConfig</code> - </a></li>
+    <li><a href="#TranslateTextRequest"><code>TranslateTextRequest</code> - </a></li>
+    <li><a href="#TranslateTextResponse"><code>TranslateTextResponse</code> - </a></li>
+    <li><a href="#Translation"><code>Translation</code> - </a></li>
+    <li><a href="#WaitOperationRequest"><code>WaitOperationRequest</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="BatchDocumentInputConfig"><code>BatchDocumentInputConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Input configuration for BatchTranslateDocument request.</div>
+    <div class="field-items">
+      <div class="param">gcsSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#GcsSource">GcsSource</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchDocumentOutputConfig"><code>BatchDocumentOutputConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Output configuration for BatchTranslateDocument request.</div>
+    <div class="field-items">
+      <div class="param">gcsDestination (optional)</div><div class="param-desc"><span class="param-type"><a href="#GcsDestination">GcsDestination</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchTranslateDocumentRequest"><code>BatchTranslateDocumentRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The BatchTranslateDocument request.</div>
+    <div class="field-items">
+      <div class="param">customizedAttribution (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. This flag is to support user customized attribution. If not provided, the default is <code>Machine Translated by Google</code>. Customized attribution should follow rules in https://cloud.google.com/translate/attribution#attribution_and_logos </div>
+<div class="param">enableShadowRemovalNativePdf (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. If true, use the text removal server to remove the shadow text on background image for native pdf translation. Shadow removal feature can only be enabled when is_translate_native_pdf_only: false &amp;&amp; pdf_native_only: false </div>
+<div class="param">formatConversions (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Optional. </div>
+<div class="param">glossaries (optional)</div><div class="param-desc"><span class="param-type"><a href="#TranslateTextGlossaryConfig">map[String, TranslateTextGlossaryConfig]</a></span> Optional. Glossaries to be applied. It's keyed by target language code. </div>
+<div class="param">inputConfigs (optional)</div><div class="param-desc"><span class="param-type"><a href="#BatchDocumentInputConfig">array[BatchDocumentInputConfig]</a></span> Required. Input configurations. The total number of files matched should be &lt;= 100. The total content size to translate should be &lt;= 100M Unicode codepoints. The files must use UTF-8 encoding. </div>
+<div class="param">models (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Optional. The models to use for translation. Map's key is target language code. Map's value is the model name. Value can be a built-in general model, or an AutoML Translation model. The value format depends on model type: - AutoML Translation models: <code>projects/{project-number-or-id}/locations/{location-id}/models/{model-id}</code> - General (built-in) models: <code>projects/{project-number-or-id}/locations/{location-id}/models/general/nmt</code>, If the map is empty or a specific model is not requested for a language pair, then default google model (nmt) is used. </div>
+<div class="param">outputConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#BatchDocumentOutputConfig">BatchDocumentOutputConfig</a></span>  </div>
+<div class="param">sourceLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The BCP-47 language code of the input document if known, for example, &quot;en-US&quot; or &quot;sr-Latn&quot;. Supported language codes are listed in <a href="https://cloud.google.com/translate/docs/languages">Language Support</a>. </div>
+<div class="param">targetLanguageCodes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Required. The BCP-47 language code to use for translation of the input document. Specify up to 10 language codes here. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchTranslateTextRequest"><code>BatchTranslateTextRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The batch translation request.</div>
+    <div class="field-items">
+      <div class="param">glossaries (optional)</div><div class="param-desc"><span class="param-type"><a href="#TranslateTextGlossaryConfig">map[String, TranslateTextGlossaryConfig]</a></span> Optional. Glossaries to be applied for translation. It's keyed by target language code. </div>
+<div class="param">inputConfigs (optional)</div><div class="param-desc"><span class="param-type"><a href="#InputConfig">array[InputConfig]</a></span> Required. Input configurations. The total number of files matched should be &lt;= 100. The total content size should be &lt;= 100M Unicode codepoints. The files must use UTF-8 encoding. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. See https://cloud.google.com/translate/docs/labels for more information. </div>
+<div class="param">models (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Optional. The models to use for translation. Map's key is target language code. Map's value is model name. Value can be a built-in general model, or an AutoML Translation model. The value format depends on model type: - AutoML Translation models: <code>projects/{project-number-or-id}/locations/{location-id}/models/{model-id}</code> - General (built-in) models: <code>projects/{project-number-or-id}/locations/{location-id}/models/general/nmt</code>, If the map is empty or a specific model is not requested for a language pair, then default google model (nmt) is used. </div>
+<div class="param">outputConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#OutputConfig">OutputConfig</a></span>  </div>
+<div class="param">sourceLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. Source language code. </div>
+<div class="param">targetLanguageCodes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Required. Specify up to 10 language codes here. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DetectLanguageRequest"><code>DetectLanguageRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The request message for language detection.</div>
+    <div class="field-items">
+      <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The content of the input stored as a string. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. See https://cloud.google.com/translate/docs/labels for more information. </div>
+<div class="param">mimeType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The format of the source text, for example, &quot;text/html&quot;, &quot;text/plain&quot;. If left blank, the MIME type defaults to &quot;text/html&quot;. </div>
+<div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The language detection model to be used. Format: <code>projects/{project-number-or-id}/locations/{location-id}/models/language-detection/{model-id}</code> Only one language detection model is currently supported: <code>projects/{project-number-or-id}/locations/{location-id}/models/language-detection/default</code>. If not specified, the default model is used. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DetectLanguageResponse"><code>DetectLanguageResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for language detection.</div>
+    <div class="field-items">
+      <div class="param">languages (optional)</div><div class="param-desc"><span class="param-type"><a href="#DetectedLanguage">array[DetectedLanguage]</a></span> A list of detected languages sorted by detection confidence in descending order. The most probable language first. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DetectedLanguage"><code>DetectedLanguage</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for language detection.</div>
+    <div class="field-items">
+      <div class="param">confidence (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> The confidence of the detection result for this language. format: float</div>
+<div class="param">languageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The BCP-47 language code of source content in the request, detected automatically. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DocumentInputConfig"><code>DocumentInputConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A document translation request input config.</div>
+    <div class="field-items">
+      <div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Document's content represented as a stream of bytes. format: byte</div>
+<div class="param">gcsSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#GcsSource">GcsSource</a></span>  </div>
+<div class="param">mimeType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies the input document's mime_type. If not specified it will be determined using the file extension for gcs_source provided files. For a file provided through bytes content the mime_type must be provided. Currently supported mime types are: - application/pdf - application/vnd.openxmlformats-officedocument.wordprocessingml.document - application/vnd.openxmlformats-officedocument.presentationml.presentation - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DocumentOutputConfig"><code>DocumentOutputConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A document translation request output config.</div>
+    <div class="field-items">
+      <div class="param">gcsDestination (optional)</div><div class="param-desc"><span class="param-type"><a href="#GcsDestination">GcsDestination</a></span>  </div>
+<div class="param">mimeType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Specifies the translated document's mime_type. If not specified, the translated file's mime type will be the same as the input file's mime type. Currently only support the output mime type to be the same as input mime type. - application/pdf - application/vnd.openxmlformats-officedocument.wordprocessingml.document - application/vnd.openxmlformats-officedocument.presentationml.presentation - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DocumentTranslation"><code>DocumentTranslation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A translated document message.</div>
+    <div class="field-items">
+      <div class="param">byteStreamOutputs (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">array[byte[]]</a></span> The array of translated documents. It is expected to be size 1 for now. We may produce multiple translated documents in the future for other type of file formats. format: byte</div>
+<div class="param">detectedLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The detected language for the input document. If the user did not provide the source language for the input document, this field will have the language code automatically detected. If the source language was passed, auto-detection of the language does not occur and this field is empty. </div>
+<div class="param">mimeType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The translated document's mime type. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GcsDestination"><code>GcsDestination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The Google Cloud Storage location for the output content.</div>
+    <div class="field-items">
+      <div class="param">outputUriPrefix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. There must be no files under 'output_uri_prefix'. 'output_uri_prefix' must end with &quot;/&quot; and start with &quot;gs://&quot;, otherwise an INVALID_ARGUMENT (400) error is returned. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GcsSource"><code>GcsSource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The Google Cloud Storage location for the input content.</div>
+    <div class="field-items">
+      <div class="param">inputUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. Source data URI. For example, <code>gs://my_bucket/my_object</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Glossary"><code>Glossary</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a glossary built from user provided data.</div>
+    <div class="field-items">
+      <div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. When the glossary creation was finished. format: google-datetime</div>
+<div class="param">entryCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The number of entries defined in the glossary. format: int32</div>
+<div class="param">inputConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#GlossaryInputConfig">GlossaryInputConfig</a></span>  </div>
+<div class="param">languageCodesSet (optional)</div><div class="param-desc"><span class="param-type"><a href="#LanguageCodesSet">LanguageCodesSet</a></span>  </div>
+<div class="param">languagePair (optional)</div><div class="param-desc"><span class="param-type"><a href="#LanguageCodePair">LanguageCodePair</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The resource name of the glossary. Glossary names have the form <code>projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}</code>. </div>
+<div class="param">submitTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. When CreateGlossary was called. format: google-datetime</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GlossaryInputConfig"><code>GlossaryInputConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Input configuration for glossaries.</div>
+    <div class="field-items">
+      <div class="param">gcsSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#GcsSource">GcsSource</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InputConfig"><code>InputConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Input configuration for BatchTranslateText request.</div>
+    <div class="field-items">
+      <div class="param">gcsSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#GcsSource">GcsSource</a></span>  </div>
+<div class="param">mimeType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Can be &quot;text/plain&quot; or &quot;text/html&quot;. For <code>.tsv</code>, &quot;text/html&quot; is used if mime_type is missing. For <code>.html</code>, this field must be &quot;text/html&quot; or empty. For <code>.txt</code>, this field must be &quot;text/plain&quot; or empty. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LanguageCodePair"><code>LanguageCodePair</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Used with unidirectional glossaries.</div>
+    <div class="field-items">
+      <div class="param">sourceLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The BCP-47 language code of the input text, for example, &quot;en-US&quot;. Expected to be an exact match for GlossaryTerm.language_code. </div>
+<div class="param">targetLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The BCP-47 language code for translation output, for example, &quot;zh-CN&quot;. Expected to be an exact match for GlossaryTerm.language_code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LanguageCodesSet"><code>LanguageCodesSet</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Used with equivalent term set glossaries.</div>
+    <div class="field-items">
+      <div class="param">languageCodes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The BCP-47 language code(s) for terms defined in the glossary. All entries are unique. The list contains at least two entries. Expected to be an exact match for GlossaryTerm.language_code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListGlossariesResponse"><code>ListGlossariesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for ListGlossaries.</div>
+    <div class="field-items">
+      <div class="param">glossaries (optional)</div><div class="param-desc"><span class="param-type"><a href="#Glossary">array[Glossary]</a></span> The list of glossaries for a project. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A token to retrieve a page of results. Pass this value in the [ListGlossariesRequest.page_token] field in the subsequent call to <code>ListGlossaries</code> method to retrieve the next page of results. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListLocationsResponse"><code>ListLocationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for Locations.ListLocations.</div>
+    <div class="field-items">
+      <div class="param">locations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">array[Location]</a></span> A list of locations that matches the specified filter in the request. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListOperationsResponse"><code>ListOperationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for Operations.ListOperations.</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
+<div class="param">operations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Operation">array[Operation]</a></span> A list of operations that matches the specified filter in the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Location"><code>Location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A resource that represents Google Cloud Platform location.</div>
+    <div class="field-items">
+      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The friendly name for this location, typically a nearby city name. For example, &quot;Tokyo&quot;. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Cross-service attributes for the location. For example {&quot;cloud.googleapis.com/region&quot;: &quot;us-east1&quot;} </div>
+<div class="param">locationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The canonical id for this location. For example: <code>&quot;us-east1&quot;</code>. </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata. For example the available capacity at the given location. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name for the location, which may vary between implementations. For example: <code>&quot;projects/example-project/locations/us-east1&quot;</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Operation"><code>Operation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This resource represents a long-running operation that is the result of a network API call.</div>
+    <div class="field-items">
+      <div class="param">done (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the <code>name</code> should be a resource name ending with <code>operations/{unique_id}</code>. </div>
+<div class="param">response (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The normal response of the operation in case of success. If the original method returns no data on success, such as <code>Delete</code>, the response is <code>google.protobuf.Empty</code>. If the original method is standard <code>Get</code>/<code>Create</code>/<code>Update</code>, the response should be the resource. For other methods, the response should have the type <code>XxxResponse</code>, where <code>Xxx</code> is the original method name. For example, if the original method name is <code>TakeSnapshot()</code>, the inferred response type is <code>TakeSnapshotResponse</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OutputConfig"><code>OutputConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Output configuration for BatchTranslateText request.</div>
+    <div class="field-items">
+      <div class="param">gcsDestination (optional)</div><div class="param-desc"><span class="param-type"><a href="#GcsDestination">GcsDestination</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Status"><code>Status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The <code>Status</code> type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by <a href="https://github.com/grpc">gRPC</a>. Each <code>Status</code> message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the <a href="https://cloud.google.com/apis/design/errors">API Design Guide</a>.</div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The status code, which should be an enum value of google.rpc.Code. format: int32</div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">array[map[String, oas_any_type_not_mapped]]</a></span> A list of messages that carry the error details. There is a common set of message types for APIs to use. </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SupportedLanguage"><code>SupportedLanguage</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A single supported language response corresponds to information related to one supported language.</div>
+    <div class="field-items">
+      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Human readable name of the language localized in the display language specified in the request. </div>
+<div class="param">languageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Supported language code, generally consisting of its ISO 639-1 identifier, for example, 'en', 'ja'. In certain cases, BCP-47 codes including language and region identifiers are returned (for example, 'zh-TW' and 'zh-CN') </div>
+<div class="param">supportSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Can be used as source language. </div>
+<div class="param">supportTarget (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Can be used as target language. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SupportedLanguages"><code>SupportedLanguages</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for discovering supported languages.</div>
+    <div class="field-items">
+      <div class="param">languages (optional)</div><div class="param-desc"><span class="param-type"><a href="#SupportedLanguage">array[SupportedLanguage]</a></span> A list of supported language responses. This list contains an entry for each language the Translation API supports. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TranslateDocumentRequest"><code>TranslateDocumentRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A document translation request.</div>
+    <div class="field-items">
+      <div class="param">customizedAttribution (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. This flag is to support user customized attribution. If not provided, the default is <code>Machine Translated by Google</code>. Customized attribution should follow rules in https://cloud.google.com/translate/attribution#attribution_and_logos </div>
+<div class="param">documentInputConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#DocumentInputConfig">DocumentInputConfig</a></span>  </div>
+<div class="param">documentOutputConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#DocumentOutputConfig">DocumentOutputConfig</a></span>  </div>
+<div class="param">enableRotationCorrection (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. If true, enable auto rotation correction in DVS. </div>
+<div class="param">enableShadowRemovalNativePdf (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. If true, use the text removal server to remove the shadow text on background image for native pdf translation. Shadow removal feature can only be enabled when is_translate_native_pdf_only: false &amp;&amp; pdf_native_only: false </div>
+<div class="param">glossaryConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#TranslateTextGlossaryConfig">TranslateTextGlossaryConfig</a></span>  </div>
+<div class="param">isTranslateNativePdfOnly (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. is_translate_native_pdf_only field for external customers. If true, the page limit of online native pdf translation is 300 and only native pdf pages will be translated. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. See https://cloud.google.com/translate/docs/advanced/labels for more information. </div>
+<div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The <code>model</code> type requested for this translation. The format depends on model type: - AutoML Translation models: <code>projects/{project-number-or-id}/locations/{location-id}/models/{model-id}</code> - General (built-in) models: <code>projects/{project-number-or-id}/locations/{location-id}/models/general/nmt</code>, If not provided, the default Google model (NMT) will be used for translation. </div>
+<div class="param">sourceLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The BCP-47 language code of the input document if known, for example, &quot;en-US&quot; or &quot;sr-Latn&quot;. Supported language codes are listed in Language Support. If the source language isn't specified, the API attempts to identify the source language automatically and returns the source language within the response. Source language must be specified if the request contains a glossary or a custom model. </div>
+<div class="param">targetLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The BCP-47 language code to use for translation of the input document, set to one of the language codes listed in Language Support. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TranslateDocumentResponse"><code>TranslateDocumentResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A translated document response message.</div>
+    <div class="field-items">
+      <div class="param">documentTranslation (optional)</div><div class="param-desc"><span class="param-type"><a href="#DocumentTranslation">DocumentTranslation</a></span>  </div>
+<div class="param">glossaryConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#TranslateTextGlossaryConfig">TranslateTextGlossaryConfig</a></span>  </div>
+<div class="param">glossaryDocumentTranslation (optional)</div><div class="param-desc"><span class="param-type"><a href="#DocumentTranslation">DocumentTranslation</a></span>  </div>
+<div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Only present when 'model' is present in the request. 'model' is normalized to have a project number. For example: If the 'model' field in TranslateDocumentRequest is: <code>projects/{project-id}/locations/{location-id}/models/general/nmt</code> then <code>model</code> here would be normalized to <code>projects/{project-number}/locations/{location-id}/models/general/nmt</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TranslateTextGlossaryConfig"><code>TranslateTextGlossaryConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Configures which glossary should be used for a specific target language, and defines options for applying that glossary.</div>
+    <div class="field-items">
+      <div class="param">glossary (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. Specifies the glossary used for this translation. Use this format: projects/<em>/locations/</em>/glossaries/* </div>
+<div class="param">ignoreCase (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. Indicates match is case-insensitive. Default value is false if missing. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TranslateTextRequest"><code>TranslateTextRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The request message for synchronous translation.</div>
+    <div class="field-items">
+      <div class="param">contents (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Required. The content of the input in string format. We recommend the total content be less than 30k codepoints. The max length of this field is 1024. Use BatchTranslateText for larger text. </div>
+<div class="param">glossaryConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#TranslateTextGlossaryConfig">TranslateTextGlossaryConfig</a></span>  </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. See https://cloud.google.com/translate/docs/labels for more information. </div>
+<div class="param">mimeType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The format of the source text, for example, &quot;text/html&quot;, &quot;text/plain&quot;. If left blank, the MIME type defaults to &quot;text/html&quot;. </div>
+<div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The <code>model</code> type requested for this translation. The format depends on model type: - AutoML Translation models: <code>projects/{project-number-or-id}/locations/{location-id}/models/{model-id}</code> - General (built-in) models: <code>projects/{project-number-or-id}/locations/{location-id}/models/general/nmt</code>, For global (non-regionalized) requests, use <code>location-id</code> <code>global</code>. For example, <code>projects/{project-number-or-id}/locations/global/models/general/nmt</code>. If not provided, the default Google model (NMT) will be used </div>
+<div class="param">sourceLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The BCP-47 language code of the input text if known, for example, &quot;en-US&quot; or &quot;sr-Latn&quot;. Supported language codes are listed in Language Support. If the source language isn't specified, the API attempts to identify the source language automatically and returns the source language within the response. </div>
+<div class="param">targetLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The BCP-47 language code to use for translation of the input text, set to one of the language codes listed in Language Support. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TranslateTextResponse"><code>TranslateTextResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">glossaryTranslations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Translation">array[Translation]</a></span> Text translation responses if a glossary is provided in the request. This can be the same as <code>translations</code> if no terms apply. This field has the same length as <code>contents</code>. </div>
+<div class="param">translations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Translation">array[Translation]</a></span> Text translation responses with no glossary applied. This field has the same length as <code>contents</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Translation"><code>Translation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A single translation response.</div>
+    <div class="field-items">
+      <div class="param">detectedLanguageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The BCP-47 language code of source text in the initial request, detected automatically, if no source language was passed within the initial request. If the source language was passed, auto-detection of the language does not occur and this field is empty. </div>
+<div class="param">glossaryConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#TranslateTextGlossaryConfig">TranslateTextGlossaryConfig</a></span>  </div>
+<div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Only present when <code>model</code> is present in the request. <code>model</code> here is normalized to have project number. For example: If the <code>model</code> requested in TranslationTextRequest is <code>projects/{project-id}/locations/{location-id}/models/general/nmt</code> then <code>model</code> here would be normalized to <code>projects/{project-number}/locations/{location-id}/models/general/nmt</code>. </div>
+<div class="param">translatedText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Text translated into the target language. If an error occurs during translation, this field might be excluded from the response. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WaitOperationRequest"><code>WaitOperationRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The request message for Operations.WaitOperation.</div>
+    <div class="field-items">
+      <div class="param">timeout (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used. format: google-duration</div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

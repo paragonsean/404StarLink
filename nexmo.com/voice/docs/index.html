@@ -1,0 +1,1285 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Voice API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Voice API</h1>
+    <div class="app-desc">The Voice API lets you create outbound calls, control in-progress calls and get information about historical calls. More information about the Voice API can be found at <a href="https://developer.nexmo.com/voice/voice-api/overview">https://developer.nexmo.com/voice/voice-api/overview</a>.</div>
+    <div class="app-desc">More information: <a href="https://developer.nexmo.com/">https://developer.nexmo.com/</a></div>
+    <div class="app-desc">Contact Info: <a href="devrel@vonage.com">devrel@vonage.com</a></div>
+    <div class="app-desc">Version: 1.3.10</div>
+    <div class="app-desc">BasePath:/v1/calls</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>HTTP Bearer Token authentication (JWT)</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Calls">Calls</a></h4>
+  <ul>
+  <li><a href="#createCall"><code><span class="http-method">post</span> /</code></a></li>
+  <li><a href="#getCall"><code><span class="http-method">get</span> /{uuid}</code></a></li>
+  <li><a href="#getCalls"><code><span class="http-method">get</span> /</code></a></li>
+  <li><a href="#updateCall"><code><span class="http-method">put</span> /{uuid}</code></a></li>
+  </ul>
+  <h4><a href="#PlayDTMF">PlayDTMF</a></h4>
+  <ul>
+  <li><a href="#startDTMF"><code><span class="http-method">put</span> /{uuid}/dtmf</code></a></li>
+  </ul>
+  <h4><a href="#PlayTTS">PlayTTS</a></h4>
+  <ul>
+  <li><a href="#startTalk"><code><span class="http-method">put</span> /{uuid}/talk</code></a></li>
+  <li><a href="#stopTalk"><code><span class="http-method">delete</span> /{uuid}/talk</code></a></li>
+  </ul>
+  <h4><a href="#StreamAudio">StreamAudio</a></h4>
+  <ul>
+  <li><a href="#startStream"><code><span class="http-method">put</span> /{uuid}/stream</code></a></li>
+  <li><a href="#stopStream"><code><span class="http-method">delete</span> /{uuid}/stream</code></a></li>
+  </ul>
+
+  <h1><a name="Calls">Calls</a></h1>
+  <div class="method"><a name="createCall"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /</code></pre></div>
+    <div class="method-summary">Create an outbound call (<span class="nickname">createCall</span>)</div>
+    <div class="method-notes">Create an outbound Call</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">createCall_request <a href="#createCall_request">createCall_request</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CreateCallResponse">CreateCallResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356",
+  "conversation_uuid" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "direction" : "outbound",
+  "status" : "completed"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#CreateCallResponse">CreateCallResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCall"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{uuid}</code></pre></div>
+    <div class="method-summary">Get detail of a specific call (<span class="nickname">getCall</span>)</div>
+    <div class="method-notes">Get detail of a specific call</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; UUID of the Call default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetCallResponse">GetCallResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "_links" : {
+    "self" : {
+      "href" : "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
+    }
+  },
+  "end_time" : "2020-01-01 12:00:00",
+  "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356",
+  "network" : "65512",
+  "duration" : "60",
+  "start_time" : "2020-01-01 12:00:00",
+  "rate" : "0.39",
+  "price" : "23.40",
+  "from" : {
+    "number" : "447700900001",
+    "type" : "phone"
+  },
+  "to" : {
+    "number" : "447700900000",
+    "type" : "phone"
+  },
+  "conversation_uuid" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "direction" : "outbound",
+  "status" : "completed"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#GetCallResponse">GetCallResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCalls"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /</code></pre></div>
+    <div class="method-summary">Get details of your calls (<span class="nickname">getCalls</span>)</div>
+    <div class="method-notes">Get details of your calls</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by call status default: null </div><div class="param">date_start (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return the records that occurred after this point in time default: null format: date-time</div><div class="param">date_end (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return the records that occurred before this point in time default: null format: date-time</div><div class="param">page_size (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return this amount of records in the response default: 10 </div><div class="param">record_index (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return calls from this index in the response default: 0 </div><div class="param">order (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Either ascending or  descending order. default: asc </div><div class="param">conversation_uuid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return all the records associated with a specific conversation. default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetCallsResponse">GetCallsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "record_index" : 0,
+  "_embedded" : {
+    "calls" : [ {
+      "_links" : {
+        "self" : {
+          "href" : "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
+        }
+      },
+      "end_time" : "2020-01-01 12:00:00",
+      "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356",
+      "network" : "65512",
+      "duration" : "60",
+      "start_time" : "2020-01-01 12:00:00",
+      "rate" : "0.39",
+      "price" : "23.40",
+      "from" : {
+        "number" : "447700900001",
+        "type" : "phone"
+      },
+      "to" : {
+        "number" : "447700900000",
+        "type" : "phone"
+      },
+      "conversation_uuid" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+      "direction" : "outbound",
+      "status" : "completed"
+    }, {
+      "_links" : {
+        "self" : {
+          "href" : "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
+        }
+      },
+      "end_time" : "2020-01-01 12:00:00",
+      "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356",
+      "network" : "65512",
+      "duration" : "60",
+      "start_time" : "2020-01-01 12:00:00",
+      "rate" : "0.39",
+      "price" : "23.40",
+      "from" : {
+        "number" : "447700900001",
+        "type" : "phone"
+      },
+      "to" : {
+        "number" : "447700900000",
+        "type" : "phone"
+      },
+      "conversation_uuid" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+      "direction" : "outbound",
+      "status" : "completed"
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "/calls?page_size=10&record_index=20&order=asc"
+    }
+  },
+  "count" : 100,
+  "page_size" : 10
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#GetCallsResponse">GetCallsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateCall"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /{uuid}</code></pre></div>
+    <div class="method-summary">Modify an in progress call (<span class="nickname">updateCall</span>)</div>
+    <div class="method-notes">Modify an in progress call</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; UUID of the Call default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">updateCall_request <a href="#updateCall_request">updateCall_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No Content
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="PlayDTMF">PlayDTMF</a></h1>
+  <div class="method"><a name="startDTMF"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /{uuid}/dtmf</code></pre></div>
+    <div class="method-summary">Play DTMF tones into a call (<span class="nickname">startDTMF</span>)</div>
+    <div class="method-notes">Play DTMF tones into a call</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; UUID of the Call Leg default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DTMFRequest <a href="#DTMFRequest">DTMFRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DTMFResponse">DTMFResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "DTMF sent",
+  "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#DTMFResponse">DTMFResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="PlayTTS">PlayTTS</a></h1>
+  <div class="method"><a name="startTalk"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /{uuid}/talk</code></pre></div>
+    <div class="method-summary">Play text to speech into a call (<span class="nickname">startTalk</span>)</div>
+    <div class="method-notes">Play text to speech into a call</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; UUID of the Call Leg default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">StartTalkRequest <a href="#StartTalkRequest">StartTalkRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#StartTalkResponse">StartTalkResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Talk started",
+  "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#StartTalkResponse">StartTalkResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="stopTalk"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /{uuid}/talk</code></pre></div>
+    <div class="method-summary">Stop text to speech in a call (<span class="nickname">stopTalk</span>)</div>
+    <div class="method-notes">Stop text to speech in a call</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; UUID of the Call Leg default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#StopTalkResponse">StopTalkResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Talk stopped",
+  "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#StopTalkResponse">StopTalkResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="StreamAudio">StreamAudio</a></h1>
+  <div class="method"><a name="startStream"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /{uuid}/stream</code></pre></div>
+    <div class="method-summary">Play an audio file into a call (<span class="nickname">startStream</span>)</div>
+    <div class="method-notes">Play an audio file into a call</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; UUID of the Call Leg default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">StartStreamRequest <a href="#StartStreamRequest">StartStreamRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#StartStreamResponse">StartStreamResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Stream started",
+  "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#StartStreamResponse">StartStreamResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="stopStream"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /{uuid}/stream</code></pre></div>
+    <div class="method-summary">Stop playing an audio file into a call (<span class="nickname">stopStream</span>)</div>
+    <div class="method-notes">Stop playing an audio file into a call</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; UUID of the Call Leg default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#StopStreamResponse">StopStreamResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "Stream stopped",
+  "uuid" : "63f61863-4a51-4f6b-86e1-46edebcf9356"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#StopStreamResponse">StopStreamResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#CreateCallRequestAnswerUrl"><code>CreateCallRequestAnswerUrl</code> - </a></li>
+    <li><a href="#CreateCallRequestBase"><code>CreateCallRequestBase</code> - </a></li>
+    <li><a href="#CreateCallRequestBase_to_inner"><code>CreateCallRequestBase_to_inner</code> - </a></li>
+    <li><a href="#CreateCallRequestNcco"><code>CreateCallRequestNcco</code> - </a></li>
+    <li><a href="#CreateCallResponse"><code>CreateCallResponse</code> - </a></li>
+    <li><a href="#DTMFRequest"><code>DTMFRequest</code> - </a></li>
+    <li><a href="#DTMFResponse"><code>DTMFResponse</code> - </a></li>
+    <li><a href="#EndpointApp"><code>EndpointApp</code> - </a></li>
+    <li><a href="#EndpointPhoneFrom"><code>EndpointPhoneFrom</code> - </a></li>
+    <li><a href="#EndpointPhoneTo"><code>EndpointPhoneTo</code> - </a></li>
+    <li><a href="#EndpointSip"><code>EndpointSip</code> - </a></li>
+    <li><a href="#EndpointVBCExtension"><code>EndpointVBCExtension</code> - </a></li>
+    <li><a href="#EndpointWebsocket"><code>EndpointWebsocket</code> - </a></li>
+    <li><a href="#EndpointWebsocket_headers"><code>EndpointWebsocket_headers</code> - </a></li>
+    <li><a href="#GetCallResponse"><code>GetCallResponse</code> - </a></li>
+    <li><a href="#GetCallResponse__links"><code>GetCallResponse__links</code> - </a></li>
+    <li><a href="#GetCallResponse__links_self"><code>GetCallResponse__links_self</code> - </a></li>
+    <li><a href="#GetCallsResponse"><code>GetCallsResponse</code> - </a></li>
+    <li><a href="#GetCallsResponse__embedded"><code>GetCallsResponse__embedded</code> - </a></li>
+    <li><a href="#GetCallsResponse__links"><code>GetCallsResponse__links</code> - </a></li>
+    <li><a href="#GetCallsResponse__links_self"><code>GetCallsResponse__links_self</code> - </a></li>
+    <li><a href="#RequestTransferActionParam"><code>RequestTransferActionParam</code> - </a></li>
+    <li><a href="#StartStreamRequest"><code>StartStreamRequest</code> - </a></li>
+    <li><a href="#StartStreamResponse"><code>StartStreamResponse</code> - </a></li>
+    <li><a href="#StartTalkRequest"><code>StartTalkRequest</code> - </a></li>
+    <li><a href="#StartTalkResponse"><code>StartTalkResponse</code> - </a></li>
+    <li><a href="#StopStreamResponse"><code>StopStreamResponse</code> - </a></li>
+    <li><a href="#StopTalkResponse"><code>StopTalkResponse</code> - </a></li>
+    <li><a href="#UpdateCallRequestEarmuff"><code>UpdateCallRequestEarmuff</code> - Earmuff</a></li>
+    <li><a href="#UpdateCallRequestHangup"><code>UpdateCallRequestHangup</code> - Hangup</a></li>
+    <li><a href="#UpdateCallRequestMute"><code>UpdateCallRequestMute</code> - Mute</a></li>
+    <li><a href="#UpdateCallRequestTransferAnswerUrl"><code>UpdateCallRequestTransferAnswerUrl</code> - Transfer with Answer URL</a></li>
+    <li><a href="#UpdateCallRequestTransferAnswerUrl_destination"><code>UpdateCallRequestTransferAnswerUrl_destination</code> - </a></li>
+    <li><a href="#UpdateCallRequestTransferNcco"><code>UpdateCallRequestTransferNcco</code> - Transfer with NCCO</a></li>
+    <li><a href="#UpdateCallRequestTransferNcco_destination"><code>UpdateCallRequestTransferNcco_destination</code> - </a></li>
+    <li><a href="#UpdateCallRequestUnearmuff"><code>UpdateCallRequestUnearmuff</code> - Unearmuff</a></li>
+    <li><a href="#UpdateCallRequestUnmute"><code>UpdateCallRequestUnmute</code> - Unmute</a></li>
+    <li><a href="#createCall_request"><code>createCall_request</code> - </a></li>
+    <li><a href="#direction"><code>direction</code> - </a></li>
+    <li><a href="#from"><code>from</code> - </a></li>
+    <li><a href="#language"><code>language</code> - </a></li>
+    <li><a href="#to"><code>to</code> - </a></li>
+    <li><a href="#updateCall_request"><code>updateCall_request</code> - </a></li>
+    <li><a href="#voice_name"><code>voice_name</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="CreateCallRequestAnswerUrl"><code>CreateCallRequestAnswerUrl</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">event_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP method used to send event information to <code>event_url</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">POST</div><div class="param-enum">GET</div>
+<div class="param">event_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">array[URI]</a></span> <p><strong>Required</strong> unless <code>event_url</code> is configured at the application
+level, see <a href="/api/application.v2#createApplication">Create an Application</a></p>
+<p>The webhook endpoint where call progress events are
+sent to. For more information about the values sent, see
+<a href="/voice/voice-api/webhook-reference#event-webhook">Event webhook</a>.</p>
+ format: uri</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#EndpointPhoneFrom">EndpointPhoneFrom</a></span>  </div>
+<div class="param">length_timer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the number of seconds that elapse before Vonage hangs up after the call state changes to answered. </div>
+<div class="param">machine_detection (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Configure the behavior when Vonage detects that the call is answered by voicemail. If <code>continue</code>, Vonage sends an HTTP request to <code>event_url</code> with the Call event machine. If <code>hangup</code>, Vonage ends the call. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">continue</div><div class="param-enum">hangup</div>
+<div class="param">random_from_number (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Set to <code>true</code> to use random phone number as <code>from</code>. The number will be selected from the list of the numbers assigned to the current application. <code>random_from_number: true</code> cannot be used together with <code>from</code>. </div>
+<div class="param">ringing_timer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the number of seconds that elapse before Vonage hangs up after the call state changes to ‘ringing’. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#CreateCallRequestBase_to_inner">array[CreateCallRequestBase_to_inner]</a></span>  </div>
+<div class="param">answer_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP method used to send event information to answer_url. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">POST</div><div class="param-enum">GET</div>
+<div class="param">answer_url </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The webhook endpoint where you provide the <a href="/voice/voice-api/ncco-reference">Nexmo Call Control Object</a> that governs this call. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateCallRequestBase"><code>CreateCallRequestBase</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">event_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP method used to send event information to <code>event_url</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">POST</div><div class="param-enum">GET</div>
+<div class="param">event_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">array[URI]</a></span> <p><strong>Required</strong> unless <code>event_url</code> is configured at the application
+level, see <a href="/api/application.v2#createApplication">Create an Application</a></p>
+<p>The webhook endpoint where call progress events are
+sent to. For more information about the values sent, see
+<a href="/voice/voice-api/webhook-reference#event-webhook">Event webhook</a>.</p>
+ format: uri</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#EndpointPhoneFrom">EndpointPhoneFrom</a></span>  </div>
+<div class="param">length_timer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the number of seconds that elapse before Vonage hangs up after the call state changes to answered. </div>
+<div class="param">machine_detection (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Configure the behavior when Vonage detects that the call is answered by voicemail. If <code>continue</code>, Vonage sends an HTTP request to <code>event_url</code> with the Call event machine. If <code>hangup</code>, Vonage ends the call. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">continue</div><div class="param-enum">hangup</div>
+<div class="param">random_from_number (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Set to <code>true</code> to use random phone number as <code>from</code>. The number will be selected from the list of the numbers assigned to the current application. <code>random_from_number: true</code> cannot be used together with <code>from</code>. </div>
+<div class="param">ringing_timer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the number of seconds that elapse before Vonage hangs up after the call state changes to ‘ringing’. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#CreateCallRequestBase_to_inner">array[CreateCallRequestBase_to_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateCallRequestBase_to_inner"><code>CreateCallRequestBase_to_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dtmfAnswer (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Provide <a href="https://developer.nexmo.com/voice/voice-api/guides/dtmf">DTMF digits</a> to send when the call is answered </div>
+<div class="param">number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number to connect to </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of connection. Must be <code>vbc</code> </div>
+<div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">contentMinustype </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">audio/l16;rate=8000</div><div class="param-enum">audio/l16;rate=16000</div>
+<div class="param">headers (optional)</div><div class="param-desc"><span class="param-type"><a href="#EndpointWebsocket_headers">EndpointWebsocket_headers</a></span>  </div>
+<div class="param">extension </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateCallRequestNcco"><code>CreateCallRequestNcco</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">event_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP method used to send event information to <code>event_url</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">POST</div><div class="param-enum">GET</div>
+<div class="param">event_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">array[URI]</a></span> <p><strong>Required</strong> unless <code>event_url</code> is configured at the application
+level, see <a href="/api/application.v2#createApplication">Create an Application</a></p>
+<p>The webhook endpoint where call progress events are
+sent to. For more information about the values sent, see
+<a href="/voice/voice-api/webhook-reference#event-webhook">Event webhook</a>.</p>
+ format: uri</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#EndpointPhoneFrom">EndpointPhoneFrom</a></span>  </div>
+<div class="param">length_timer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the number of seconds that elapse before Vonage hangs up after the call state changes to answered. </div>
+<div class="param">machine_detection (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Configure the behavior when Vonage detects that the call is answered by voicemail. If <code>continue</code>, Vonage sends an HTTP request to <code>event_url</code> with the Call event machine. If <code>hangup</code>, Vonage ends the call. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">continue</div><div class="param-enum">hangup</div>
+<div class="param">random_from_number (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Set to <code>true</code> to use random phone number as <code>from</code>. The number will be selected from the list of the numbers assigned to the current application. <code>random_from_number: true</code> cannot be used together with <code>from</code>. </div>
+<div class="param">ringing_timer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the number of seconds that elapse before Vonage hangs up after the call state changes to ‘ringing’. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#CreateCallRequestBase_to_inner">array[CreateCallRequestBase_to_inner]</a></span>  </div>
+<div class="param">ncco </div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span> The <a href="/voice/voice-api/ncco-reference">Nexmo Call Control Object</a> to use for this call. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateCallResponse"><code>CreateCallResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">conversation_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for the conversation this call leg is part of. format: uuid</div>
+<div class="param">direction (optional)</div><div class="param-desc"><span class="param-type"><a href="#direction">direction</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The status of the call. <a href="https://developer.nexmo.com/voice/voice-api/guides/call-flow#event-objects">See possible values</a> </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for this call leg. The UUID is created when your call request is accepted by Vonage. You use the UUID in all requests for individual live calls format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DTMFRequest"><code>DTMFRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">digits (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The digits to send </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DTMFResponse"><code>DTMFResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description of the action taken </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for this call leg. The UUID is created when your call request is accepted by Vonage. You use the UUID in all requests for individual live calls format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndpointApp"><code>EndpointApp</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Connect to an App User</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of connection. Must be <code>app</code> </div>
+<div class="param">user </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The username to connect to </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndpointPhoneFrom"><code>EndpointPhoneFrom</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Connect to a Phone (PSTN) number</div>
+    <div class="field-items">
+      <div class="param">number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number to connect to </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of connection. Must be <code>phone</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndpointPhoneTo"><code>EndpointPhoneTo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Connect to a Phone (PSTN) number</div>
+    <div class="field-items">
+      <div class="param">dtmfAnswer (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Provide <a href="https://developer.nexmo.com/voice/voice-api/guides/dtmf">DTMF digits</a> to send when the call is answered </div>
+<div class="param">number </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number to connect to </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of connection. Must be <code>phone</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndpointSip"><code>EndpointSip</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Connect to a SIP Endpoint</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of connection. Must be <code>sip</code> </div>
+<div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SIP URI to connect to </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndpointVBCExtension"><code>EndpointVBCExtension</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Connect to a VBC extension</div>
+    <div class="field-items">
+      <div class="param">extension </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of connection. Must be <code>vbc</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndpointWebsocket"><code>EndpointWebsocket</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Connect to a Websocket</div>
+    <div class="field-items">
+      <div class="param">contentMinustype </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">audio/l16;rate=8000</div><div class="param-enum">audio/l16;rate=16000</div>
+<div class="param">headers (optional)</div><div class="param-desc"><span class="param-type"><a href="#EndpointWebsocket_headers">EndpointWebsocket_headers</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of connection. Must be <code>websocket</code> </div>
+<div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndpointWebsocket_headers"><code>EndpointWebsocket_headers</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Details of the Websocket you want to connect to</div>
+    <div class="field-items">
+      <div class="param">customer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> This is an example header. You can provide any headers you may need </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetCallResponse"><code>GetCallResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">_links (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetCallResponse__links">GetCallResponse__links</a></span>  </div>
+<div class="param">conversation_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for the conversation this call leg is part of. format: uuid</div>
+<div class="param">direction (optional)</div><div class="param-desc"><span class="param-type"><a href="#direction">direction</a></span>  </div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time elapsed for the call to take place in seconds. This is only sent if <code>status</code> is <code>completed</code>. </div>
+<div class="param">end_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time the call started in the following format: <code>YYYY-MM-DD HH:MM:SS</code>. For xample, <code>2020-01-01 12:00:00</code>. This is only sent if <code>status</code> is <code>completed</code>. format: timestamp</div>
+<div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#from">from</a></span>  </div>
+<div class="param">network (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Mobile Country Code Mobile Network Code (<a href="https://en.wikipedia.org/wiki/Mobile_country_code">MCCMNC</a>) for the carrier network used to make this call. This is only sent if <code>status</code> is <code>completed</code>. </div>
+<div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The total price charged for this call. This is only sent if <code>status</code> is <code>completed</code>. </div>
+<div class="param">rate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The price per minute for this call. This is only sent if <code>status</code> is <code>completed</code>. </div>
+<div class="param">start_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time the call started in the following format: <code>YYYY-MM-DD HH:MM:SS</code>. For example, <code>2020-01-01 12:00:00</code>. This is only sent if <code>status</code> is <code>completed</code>. format: timestamp</div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The status of the call. <a href="https://developer.nexmo.com/voice/voice-api/guides/call-flow#event-objects">See possible values</a> </div>
+<div class="param">to (optional)</div><div class="param-desc"><span class="param-type"><a href="#to">to</a></span>  </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for this call leg. The UUID is created when your call request is accepted by Vonage. You use the UUID in all requests for individual live calls format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetCallResponse__links"><code>GetCallResponse__links</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">self (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetCallResponse__links_self">GetCallResponse__links_self</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetCallResponse__links_self"><code>GetCallResponse__links_self</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetCallsResponse"><code>GetCallsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">_embedded (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetCallsResponse__embedded">GetCallsResponse__embedded</a></span>  </div>
+<div class="param">_links (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetCallsResponse__links">GetCallsResponse__links</a></span>  </div>
+<div class="param">count (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">page_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">record_index (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetCallsResponse__embedded"><code>GetCallsResponse__embedded</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A list of call objects. See the <a href="#getCall">get details of a specific call</a> response fields for a description of the nested objects</div>
+    <div class="field-items">
+      <div class="param">calls (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetCallResponse">array[GetCallResponse]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetCallsResponse__links"><code>GetCallsResponse__links</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">self (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetCallsResponse__links_self">GetCallsResponse__links_self</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetCallsResponse__links_self"><code>GetCallsResponse__links_self</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RequestTransferActionParam"><code>RequestTransferActionParam</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Transfer the call to a new NCCO</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartStreamRequest"><code>StartStreamRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">level (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Set the audio level of the stream in the range <code>-1 &gt;= level &lt;= 1</code> with a precision of 0.1. The default value is 0. </div>
+<div class="param">loop (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> the number of times to play the file, 0 for infinite </div>
+<div class="param">stream_url </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartStreamResponse"><code>StartStreamResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description of the action taken </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for this call leg. The UUID is created when your call request is accepted by Vonage. You use the UUID in all requests for individual live calls format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTalkRequest"><code>StartTalkRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">language (optional)</div><div class="param-desc"><span class="param-type"><a href="#language">language</a></span>  </div>
+<div class="param">level (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The volume level that the speech is played. This can be any value between <code>-1</code> to <code>1</code> in <code>0.1</code> increments, with <code>0</code> being the default. </div>
+<div class="param">loop (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of times to repeat the text the file, 0 for infinite </div>
+<div class="param">premium (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Set to true to use the premium version of the specified style if available, otherwise the standard version will be used. The default value is false. You can find more information about Premium Voices in the <a href="/voice/voice-api/guides/text-to-speech#premium-voices">Text-To-Speech guide</a>. </div>
+<div class="param">style (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The vocal style (vocal range, tessitura, and timbre) to use </div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The text to read </div>
+<div class="param">voice_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#voice_name">voice_name</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTalkResponse"><code>StartTalkResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description of the action taken </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for this call leg. The UUID is created when your call request is accepted by Vonage. You use the UUID in all requests for individual live calls format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StopStreamResponse"><code>StopStreamResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description of the action taken </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for this call leg. The UUID is created when your call request is accepted by Vonage. You use the UUID in all requests for individual live calls format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StopTalkResponse"><code>StopTalkResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description of the action taken </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier for this call leg. The UUID is created when your call request is accepted by Vonage. You use the UUID in all requests for individual live calls format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestEarmuff"><code>UpdateCallRequestEarmuff</code> - Earmuff</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Prevent the specified UUID from hearing audio </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">earmuff</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestHangup"><code>UpdateCallRequestHangup</code> - Hangup</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> End the call for the specified UUID </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">hangup</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestMute"><code>UpdateCallRequestMute</code> - Mute</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Mute the specified UUID </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mute</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestTransferAnswerUrl"><code>UpdateCallRequestTransferAnswerUrl</code> - Transfer with Answer URL</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action </div><div class="param-desc"><span class="param-type"><a href="#RequestTransferActionParam">RequestTransferActionParam</a></span>  </div>
+<div class="param">destination </div><div class="param-desc"><span class="param-type"><a href="#UpdateCallRequestTransferAnswerUrl_destination">UpdateCallRequestTransferAnswerUrl_destination</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestTransferAnswerUrl_destination"><code>UpdateCallRequestTransferAnswerUrl_destination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Always <code>ncco</code> </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The URL that Vonage makes a request to. Must return an NCCO. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestTransferNcco"><code>UpdateCallRequestTransferNcco</code> - Transfer with NCCO</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action </div><div class="param-desc"><span class="param-type"><a href="#RequestTransferActionParam">RequestTransferActionParam</a></span>  </div>
+<div class="param">destination </div><div class="param-desc"><span class="param-type"><a href="#UpdateCallRequestTransferNcco_destination">UpdateCallRequestTransferNcco_destination</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestTransferNcco_destination"><code>UpdateCallRequestTransferNcco_destination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ncco </div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span> Refer to the <a href="https://developer.nexmo.com/voice/voice-api/ncco-reference">NCCO Guide</a> for a description of possible NCCO parameters. </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Always <code>ncco</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestUnearmuff"><code>UpdateCallRequestUnearmuff</code> - Unearmuff</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Allow the specified UUID to hear audio </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">unearmuff</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateCallRequestUnmute"><code>UpdateCallRequestUnmute</code> - Unmute</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unmute the specified UUID </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mute</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="createCall_request"><code>createCall_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ncco </div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span> The <a href="/voice/voice-api/ncco-reference">Nexmo Call Control Object</a> to use for this call. </div>
+<div class="param">event_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP method used to send event information to <code>event_url</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">POST</div><div class="param-enum">GET</div>
+<div class="param">event_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">array[URI]</a></span> <p><strong>Required</strong> unless <code>event_url</code> is configured at the application
+level, see <a href="/api/application.v2#createApplication">Create an Application</a></p>
+<p>The webhook endpoint where call progress events are
+sent to. For more information about the values sent, see
+<a href="/voice/voice-api/webhook-reference#event-webhook">Event webhook</a>.</p>
+ format: uri</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#EndpointPhoneFrom">EndpointPhoneFrom</a></span>  </div>
+<div class="param">length_timer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the number of seconds that elapse before Vonage hangs up after the call state changes to answered. </div>
+<div class="param">machine_detection (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Configure the behavior when Vonage detects that the call is answered by voicemail. If <code>continue</code>, Vonage sends an HTTP request to <code>event_url</code> with the Call event machine. If <code>hangup</code>, Vonage ends the call. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">continue</div><div class="param-enum">hangup</div>
+<div class="param">random_from_number (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Set to <code>true</code> to use random phone number as <code>from</code>. The number will be selected from the list of the numbers assigned to the current application. <code>random_from_number: true</code> cannot be used together with <code>from</code>. </div>
+<div class="param">ringing_timer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the number of seconds that elapse before Vonage hangs up after the call state changes to ‘ringing’. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#CreateCallRequestBase_to_inner">array[CreateCallRequestBase_to_inner]</a></span>  </div>
+<div class="param">answer_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The HTTP method used to send event information to answer_url. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">POST</div><div class="param-enum">GET</div>
+<div class="param">answer_url </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The webhook endpoint where you provide the <a href="/voice/voice-api/ncco-reference">Nexmo Call Control Object</a> that governs this call. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="direction"><code>direction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Possible values are <code>outbound</code> or <code>inbound</code></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="from"><code>from</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The endpoint you called from. Possible values are the same as <code>to</code>.</div>
+    <div class="field-items">
+      <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="language"><code>language</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The language to use</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="to"><code>to</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The single or mixed collection of endpoint types you connected to</div>
+    <div class="field-items">
+      <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="updateCall_request"><code>updateCall_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Allow the specified UUID to hear audio </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">unearmuff</div>
+<div class="param">destination </div><div class="param-desc"><span class="param-type"><a href="#UpdateCallRequestTransferAnswerUrl_destination">UpdateCallRequestTransferAnswerUrl_destination</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="voice_name"><code>voice_name</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><strong>DEPRECATED</strong> The voice &amp; language to use</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

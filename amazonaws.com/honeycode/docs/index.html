@@ -1,0 +1,2591 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Amazon Honeycode</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Amazon Honeycode</h1>
+    <div class="app-desc">Amazon Honeycode is a fully managed service that allows you to quickly build mobile and web apps for teams—without programming. Build Honeycode apps for managing almost anything, like projects, customers, operations, approvals, resources, and even your team.</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2020-03-01</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#batchCreateTableRows"><code><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/batchcreate</code></a></li>
+  <li><a href="#batchDeleteTableRows"><code><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/batchdelete</code></a></li>
+  <li><a href="#batchUpdateTableRows"><code><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/batchupdate</code></a></li>
+  <li><a href="#batchUpsertTableRows"><code><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/batchupsert</code></a></li>
+  <li><a href="#describeTableDataImportJob"><code><span class="http-method">get</span> /workbooks/{workbookId}/tables/{tableId}/import/{jobId}</code></a></li>
+  <li><a href="#getScreenData"><code><span class="http-method">post</span> /screendata</code></a></li>
+  <li><a href="#invokeScreenAutomation"><code><span class="http-method">post</span> /workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{automationId}</code></a></li>
+  <li><a href="#listTableColumns"><code><span class="http-method">get</span> /workbooks/{workbookId}/tables/{tableId}/columns</code></a></li>
+  <li><a href="#listTableRows"><code><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/list</code></a></li>
+  <li><a href="#listTables"><code><span class="http-method">get</span> /workbooks/{workbookId}/tables</code></a></li>
+  <li><a href="#listTagsForResource"><code><span class="http-method">get</span> /tags/{resourceArn}</code></a></li>
+  <li><a href="#queryTableRows"><code><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/query</code></a></li>
+  <li><a href="#startTableDataImportJob"><code><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/import</code></a></li>
+  <li><a href="#tagResource"><code><span class="http-method">post</span> /tags/{resourceArn}</code></a></li>
+  <li><a href="#untagResource"><code><span class="http-method">delete</span> /tags/{resourceArn}#tagKeys</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="batchCreateTableRows"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/batchcreate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">batchCreateTableRows</span>)</div>
+    <div class="method-notes"><p> The BatchCreateTableRows API allows you to create one or more rows at the end of a table in a workbook. The API allows you to specify the values to set in some or all of the columns in the new rows. </p> <p> If a column is not explicitly set in a specific row, then the column level formula specified in the table will be applied to the new row. If there is no column level formula but the last row of the table has a formula, then that formula will be copied down to the new row. If there is no column level formula and no formula in the last row of the table, then that column will be left blank for the new rows. </p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook where the new rows are being added.</p> <p> If a workbook with the specified ID could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table where the new rows are being added.</p> <p> If a table with the specified ID could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">BatchCreateTableRows_request <a href="#BatchCreateTableRows_request">BatchCreateTableRows_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BatchCreateTableRowsResult">BatchCreateTableRowsResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "createdRows" : "",
+  "workbookCursor" : "",
+  "failedBatchItems" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#BatchCreateTableRowsResult">BatchCreateTableRowsResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">487</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="batchDeleteTableRows"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/batchdelete</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">batchDeleteTableRows</span>)</div>
+    <div class="method-notes">The BatchDeleteTableRows API allows you to delete one or more rows from a table in a workbook. You need to specify the ids of the rows that you want to delete from the table.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook where the rows are being deleted.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table where the rows are being deleted.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">BatchDeleteTableRows_request <a href="#BatchDeleteTableRows_request">BatchDeleteTableRows_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BatchDeleteTableRowsResult">BatchDeleteTableRowsResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "workbookCursor" : "",
+  "failedBatchItems" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#BatchDeleteTableRowsResult">BatchDeleteTableRowsResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="batchUpdateTableRows"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/batchupdate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">batchUpdateTableRows</span>)</div>
+    <div class="method-notes"><p> The BatchUpdateTableRows API allows you to update one or more rows in a table in a workbook. </p> <p> You can specify the values to set in some or all of the columns in the table for the specified rows. If a column is not explicitly specified in a particular row, then that column will not be updated for that row. To clear out the data in a specific cell, you need to set the value as an empty string (""). </p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook where the rows are being updated.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table where the rows are being updated.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">BatchUpdateTableRows_request <a href="#BatchUpdateTableRows_request">BatchUpdateTableRows_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BatchUpdateTableRowsResult">BatchUpdateTableRowsResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "workbookCursor" : "",
+  "failedBatchItems" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#BatchUpdateTableRowsResult">BatchUpdateTableRowsResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="batchUpsertTableRows"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/batchupsert</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">batchUpsertTableRows</span>)</div>
+    <div class="method-notes"><p> The BatchUpsertTableRows API allows you to upsert one or more rows in a table. The upsert operation takes a filter expression as input and evaluates it to find matching rows on the destination table. If matching rows are found, it will update the cells in the matching rows to new values specified in the request. If no matching rows are found, a new row is added at the end of the table and the cells in that row are set to the new values specified in the request. </p> <p> You can specify the values to set in some or all of the columns in the table for the matching or newly appended rows. If a column is not explicitly specified for a particular row, then that column will not be updated for that row. To clear out the data in a specific cell, you need to set the value as an empty string (""). </p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook where the rows are being upserted.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table where the rows are being upserted.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">BatchUpsertTableRows_request <a href="#BatchUpsertTableRows_request">BatchUpsertTableRows_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BatchUpsertTableRowsResult">BatchUpsertTableRowsResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "rows" : "",
+  "workbookCursor" : "",
+  "failedBatchItems" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#BatchUpsertTableRowsResult">BatchUpsertTableRowsResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">487</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="describeTableDataImportJob"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /workbooks/{workbookId}/tables/{tableId}/import/{jobId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeTableDataImportJob</span>)</div>
+    <div class="method-notes">The DescribeTableDataImportJob API allows you to retrieve the status and details of a table data import job.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook into which data was imported.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table into which data was imported.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">jobId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the job that was returned by the StartTableDataImportJob request.</p> <p> If a job with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DescribeTableDataImportJobResult">DescribeTableDataImportJobResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "jobStatus" : "",
+  "jobMetadata" : {
+    "submitter" : {
+      "userArn" : "",
+      "email" : ""
+    },
+    "importOptions" : {
+      "destinationOptions" : {
+        "columnMap" : ""
+      },
+      "delimitedTextOptions" : {
+        "dataCharacterEncoding" : "",
+        "delimiter" : "",
+        "ignoreEmptyRows" : "",
+        "hasHeaderRow" : ""
+      }
+    },
+    "submitTime" : "",
+    "dataSource" : {
+      "dataSourceConfig" : {
+        "dataSourceUrl" : ""
+      }
+    }
+  },
+  "errorCode" : "",
+  "message" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#DescribeTableDataImportJobResult">DescribeTableDataImportJobResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getScreenData"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /screendata</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getScreenData</span>)</div>
+    <div class="method-notes">The GetScreenData API allows retrieval of data from a screen in a Honeycode app. The API allows setting local variables in the screen to filter, sort or otherwise affect what will be displayed on the screen.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetScreenData_request <a href="#GetScreenData_request">GetScreenData_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetScreenDataResult">GetScreenDataResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextToken" : "",
+  "workbookCursor" : "",
+  "results" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetScreenDataResult">GetScreenDataResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="invokeScreenAutomation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{automationId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">invokeScreenAutomation</span>)</div>
+    <div class="method-notes">The InvokeScreenAutomation API allows invoking an action defined in a screen in a Honeycode app. The API allows setting local variables, which can then be used in the automation being invoked. This allows automating the Honeycode app interactions to write, update or delete data in the workbook.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The ID of the workbook that contains the screen automation. default: null </div><div class="param">appId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The ID of the app that contains the screen automation. default: null </div><div class="param">screenId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The ID of the screen that contains the screen automation. default: null </div><div class="param">automationId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The ID of the automation action to be performed. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">InvokeScreenAutomation_request <a href="#InvokeScreenAutomation_request">InvokeScreenAutomation_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#InvokeScreenAutomationResult">InvokeScreenAutomationResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "workbookCursor" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#InvokeScreenAutomationResult">InvokeScreenAutomationResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    AutomationExecutionException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">487</h4>
+    AutomationExecutionTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">488</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">489</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTableColumns"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /workbooks/{workbookId}/tables/{tableId}/columns</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTableColumns</span>)</div>
+    <div class="method-notes">The ListTableColumns API allows you to retrieve a list of all the columns in a table in a workbook.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook that contains the table whose columns are being retrieved.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table whose columns are being retrieved.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">nextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTableColumnsResult">ListTableColumnsResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "tableColumns" : "",
+  "nextToken" : "",
+  "workbookCursor" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListTableColumnsResult">ListTableColumnsResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTableRows"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/list</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTableRows</span>)</div>
+    <div class="method-notes">The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook that contains the table whose rows are being retrieved.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table whose rows are being retrieved.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListTableRows_request <a href="#ListTableRows_request">ListTableRows_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">maxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">nextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTableRowsResult">ListTableRowsResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "rowIdsNotFound" : "",
+  "columnIds" : "",
+  "nextToken" : "",
+  "rows" : "",
+  "workbookCursor" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListTableRowsResult">ListTableRowsResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTables"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /workbooks/{workbookId}/tables</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTables</span>)</div>
+    <div class="method-notes">The ListTables API allows you to retrieve a list of all the tables in a workbook.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook whose tables are being retrieved.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">maxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of tables to return in each page of the results. default: null </div><div class="param">nextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTablesResult">ListTablesResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "tables" : "",
+  "nextToken" : "",
+  "workbookCursor" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListTablesResult">ListTablesResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTagsForResource"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /tags/{resourceArn}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTagsForResource</span>)</div>
+    <div class="method-notes">The ListTagsForResource API allows you to return a resource's tags.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resourceArn (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource's Amazon Resource Name (ARN). default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTagsForResourceResult">ListTagsForResourceResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "tags" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListTagsForResourceResult">ListTagsForResourceResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="queryTableRows"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/rows/query</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">queryTableRows</span>)</div>
+    <div class="method-notes">The QueryTableRows API allows you to use a filter formula to query for specific rows in a table.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook whose table rows are being queried.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table whose rows are being queried.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">QueryTableRows_request <a href="#QueryTableRows_request">QueryTableRows_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">maxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">nextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#QueryTableRowsResult">QueryTableRowsResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "columnIds" : "",
+  "nextToken" : "",
+  "rows" : "",
+  "workbookCursor" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#QueryTableRowsResult">QueryTableRowsResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="startTableDataImportJob"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /workbooks/{workbookId}/tables/{tableId}/import</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">startTableDataImportJob</span>)</div>
+    <div class="method-notes">The StartTableDataImportJob API allows you to start an import job on a table. This API will only return the id of the job that was started. To find out the status of the import request, you need to call the DescribeTableDataImportJob API.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">workbookId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the workbook where the rows are being imported.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div><div class="param">tableId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The ID of the table where the rows are being imported.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">StartTableDataImportJob_request <a href="#StartTableDataImportJob_request">StartTableDataImportJob_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#StartTableDataImportJobResult">StartTableDataImportJobResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "jobId" : "",
+  "jobStatus" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#StartTableDataImportJobResult">StartTableDataImportJobResult</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">487</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="tagResource"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /tags/{resourceArn}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">tagResource</span>)</div>
+    <div class="method-notes">The TagResource API allows you to add tags to an ARN-able resource. Resource includes workbook, table, screen and screen-automation.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resourceArn (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource's Amazon Resource Name (ARN). default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">TagResource_request <a href="#TagResource_request">TagResource_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="untagResource"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /tags/{resourceArn}#tagKeys</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">untagResource</span>)</div>
+    <div class="method-notes">The UntagResource API allows you to removes tags from an ARN-able resource. Resource includes workbook, table, screen and screen-automation.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resourceArn (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource's Amazon Resource Name (ARN). default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">tagKeys (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A list of tag keys to remove from the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    RequestTimeoutException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ServiceUnavailableException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#BatchCreateTableRowsRequest"><code>BatchCreateTableRowsRequest</code> - BatchCreateTableRowsRequest</a></li>
+    <li><a href="#BatchCreateTableRowsResult"><code>BatchCreateTableRowsResult</code> - </a></li>
+    <li><a href="#BatchCreateTableRows_request"><code>BatchCreateTableRows_request</code> - </a></li>
+    <li><a href="#BatchDeleteTableRowsRequest"><code>BatchDeleteTableRowsRequest</code> - BatchDeleteTableRowsRequest</a></li>
+    <li><a href="#BatchDeleteTableRowsResult"><code>BatchDeleteTableRowsResult</code> - </a></li>
+    <li><a href="#BatchDeleteTableRows_request"><code>BatchDeleteTableRows_request</code> - </a></li>
+    <li><a href="#BatchUpdateTableRowsRequest"><code>BatchUpdateTableRowsRequest</code> - BatchUpdateTableRowsRequest</a></li>
+    <li><a href="#BatchUpdateTableRowsResult"><code>BatchUpdateTableRowsResult</code> - </a></li>
+    <li><a href="#BatchUpdateTableRows_request"><code>BatchUpdateTableRows_request</code> - </a></li>
+    <li><a href="#BatchUpsertTableRowsRequest"><code>BatchUpsertTableRowsRequest</code> - BatchUpsertTableRowsRequest</a></li>
+    <li><a href="#BatchUpsertTableRowsResult"><code>BatchUpsertTableRowsResult</code> - </a></li>
+    <li><a href="#BatchUpsertTableRows_request"><code>BatchUpsertTableRows_request</code> - </a></li>
+    <li><a href="#Cell"><code>Cell</code> - </a></li>
+    <li><a href="#CellInput"><code>CellInput</code> - </a></li>
+    <li><a href="#ColumnMetadata"><code>ColumnMetadata</code> - </a></li>
+    <li><a href="#CreateRowData"><code>CreateRowData</code> - </a></li>
+    <li><a href="#DataItem"><code>DataItem</code> - </a></li>
+    <li><a href="#DelimitedTextImportOptions"><code>DelimitedTextImportOptions</code> - </a></li>
+    <li><a href="#DescribeTableDataImportJobResult"><code>DescribeTableDataImportJobResult</code> - </a></li>
+    <li><a href="#DescribeTableDataImportJobResult_jobMetadata"><code>DescribeTableDataImportJobResult_jobMetadata</code> - </a></li>
+    <li><a href="#DestinationOptions"><code>DestinationOptions</code> - </a></li>
+    <li><a href="#ErrorCode"><code>ErrorCode</code> - </a></li>
+    <li><a href="#FailedBatchItem"><code>FailedBatchItem</code> - </a></li>
+    <li><a href="#Filter"><code>Filter</code> - </a></li>
+    <li><a href="#Format"><code>Format</code> - </a></li>
+    <li><a href="#GetScreenDataRequest"><code>GetScreenDataRequest</code> - GetScreenDataRequest</a></li>
+    <li><a href="#GetScreenDataResult"><code>GetScreenDataResult</code> - </a></li>
+    <li><a href="#GetScreenData_request"><code>GetScreenData_request</code> - </a></li>
+    <li><a href="#ImportDataCharacterEncoding"><code>ImportDataCharacterEncoding</code> - </a></li>
+    <li><a href="#ImportDataSource"><code>ImportDataSource</code> - </a></li>
+    <li><a href="#ImportDataSourceConfig"><code>ImportDataSourceConfig</code> - </a></li>
+    <li><a href="#ImportJobSubmitter"><code>ImportJobSubmitter</code> - </a></li>
+    <li><a href="#ImportOptions"><code>ImportOptions</code> - </a></li>
+    <li><a href="#ImportSourceDataFormat"><code>ImportSourceDataFormat</code> - </a></li>
+    <li><a href="#InvokeScreenAutomationRequest"><code>InvokeScreenAutomationRequest</code> - InvokeScreenAutomationRequest</a></li>
+    <li><a href="#InvokeScreenAutomationResult"><code>InvokeScreenAutomationResult</code> - </a></li>
+    <li><a href="#InvokeScreenAutomation_request"><code>InvokeScreenAutomation_request</code> - </a></li>
+    <li><a href="#ListTableColumnsResult"><code>ListTableColumnsResult</code> - </a></li>
+    <li><a href="#ListTableRowsRequest"><code>ListTableRowsRequest</code> - ListTableRowsRequest</a></li>
+    <li><a href="#ListTableRowsResult"><code>ListTableRowsResult</code> - </a></li>
+    <li><a href="#ListTableRows_request"><code>ListTableRows_request</code> - </a></li>
+    <li><a href="#ListTablesResult"><code>ListTablesResult</code> - </a></li>
+    <li><a href="#ListTagsForResourceResult"><code>ListTagsForResourceResult</code> - </a></li>
+    <li><a href="#QueryTableRowsRequest"><code>QueryTableRowsRequest</code> - QueryTableRowsRequest</a></li>
+    <li><a href="#QueryTableRowsRequest_filterFormula"><code>QueryTableRowsRequest_filterFormula</code> - </a></li>
+    <li><a href="#QueryTableRowsResult"><code>QueryTableRowsResult</code> - </a></li>
+    <li><a href="#QueryTableRows_request"><code>QueryTableRows_request</code> - </a></li>
+    <li><a href="#QueryTableRows_request_filterFormula"><code>QueryTableRows_request_filterFormula</code> - </a></li>
+    <li><a href="#ResultRow"><code>ResultRow</code> - </a></li>
+    <li><a href="#ResultSet"><code>ResultSet</code> - </a></li>
+    <li><a href="#SourceDataColumnProperties"><code>SourceDataColumnProperties</code> - </a></li>
+    <li><a href="#StartTableDataImportJobRequest"><code>StartTableDataImportJobRequest</code> - StartTableDataImportJobRequest</a></li>
+    <li><a href="#StartTableDataImportJobRequest_dataSource"><code>StartTableDataImportJobRequest_dataSource</code> - </a></li>
+    <li><a href="#StartTableDataImportJobRequest_importOptions"><code>StartTableDataImportJobRequest_importOptions</code> - </a></li>
+    <li><a href="#StartTableDataImportJobResult"><code>StartTableDataImportJobResult</code> - </a></li>
+    <li><a href="#StartTableDataImportJob_request"><code>StartTableDataImportJob_request</code> - </a></li>
+    <li><a href="#StartTableDataImportJob_request_dataSource"><code>StartTableDataImportJob_request_dataSource</code> - </a></li>
+    <li><a href="#StartTableDataImportJob_request_dataSource_dataSourceConfig"><code>StartTableDataImportJob_request_dataSource_dataSourceConfig</code> - </a></li>
+    <li><a href="#StartTableDataImportJob_request_importOptions"><code>StartTableDataImportJob_request_importOptions</code> - </a></li>
+    <li><a href="#StartTableDataImportJob_request_importOptions_delimitedTextOptions"><code>StartTableDataImportJob_request_importOptions_delimitedTextOptions</code> - </a></li>
+    <li><a href="#StartTableDataImportJob_request_importOptions_destinationOptions"><code>StartTableDataImportJob_request_importOptions_destinationOptions</code> - </a></li>
+    <li><a href="#Table"><code>Table</code> - </a></li>
+    <li><a href="#TableColumn"><code>TableColumn</code> - </a></li>
+    <li><a href="#TableDataImportJobMetadata"><code>TableDataImportJobMetadata</code> - </a></li>
+    <li><a href="#TableDataImportJobMetadata_dataSource"><code>TableDataImportJobMetadata_dataSource</code> - </a></li>
+    <li><a href="#TableDataImportJobMetadata_importOptions"><code>TableDataImportJobMetadata_importOptions</code> - </a></li>
+    <li><a href="#TableDataImportJobMetadata_submitter"><code>TableDataImportJobMetadata_submitter</code> - </a></li>
+    <li><a href="#TableDataImportJobStatus"><code>TableDataImportJobStatus</code> - </a></li>
+    <li><a href="#TableRow"><code>TableRow</code> - </a></li>
+    <li><a href="#TagResourceRequest"><code>TagResourceRequest</code> - TagResourceRequest</a></li>
+    <li><a href="#TagResource_request"><code>TagResource_request</code> - </a></li>
+    <li><a href="#UpdateRowData"><code>UpdateRowData</code> - </a></li>
+    <li><a href="#UpsertAction"><code>UpsertAction</code> - </a></li>
+    <li><a href="#UpsertRowData"><code>UpsertRowData</code> - </a></li>
+    <li><a href="#UpsertRowData_filter"><code>UpsertRowData_filter</code> - </a></li>
+    <li><a href="#UpsertRowsResult"><code>UpsertRowsResult</code> - </a></li>
+    <li><a href="#VariableValue"><code>VariableValue</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="BatchCreateTableRowsRequest"><code>BatchCreateTableRowsRequest</code> - BatchCreateTableRowsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowsToCreate </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchCreateTableRowsResult"><code>BatchCreateTableRowsResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">workbookCursor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">createdRows </div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">failedBatchItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchCreateTableRows_request"><code>BatchCreateTableRows_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowsToCreate </div><div class="param-desc"><span class="param-type"><a href="#CreateRowData">array[CreateRowData]</a></span> <p> The list of rows to create at the end of the table. Each item in this list needs to have a batch item id to uniquely identify the element in the request and the cells to create for that row. You need to specify at least one item in this list. </p> <p> Note that if one of the column ids in any of the rows in the request does not exist in the table, then the request fails and no updates are made to the table. </p>
+ </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> The request token for performing the batch create operation. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the operation again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchDeleteTableRowsRequest"><code>BatchDeleteTableRowsRequest</code> - BatchDeleteTableRowsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowIds </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchDeleteTableRowsResult"><code>BatchDeleteTableRowsResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">workbookCursor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">failedBatchItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchDeleteTableRows_request"><code>BatchDeleteTableRows_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowIds </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> <p> The list of row ids to delete from the table. You need to specify at least one row id in this list. </p> <p> Note that if one of the row ids provided in the request does not exist in the table, then the request fails and no rows are deleted from the table. </p>
+ </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> The request token for performing the delete action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchUpdateTableRowsRequest"><code>BatchUpdateTableRowsRequest</code> - BatchUpdateTableRowsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowsToUpdate </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchUpdateTableRowsResult"><code>BatchUpdateTableRowsResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">workbookCursor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">failedBatchItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchUpdateTableRows_request"><code>BatchUpdateTableRows_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowsToUpdate </div><div class="param-desc"><span class="param-type"><a href="#UpdateRowData">array[UpdateRowData]</a></span> <p> The list of rows to update in the table. Each item in this list needs to contain the row id to update along with the map of column id to cell values for each column in that row that needs to be updated. You need to specify at least one row in this list, and for each row, you need to specify at least one column to update. </p> <p> Note that if one of the row or column ids in the request does not exist in the table, then the request fails and no updates are made to the table. </p>
+ </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchUpsertTableRowsRequest"><code>BatchUpsertTableRowsRequest</code> - BatchUpsertTableRowsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowsToUpsert </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchUpsertTableRowsResult"><code>BatchUpsertTableRowsResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rows </div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">workbookCursor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">failedBatchItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchUpsertTableRows_request"><code>BatchUpsertTableRows_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowsToUpsert </div><div class="param-desc"><span class="param-type"><a href="#UpsertRowData">array[UpsertRowData]</a></span> <p> The list of rows to upsert in the table. Each item in this list needs to have a batch item id to uniquely identify the element in the request, a filter expression to find the rows to update for that element and the cell values to set for each column in the upserted rows. You need to specify at least one item in this list. </p> <p> Note that if one of the filter formulas in the request fails to evaluate because of an error or one of the column ids in any of the rows does not exist in the table, then the request fails and no updates are made to the table. </p>
+ </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Cell"><code>Cell</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that represents a single cell in a table.</div>
+    <div class="field-items">
+      <div class="param">formula (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">format (optional)</div><div class="param-desc"><span class="param-type"><a href="#Format">Format</a></span>  </div>
+<div class="param">rawValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">formattedValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">formattedValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CellInput"><code>CellInput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p> CellInput object contains the data needed to create or update cells in a table. </p> <note> <p> CellInput object has only a facts field or a fact field, but not both. A 400 bad request will be thrown if both fact and facts field are present. </p> </note>
+</div>
+    <div class="field-items">
+      <div class="param">fact (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">facts (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ColumnMetadata"><code>ColumnMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metadata for column in the table.</div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#Format">Format</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateRowData"><code>CreateRowData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Data needed to create a single row in a table as part of the BatchCreateTableRows request.</div>
+    <div class="field-items">
+      <div class="param">batchItemId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cellsToCreate </div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DataItem"><code>DataItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The data in a particular data cell defined on the screen.</div>
+    <div class="field-items">
+      <div class="param">overrideFormat (optional)</div><div class="param-desc"><span class="param-type"><a href="#Format">Format</a></span>  </div>
+<div class="param">rawValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">formattedValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DelimitedTextImportOptions"><code>DelimitedTextImportOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains the options relating to parsing delimited text as part of an import request.</div>
+    <div class="field-items">
+      <div class="param">delimiter </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">hasHeaderRow (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">ignoreEmptyRows (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">dataCharacterEncoding (optional)</div><div class="param-desc"><span class="param-type"><a href="#ImportDataCharacterEncoding">ImportDataCharacterEncoding</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeTableDataImportJobResult"><code>DescribeTableDataImportJobResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">jobStatus </div><div class="param-desc"><span class="param-type"><a href="#TableDataImportJobStatus">TableDataImportJobStatus</a></span>  </div>
+<div class="param">message </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">jobMetadata </div><div class="param-desc"><span class="param-type"><a href="#DescribeTableDataImportJobResult_jobMetadata">DescribeTableDataImportJobResult_jobMetadata</a></span>  </div>
+<div class="param">errorCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorCode">ErrorCode</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeTableDataImportJobResult_jobMetadata"><code>DescribeTableDataImportJobResult_jobMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">submitter </div><div class="param-desc"><span class="param-type"><a href="#TableDataImportJobMetadata_submitter">TableDataImportJobMetadata_submitter</a></span>  </div>
+<div class="param">submitTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">importOptions </div><div class="param-desc"><span class="param-type"><a href="#TableDataImportJobMetadata_importOptions">TableDataImportJobMetadata_importOptions</a></span>  </div>
+<div class="param">dataSource </div><div class="param-desc"><span class="param-type"><a href="#TableDataImportJobMetadata_dataSource">TableDataImportJobMetadata_dataSource</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DestinationOptions"><code>DestinationOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains the options relating to the destination of the import request.</div>
+    <div class="field-items">
+      <div class="param">columnMap (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorCode"><code>ErrorCode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FailedBatchItem"><code>FailedBatchItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A single item in a batch that failed to perform the intended action because of an error preventing it from succeeding.</div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">errorMessage </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Filter"><code>Filter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that represents a filter formula along with the id of the context row under which the filter function needs to evaluate.</div>
+    <div class="field-items">
+      <div class="param">formula </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">contextRowId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Format"><code>Format</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetScreenDataRequest"><code>GetScreenDataRequest</code> - GetScreenDataRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">workbookId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">appId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">screenId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">variables (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">maxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetScreenDataResult"><code>GetScreenDataResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">results </div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">workbookCursor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetScreenData_request"><code>GetScreenData_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">workbookId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the workbook that contains the screen. </div>
+<div class="param">appId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the app that contains the screen. </div>
+<div class="param">screenId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the screen. </div>
+<div class="param">variables (optional)</div><div class="param-desc"><span class="param-type"><a href="#VariableValue">map[String, VariableValue]</a></span> Variables are optional and are needed only if the screen requires them to render correctly. Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an object which currently has only one property, rawValue, which holds the value of the variable to be passed to the screen. </div>
+<div class="param">maxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> <p> The number of results to be returned on a single page. Specify a number between 1 and 100. The maximum value is 100. </p> <p> This parameter is optional. If you don't specify this parameter, the default page size is 100. </p>
+ </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ImportDataCharacterEncoding"><code>ImportDataCharacterEncoding</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ImportDataSource"><code>ImportDataSource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that has details about the source of the data that was submitted for import.</div>
+    <div class="field-items">
+      <div class="param">dataSourceConfig </div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_dataSource_dataSourceConfig">StartTableDataImportJob_request_dataSource_dataSourceConfig</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ImportDataSourceConfig"><code>ImportDataSourceConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains the configuration parameters for the data source of an import request.</div>
+    <div class="field-items">
+      <div class="param">dataSourceUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ImportJobSubmitter"><code>ImportJobSubmitter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains the attributes of the submitter of the import job.</div>
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">userArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ImportOptions"><code>ImportOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains the options specified by the sumitter of the import request.</div>
+    <div class="field-items">
+      <div class="param">destinationOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions_destinationOptions">StartTableDataImportJob_request_importOptions_destinationOptions</a></span>  </div>
+<div class="param">delimitedTextOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions_delimitedTextOptions">StartTableDataImportJob_request_importOptions_delimitedTextOptions</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ImportSourceDataFormat"><code>ImportSourceDataFormat</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InvokeScreenAutomationRequest"><code>InvokeScreenAutomationRequest</code> - InvokeScreenAutomationRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">variables (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">rowId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InvokeScreenAutomationResult"><code>InvokeScreenAutomationResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">workbookCursor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InvokeScreenAutomation_request"><code>InvokeScreenAutomation_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">variables (optional)</div><div class="param-desc"><span class="param-type"><a href="#VariableValue">map[String, VariableValue]</a></span> Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an object which currently has only one property, rawValue, which holds the value of the variable to be passed to the screen. Any variables defined in a screen are required to be passed in the call. </div>
+<div class="param">rowId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The row ID for the automation if the automation is defined inside a block with source or list. </div>
+<div class="param">clientRequestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> The request token for performing the automation action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will return the response of the previous call rather than performing the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTableColumnsResult"><code>ListTableColumnsResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">tableColumns </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">workbookCursor (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTableRowsRequest"><code>ListTableRowsRequest</code> - ListTableRowsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">maxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTableRowsResult"><code>ListTableRowsResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">columnIds </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">rows </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">rowIdsNotFound (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">workbookCursor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTableRows_request"><code>ListTableRows_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rowIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> This parameter is optional. If one or more row ids are specified in this list, then only the specified row ids are returned in the result. If no row ids are specified here, then all the rows in the table are returned. </div>
+<div class="param">maxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The maximum number of rows to return in each page of the results. </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTablesResult"><code>ListTablesResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">tables </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">workbookCursor (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTagsForResourceResult"><code>ListTagsForResourceResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="QueryTableRowsRequest"><code>QueryTableRowsRequest</code> - QueryTableRowsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">filterFormula </div><div class="param-desc"><span class="param-type"><a href="#QueryTableRowsRequest_filterFormula">QueryTableRowsRequest_filterFormula</a></span>  </div>
+<div class="param">maxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="QueryTableRowsRequest_filterFormula"><code>QueryTableRowsRequest_filterFormula</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">formula </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">contextRowId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="QueryTableRowsResult"><code>QueryTableRowsResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">columnIds </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">rows </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">workbookCursor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="QueryTableRows_request"><code>QueryTableRows_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">filterFormula </div><div class="param-desc"><span class="param-type"><a href="#QueryTableRows_request_filterFormula">QueryTableRows_request_filterFormula</a></span>  </div>
+<div class="param">maxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The maximum number of rows to return in each page of the results. </div>
+<div class="param">nextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="QueryTableRows_request_filterFormula"><code>QueryTableRows_request_filterFormula</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that represents a filter formula along with the id of the context row under which the filter function needs to evaluate.</div>
+    <div class="field-items">
+      <div class="param">formula (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">contextRowId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResultRow"><code>ResultRow</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A single row in the ResultSet.</div>
+    <div class="field-items">
+      <div class="param">rowId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dataItems </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResultSet"><code>ResultSet</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>ResultSet contains the results of the request for a single block or list defined on the screen.</div>
+    <div class="field-items">
+      <div class="param">headers </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">rows </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SourceDataColumnProperties"><code>SourceDataColumnProperties</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains the properties for importing data to a specific column in a table.</div>
+    <div class="field-items">
+      <div class="param">columnIndex (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJobRequest"><code>StartTableDataImportJobRequest</code> - StartTableDataImportJobRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dataSource </div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJobRequest_dataSource">StartTableDataImportJobRequest_dataSource</a></span>  </div>
+<div class="param">dataFormat </div><div class="param-desc"><span class="param-type"><a href="#ImportSourceDataFormat">ImportSourceDataFormat</a></span>  </div>
+<div class="param">importOptions </div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJobRequest_importOptions">StartTableDataImportJobRequest_importOptions</a></span>  </div>
+<div class="param">clientRequestToken </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJobRequest_dataSource"><code>StartTableDataImportJobRequest_dataSource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dataSourceConfig </div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_dataSource_dataSourceConfig">StartTableDataImportJob_request_dataSource_dataSourceConfig</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJobRequest_importOptions"><code>StartTableDataImportJobRequest_importOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">destinationOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions_destinationOptions">StartTableDataImportJob_request_importOptions_destinationOptions</a></span>  </div>
+<div class="param">delimitedTextOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions_delimitedTextOptions">StartTableDataImportJob_request_importOptions_delimitedTextOptions</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJobResult"><code>StartTableDataImportJobResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">jobId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">jobStatus </div><div class="param-desc"><span class="param-type"><a href="#TableDataImportJobStatus">TableDataImportJobStatus</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJob_request"><code>StartTableDataImportJob_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dataSource </div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_dataSource">StartTableDataImportJob_request_dataSource</a></span>  </div>
+<div class="param">dataFormat </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the data that is being imported. Currently the only option supported is &quot;DELIMITED_TEXT&quot;. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">DELIMITED_TEXT</div>
+<div class="param">importOptions </div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions">StartTableDataImportJob_request_importOptions</a></span>  </div>
+<div class="param">clientRequestToken </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJob_request_dataSource"><code>StartTableDataImportJob_request_dataSource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that has details about the source of the data that was submitted for import.</div>
+    <div class="field-items">
+      <div class="param">dataSourceConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_dataSource_dataSourceConfig">StartTableDataImportJob_request_dataSource_dataSourceConfig</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJob_request_dataSource_dataSourceConfig"><code>StartTableDataImportJob_request_dataSource_dataSourceConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dataSourceUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJob_request_importOptions"><code>StartTableDataImportJob_request_importOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains the options specified by the sumitter of the import request.</div>
+    <div class="field-items">
+      <div class="param">destinationOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions_destinationOptions">StartTableDataImportJob_request_importOptions_destinationOptions</a></span>  </div>
+<div class="param">delimitedTextOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions_delimitedTextOptions">StartTableDataImportJob_request_importOptions_delimitedTextOptions</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJob_request_importOptions_delimitedTextOptions"><code>StartTableDataImportJob_request_importOptions_delimitedTextOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">delimiter </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">hasHeaderRow (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">ignoreEmptyRows (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">dataCharacterEncoding (optional)</div><div class="param-desc"><span class="param-type"><a href="#ImportDataCharacterEncoding">ImportDataCharacterEncoding</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartTableDataImportJob_request_importOptions_destinationOptions"><code>StartTableDataImportJob_request_importOptions_destinationOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">columnMap (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Table"><code>Table</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object representing the properties of a table in a workbook.</div>
+    <div class="field-items">
+      <div class="param">tableId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">tableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TableColumn"><code>TableColumn</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains attributes about a single column in a table</div>
+    <div class="field-items">
+      <div class="param">tableColumnId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">tableColumnName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">format (optional)</div><div class="param-desc"><span class="param-type"><a href="#Format">Format</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TableDataImportJobMetadata"><code>TableDataImportJobMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The metadata associated with the table data import job that was submitted.</div>
+    <div class="field-items">
+      <div class="param">submitter </div><div class="param-desc"><span class="param-type"><a href="#TableDataImportJobMetadata_submitter">TableDataImportJobMetadata_submitter</a></span>  </div>
+<div class="param">submitTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">importOptions </div><div class="param-desc"><span class="param-type"><a href="#TableDataImportJobMetadata_importOptions">TableDataImportJobMetadata_importOptions</a></span>  </div>
+<div class="param">dataSource </div><div class="param-desc"><span class="param-type"><a href="#TableDataImportJobMetadata_dataSource">TableDataImportJobMetadata_dataSource</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TableDataImportJobMetadata_dataSource"><code>TableDataImportJobMetadata_dataSource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dataSourceConfig </div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_dataSource_dataSourceConfig">StartTableDataImportJob_request_dataSource_dataSourceConfig</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TableDataImportJobMetadata_importOptions"><code>TableDataImportJobMetadata_importOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">destinationOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions_destinationOptions">StartTableDataImportJob_request_importOptions_destinationOptions</a></span>  </div>
+<div class="param">delimitedTextOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartTableDataImportJob_request_importOptions_delimitedTextOptions">StartTableDataImportJob_request_importOptions_delimitedTextOptions</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TableDataImportJobMetadata_submitter"><code>TableDataImportJobMetadata_submitter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">userArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TableDataImportJobStatus"><code>TableDataImportJobStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TableRow"><code>TableRow</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that contains attributes about a single row in a table</div>
+    <div class="field-items">
+      <div class="param">rowId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cells </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TagResourceRequest"><code>TagResourceRequest</code> - TagResourceRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">tags </div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TagResource_request"><code>TagResource_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">tags </div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> A string to string map representing tags </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateRowData"><code>UpdateRowData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Data needed to create a single row in a table as part of the BatchCreateTableRows request.</div>
+    <div class="field-items">
+      <div class="param">rowId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cellsToUpdate </div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpsertAction"><code>UpsertAction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpsertRowData"><code>UpsertRowData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Data needed to upsert rows in a table as part of a single item in the BatchUpsertTableRows request.</div>
+    <div class="field-items">
+      <div class="param">batchItemId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">filter </div><div class="param-desc"><span class="param-type"><a href="#UpsertRowData_filter">UpsertRowData_filter</a></span>  </div>
+<div class="param">cellsToUpdate </div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpsertRowData_filter"><code>UpsertRowData_filter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">formula </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">contextRowId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpsertRowsResult"><code>UpsertRowsResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object that represents the result of a single upsert row request.</div>
+    <div class="field-items">
+      <div class="param">rowIds </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">upsertAction </div><div class="param-desc"><span class="param-type"><a href="#UpsertAction">UpsertAction</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VariableValue"><code>VariableValue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The input variables to the app to be used by the InvokeScreenAutomation action request.</div>
+    <div class="field-items">
+      <div class="param">rawValue </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

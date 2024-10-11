@@ -1,0 +1,755 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Times Newswire API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Times Newswire API</h1>
+    <div class="app-desc">With the Times Newswire API, you can get links and metadata for Times articles and blog posts as soon as they are published on NYTimes.com. The Times Newswire API provides an up-to-the-minute stream of published items.</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 3.0.0</div>
+    <div class="app-desc">BasePath:/svc/news/v3</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:api-key KeyInQuery:true KeyInHeader:false</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#contentJsonGet"><code><span class="http-method">get</span> /content.json</code></a></li>
+  <li><a href="#contentSourceSectionJsonGet"><code><span class="http-method">get</span> /content/{source}/{section}.json</code></a></li>
+  <li><a href="#contentSourceSectionTimePeriodJsonGet"><code><span class="http-method">get</span> /content/{source}/{section}/{time-period}.json</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="contentJsonGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /content.json</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">contentJsonGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">url (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The complete URL of a specific news item, URL-encoded or backslash-escaped default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_content_json_get_200_response">_content_json_get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "copyright" : "copyright",
+  "results" : [ {
+    "per_facet" : [ "per_facet", "per_facet" ],
+    "subsection" : "subsection",
+    "item_type" : "item_type",
+    "org_facet" : "org_facet",
+    "section" : "section",
+    "abstract" : "abstract",
+    "related_urls" : [ {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    }, {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    } ],
+    "source" : "source",
+    "des_facet" : [ "des_facet", "des_facet" ],
+    "title" : "title",
+    "url" : "url",
+    "short_url" : "short_url",
+    "material_type_facet" : "material_type_facet",
+    "multimedia" : [ {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    }, {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    } ],
+    "thumbnail_standard" : "thumbnail_standard",
+    "geo_facet" : [ "geo_facet", "geo_facet" ],
+    "created_date" : "created_date",
+    "updated_date" : "updated_date",
+    "byline" : "byline",
+    "headline" : "headline",
+    "published_date" : "published_date",
+    "blog_name" : "blog_name",
+    "kicker" : "kicker"
+  }, {
+    "per_facet" : [ "per_facet", "per_facet" ],
+    "subsection" : "subsection",
+    "item_type" : "item_type",
+    "org_facet" : "org_facet",
+    "section" : "section",
+    "abstract" : "abstract",
+    "related_urls" : [ {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    }, {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    } ],
+    "source" : "source",
+    "des_facet" : [ "des_facet", "des_facet" ],
+    "title" : "title",
+    "url" : "url",
+    "short_url" : "short_url",
+    "material_type_facet" : "material_type_facet",
+    "multimedia" : [ {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    }, {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    } ],
+    "thumbnail_standard" : "thumbnail_standard",
+    "geo_facet" : [ "geo_facet", "geo_facet" ],
+    "created_date" : "created_date",
+    "updated_date" : "updated_date",
+    "byline" : "byline",
+    "headline" : "headline",
+    "published_date" : "published_date",
+    "blog_name" : "blog_name",
+    "kicker" : "kicker"
+  } ],
+  "num_results" : 0,
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    An array of Articles
+        <a href="#_content_json_get_200_response">_content_json_get_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="contentSourceSectionJsonGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /content/{source}/{section}.json</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">contentSourceSectionJsonGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">source (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>Limits the set of items by originating source</p>
+<p>all = items from both The New York Times and The International New York Times
+nyt = New York Times items only
+iht = International New York Times items only</p>
+ default: null </div><div class="param">section (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>Limits the set of items by one or more sections
+all | One or more section names, separated by semicolons</p>
+<p>To get all sections, specify all. To get a particular section or sections, use the section names returned by this request:
+http://api.nytimes.com/svc/news/v3/content/section-list.json</p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Limits the number of results, between 1 and 20 default: 20 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sets the starting point of the result set default: 0 </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_content_json_get_200_response">_content_json_get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "copyright" : "copyright",
+  "results" : [ {
+    "per_facet" : [ "per_facet", "per_facet" ],
+    "subsection" : "subsection",
+    "item_type" : "item_type",
+    "org_facet" : "org_facet",
+    "section" : "section",
+    "abstract" : "abstract",
+    "related_urls" : [ {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    }, {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    } ],
+    "source" : "source",
+    "des_facet" : [ "des_facet", "des_facet" ],
+    "title" : "title",
+    "url" : "url",
+    "short_url" : "short_url",
+    "material_type_facet" : "material_type_facet",
+    "multimedia" : [ {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    }, {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    } ],
+    "thumbnail_standard" : "thumbnail_standard",
+    "geo_facet" : [ "geo_facet", "geo_facet" ],
+    "created_date" : "created_date",
+    "updated_date" : "updated_date",
+    "byline" : "byline",
+    "headline" : "headline",
+    "published_date" : "published_date",
+    "blog_name" : "blog_name",
+    "kicker" : "kicker"
+  }, {
+    "per_facet" : [ "per_facet", "per_facet" ],
+    "subsection" : "subsection",
+    "item_type" : "item_type",
+    "org_facet" : "org_facet",
+    "section" : "section",
+    "abstract" : "abstract",
+    "related_urls" : [ {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    }, {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    } ],
+    "source" : "source",
+    "des_facet" : [ "des_facet", "des_facet" ],
+    "title" : "title",
+    "url" : "url",
+    "short_url" : "short_url",
+    "material_type_facet" : "material_type_facet",
+    "multimedia" : [ {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    }, {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    } ],
+    "thumbnail_standard" : "thumbnail_standard",
+    "geo_facet" : [ "geo_facet", "geo_facet" ],
+    "created_date" : "created_date",
+    "updated_date" : "updated_date",
+    "byline" : "byline",
+    "headline" : "headline",
+    "published_date" : "published_date",
+    "blog_name" : "blog_name",
+    "kicker" : "kicker"
+  } ],
+  "num_results" : 0,
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    An array of Articles
+        <a href="#_content_json_get_200_response">_content_json_get_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="contentSourceSectionTimePeriodJsonGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /content/{source}/{section}/{time-period}.json</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">contentSourceSectionTimePeriodJsonGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">source (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>Limits the set of items by originating source</p>
+<p>all = items from both The New York Times and The International New York Times
+nyt = New York Times items only
+iht = International New York Times items only</p>
+ default: null </div><div class="param">section (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>Limits the set of items by one or more sections
+all | One or more section names, separated by semicolons</p>
+<p>To get all sections, specify all. To get a particular section or sections, use the section names returned by this request:
+http://api.nytimes.com/svc/news/v3/content/section-list.json</p>
+ default: null </div><div class="param">time-period (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Limits the set of items by time published, integer in number of hours default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Limits the number of results, between 1 and 20 default: 20 </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sets the starting point of the result set default: 0 </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_content_json_get_200_response">_content_json_get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "copyright" : "copyright",
+  "results" : [ {
+    "per_facet" : [ "per_facet", "per_facet" ],
+    "subsection" : "subsection",
+    "item_type" : "item_type",
+    "org_facet" : "org_facet",
+    "section" : "section",
+    "abstract" : "abstract",
+    "related_urls" : [ {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    }, {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    } ],
+    "source" : "source",
+    "des_facet" : [ "des_facet", "des_facet" ],
+    "title" : "title",
+    "url" : "url",
+    "short_url" : "short_url",
+    "material_type_facet" : "material_type_facet",
+    "multimedia" : [ {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    }, {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    } ],
+    "thumbnail_standard" : "thumbnail_standard",
+    "geo_facet" : [ "geo_facet", "geo_facet" ],
+    "created_date" : "created_date",
+    "updated_date" : "updated_date",
+    "byline" : "byline",
+    "headline" : "headline",
+    "published_date" : "published_date",
+    "blog_name" : "blog_name",
+    "kicker" : "kicker"
+  }, {
+    "per_facet" : [ "per_facet", "per_facet" ],
+    "subsection" : "subsection",
+    "item_type" : "item_type",
+    "org_facet" : "org_facet",
+    "section" : "section",
+    "abstract" : "abstract",
+    "related_urls" : [ {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    }, {
+      "suggested_link_text" : "suggested_link_text",
+      "url" : "url"
+    } ],
+    "source" : "source",
+    "des_facet" : [ "des_facet", "des_facet" ],
+    "title" : "title",
+    "url" : "url",
+    "short_url" : "short_url",
+    "material_type_facet" : "material_type_facet",
+    "multimedia" : [ {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    }, {
+      "copyright" : "copyright",
+      "subtype" : "subtype",
+      "format" : "format",
+      "width" : 1,
+      "caption" : "caption",
+      "type" : "type",
+      "url" : "url",
+      "height" : 6
+    } ],
+    "thumbnail_standard" : "thumbnail_standard",
+    "geo_facet" : [ "geo_facet", "geo_facet" ],
+    "created_date" : "created_date",
+    "updated_date" : "updated_date",
+    "byline" : "byline",
+    "headline" : "headline",
+    "published_date" : "published_date",
+    "blog_name" : "blog_name",
+    "kicker" : "kicker"
+  } ],
+  "num_results" : 0,
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    An array of Articles
+        <a href="#_content_json_get_200_response">_content_json_get_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Article"><code>Article</code> - </a></li>
+    <li><a href="#Article_multimedia_inner"><code>Article_multimedia_inner</code> - </a></li>
+    <li><a href="#Article_related_urls_inner"><code>Article_related_urls_inner</code> - </a></li>
+    <li><a href="#_content_json_get_200_response"><code>_content_json_get_200_response</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Article"><code>Article</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">abstract (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">blog_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">byline (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">created_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">des_facet (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">geo_facet (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">headline (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">item_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">kicker (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">material_type_facet (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">multimedia (optional)</div><div class="param-desc"><span class="param-type"><a href="#Article_multimedia_inner">array[Article_multimedia_inner]</a></span>  </div>
+<div class="param">org_facet (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">per_facet (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">published_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">related_urls (optional)</div><div class="param-desc"><span class="param-type"><a href="#Article_related_urls_inner">array[Article_related_urls_inner]</a></span>  </div>
+<div class="param">section (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">short_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">source (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">subsection (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">thumbnail_standard (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">updated_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Article_multimedia_inner"><code>Article_multimedia_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">copyright (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">height (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">subtype (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">width (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Article_related_urls_inner"><code>Article_related_urls_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">suggested_link_text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_content_json_get_200_response"><code>_content_json_get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">copyright (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">num_results (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#Article">array[Article]</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

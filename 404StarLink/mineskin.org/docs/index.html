@@ -1,0 +1,1147 @@
+<!doctype html>
+<html>
+  <head>
+    <title>MineSkin API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>MineSkin API</h1>
+    <div class="app-desc"><p>Client implementations:
+Java: https://github.com/InventivetalentDev/MineskinClient
+NodeJS: https://github.com/InventivetalentDev/mineskin-client</p>
+<p>Examples: https://github.com/MineSkin/examples</p>
+</div>
+    <div class="app-desc">More information: <a href="https://discord.gg/nzAdvPc">https://discord.gg/nzAdvPc</a></div>
+    <div class="app-desc">Contact Info: <a href="info@mineskin.org">info@mineskin.org</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">MIT</div>
+    <div class="license-url">https://github.com/MineSkin/api.mineskin.org/blob/master/LICENSE</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:key KeyInQuery:true KeyInHeader:false</li>
+      <li>HTTP Bearer Token authentication</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Generate">Generate</a></h4>
+  <ul>
+  <li><a href="#generateUploadPost"><code><span class="http-method">post</span> /generate/upload</code></a></li>
+  <li><a href="#generateUrlPost"><code><span class="http-method">post</span> /generate/url</code></a></li>
+  <li><a href="#generateUserPost"><code><span class="http-method">post</span> /generate/user</code></a></li>
+  </ul>
+  <h4><a href="#Get">Get</a></h4>
+  <ul>
+  <li><a href="#getDelayGet"><code><span class="http-method">get</span> /get/delay</code></a></li>
+  <li><a href="#getIdIdGet"><code><span class="http-method">get</span> /get/id/{id}</code></a></li>
+  <li><a href="#getListPageGet"><code><span class="http-method">get</span> /get/list/{page}</code></a></li>
+  <li><a href="#getUuidUuidGet"><code><span class="http-method">get</span> /get/uuid/{uuid}</code></a></li>
+  </ul>
+  <h4><a href="#Util">Util</a></h4>
+  <ul>
+  <li><a href="#validateNameNameGet"><code><span class="http-method">get</span> /validate/name/{name}</code></a></li>
+  <li><a href="#validateUuidUuidGet"><code><span class="http-method">get</span> /validate/uuid/{uuid}</code></a></li>
+  </ul>
+
+  <h1><a name="Generate">Generate</a></h1>
+  <div class="method"><a name="generateUploadPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /generate/upload</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">generateUploadPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">model (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: steve </div><div class="param">name (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">variant (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Skin variant - automatically determined based on the image if not specified default: null </div><div class="param">visibility (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Visibility of the generated skin. 0 for public, 1 for private default: 0 </div><div class="param">file (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null format: binary</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_generate_upload_post_200_response">_generate_upload_post_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "idStr" : "idStr",
+  "server" : "server",
+  "private" : true,
+  "data" : {
+    "texture" : {
+      "signature" : "signature",
+      "value" : "value",
+      "url" : "url"
+    },
+    "uuid" : "uuid"
+  },
+  "duplicate" : true,
+  "uuid" : "uuid",
+  "duration" : 1.4658129805029452,
+  "accountId" : 6,
+  "name" : "name",
+  "variant" : "classic",
+  "model" : "slim",
+  "id" : 5,
+  "account" : 0,
+  "views" : 2.3021358869347655,
+  "nextRequest" : 7,
+  "timestamp" : 5.637376656633329
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorCode" : "errorCode",
+  "error" : "error"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "delay" : 9,
+  "error" : "error",
+  "nextRequest" : 3
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorCode" : "errorCode",
+  "error" : "error"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successfully generated skin info
+        <a href="#_generate_upload_post_200_response">_generate_upload_post_200_response</a>
+    <h4 class="field-label">400</h4>
+    Response if an error occured
+        <a href="#_generate_upload_post_400_response">_generate_upload_post_400_response</a>
+    <h4 class="field-label">429</h4>
+    Response if the client sent a request too soon
+        <a href="#_generate_upload_post_429_response">_generate_upload_post_429_response</a>
+    <h4 class="field-label">500</h4>
+    Response if an error occured
+        <a href="#_generate_upload_post_400_response">_generate_upload_post_400_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="generateUrlPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /generate/url</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">generateUrlPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">_generate_url_post_request <a href="#_generate_url_post_request">_generate_url_post_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_generate_upload_post_200_response">_generate_upload_post_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "idStr" : "idStr",
+  "server" : "server",
+  "private" : true,
+  "data" : {
+    "texture" : {
+      "signature" : "signature",
+      "value" : "value",
+      "url" : "url"
+    },
+    "uuid" : "uuid"
+  },
+  "duplicate" : true,
+  "uuid" : "uuid",
+  "duration" : 1.4658129805029452,
+  "accountId" : 6,
+  "name" : "name",
+  "variant" : "classic",
+  "model" : "slim",
+  "id" : 5,
+  "account" : 0,
+  "views" : 2.3021358869347655,
+  "nextRequest" : 7,
+  "timestamp" : 5.637376656633329
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorCode" : "errorCode",
+  "error" : "error"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "delay" : 9,
+  "error" : "error",
+  "nextRequest" : 3
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorCode" : "errorCode",
+  "error" : "error"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successfully generated skin info
+        <a href="#_generate_upload_post_200_response">_generate_upload_post_200_response</a>
+    <h4 class="field-label">400</h4>
+    Response if an error occured
+        <a href="#_generate_upload_post_400_response">_generate_upload_post_400_response</a>
+    <h4 class="field-label">429</h4>
+    Response if the client sent a request too soon
+        <a href="#_generate_upload_post_429_response">_generate_upload_post_429_response</a>
+    <h4 class="field-label">500</h4>
+    Response if an error occured
+        <a href="#_generate_upload_post_400_response">_generate_upload_post_400_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="generateUserPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /generate/user</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">generateUserPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">_generate_user_post_request <a href="#_generate_user_post_request">_generate_user_post_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_generate_upload_post_200_response">_generate_upload_post_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "idStr" : "idStr",
+  "server" : "server",
+  "private" : true,
+  "data" : {
+    "texture" : {
+      "signature" : "signature",
+      "value" : "value",
+      "url" : "url"
+    },
+    "uuid" : "uuid"
+  },
+  "duplicate" : true,
+  "uuid" : "uuid",
+  "duration" : 1.4658129805029452,
+  "accountId" : 6,
+  "name" : "name",
+  "variant" : "classic",
+  "model" : "slim",
+  "id" : 5,
+  "account" : 0,
+  "views" : 2.3021358869347655,
+  "nextRequest" : 7,
+  "timestamp" : 5.637376656633329
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorCode" : "errorCode",
+  "error" : "error"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "delay" : 9,
+  "error" : "error",
+  "nextRequest" : 3
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorCode" : "errorCode",
+  "error" : "error"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successfully generated skin info
+        <a href="#_generate_upload_post_200_response">_generate_upload_post_200_response</a>
+    <h4 class="field-label">400</h4>
+    Response if an error occured
+        <a href="#_generate_upload_post_400_response">_generate_upload_post_400_response</a>
+    <h4 class="field-label">429</h4>
+    Response if the client sent a request too soon
+        <a href="#_generate_upload_post_429_response">_generate_upload_post_429_response</a>
+    <h4 class="field-label">500</h4>
+    Response if an error occured
+        <a href="#_generate_upload_post_400_response">_generate_upload_post_400_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Get">Get</a></h1>
+  <div class="method"><a name="getDelayGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /get/delay</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getDelayGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_get_delay_get_200_response">_get_delay_get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "next" : 6,
+  "nextRelative" : 1,
+  "delay" : 0
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Delay info for the requesting client
+        <a href="#_get_delay_get_200_response">_get_delay_get_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getIdIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /get/id/{id}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getIdIdGet</span>)</div>
+    <div class="method-notes">Deprecated. Use /get/uuid instead.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null format: integer</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#SkinInfo">SkinInfo</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "idStr" : "idStr",
+  "server" : "server",
+  "private" : true,
+  "data" : {
+    "texture" : {
+      "signature" : "signature",
+      "value" : "value",
+      "url" : "url"
+    },
+    "uuid" : "uuid"
+  },
+  "uuid" : "uuid",
+  "duration" : 1.4658129805029452,
+  "accountId" : 6,
+  "name" : "name",
+  "variant" : "classic",
+  "model" : "slim",
+  "id" : 5,
+  "account" : 0,
+  "views" : 2.3021358869347655,
+  "timestamp" : 5.637376656633329
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Skin Info
+        <a href="#SkinInfo">SkinInfo</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getListPageGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /get/list/{page}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getListPageGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">page (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; For reference pagination, the uuid of the last skin in the previous page. For numeric pagination (deprecated), the page number or 'start'. default: null format: integer</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_get_list__page__get_200_response">_get_list__page__get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "filter" : "filter",
+  "skins" : [ {
+    "name" : "name",
+    "id" : 5,
+    "time" : 5,
+    "url" : "url"
+  }, {
+    "name" : "name",
+    "id" : 5,
+    "time" : 5,
+    "url" : "url"
+  } ],
+  "page" : {
+    "amount" : 0,
+    "total" : 1,
+    "index" : 6
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Skin Info List
+        <a href="#_get_list__page__get_200_response">_get_list__page__get_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUuidUuidGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /get/uuid/{uuid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getUuidUuidGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#SkinInfo">SkinInfo</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "idStr" : "idStr",
+  "server" : "server",
+  "private" : true,
+  "data" : {
+    "texture" : {
+      "signature" : "signature",
+      "value" : "value",
+      "url" : "url"
+    },
+    "uuid" : "uuid"
+  },
+  "uuid" : "uuid",
+  "duration" : 1.4658129805029452,
+  "accountId" : 6,
+  "name" : "name",
+  "variant" : "classic",
+  "model" : "slim",
+  "id" : 5,
+  "account" : 0,
+  "views" : 2.3021358869347655,
+  "timestamp" : 5.637376656633329
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Skin Info
+        <a href="#SkinInfo">SkinInfo</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Util">Util</a></h1>
+  <div class="method"><a name="validateNameNameGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /validate/name/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">validateNameNameGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UserValidation">UserValidation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "valid" : true,
+  "name" : "name",
+  "uuid" : "uuid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Validation info about the requested user
+        <a href="#UserValidation">UserValidation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="validateUuidUuidGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /validate/uuid/{uuid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">validateUuidUuidGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">User-Agent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Custom User-Agent for your application, see <a href="https://user-agent.dev/">user-agent.dev</a> for implementation examples default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UserValidation">UserValidation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "valid" : true,
+  "name" : "name",
+  "uuid" : "uuid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Validation info about the requested user
+        <a href="#UserValidation">UserValidation</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#GenerateOptions"><code>GenerateOptions</code> - </a></li>
+    <li><a href="#PartialSkinInfo"><code>PartialSkinInfo</code> - </a></li>
+    <li><a href="#SkinData"><code>SkinData</code> - </a></li>
+    <li><a href="#SkinInfo"><code>SkinInfo</code> - </a></li>
+    <li><a href="#Stats"><code>Stats</code> - </a></li>
+    <li><a href="#TextureInfo"><code>TextureInfo</code> - </a></li>
+    <li><a href="#UserValidation"><code>UserValidation</code> - </a></li>
+    <li><a href="#_generate_upload_post_200_response"><code>_generate_upload_post_200_response</code> - </a></li>
+    <li><a href="#_generate_upload_post_400_response"><code>_generate_upload_post_400_response</code> - </a></li>
+    <li><a href="#_generate_upload_post_429_response"><code>_generate_upload_post_429_response</code> - </a></li>
+    <li><a href="#_generate_url_post_request"><code>_generate_url_post_request</code> - </a></li>
+    <li><a href="#_generate_user_post_request"><code>_generate_user_post_request</code> - </a></li>
+    <li><a href="#_get_delay_get_200_response"><code>_get_delay_get_200_response</code> - </a></li>
+    <li><a href="#_get_list__page__get_200_response"><code>_get_list__page__get_200_response</code> - </a></li>
+    <li><a href="#_get_list__page__get_200_response_page"><code>_get_list__page__get_200_response_page</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="GenerateOptions"><code>GenerateOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">steve</div><div class="param-enum">slim</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">variant (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Skin variant - automatically determined based on the image if not specified </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">classic</div><div class="param-enum">slim</div>
+<div class="param">visibility (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Visibility of the generated skin. 0 for public, 1 for private </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">0</div><div class="param-enum">1</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PartialSkinInfo"><code>PartialSkinInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">time </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SkinData"><code>SkinData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">texture (optional)</div><div class="param-desc"><span class="param-type"><a href="#TextureInfo">TextureInfo</a></span>  </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SkinInfo"><code>SkinInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">accountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#SkinData">SkinData</a></span>  </div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">idStr (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">model </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">slim</div><div class="param-enum">steve</div><div class="param-enum">unknown</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">private (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">server (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">variant (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">classic</div><div class="param-enum">slim</div>
+<div class="param">views (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Stats"><code>Stats</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">delay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">server (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TextureInfo"><code>TextureInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">signature (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UserValidation"><code>UserValidation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">valid </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_generate_upload_post_200_response"><code>_generate_upload_post_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">accountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#SkinData">SkinData</a></span>  </div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">idStr (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">model </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">slim</div><div class="param-enum">steve</div><div class="param-enum">unknown</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">private (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">server (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">variant (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">classic</div><div class="param-enum">slim</div>
+<div class="param">views (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">duplicate (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">nextRequest (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_generate_upload_post_400_response"><code>_generate_upload_post_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Error message </div>
+<div class="param">errorCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Consistent error code, see <a href="https://github.com/MineSkin/api.mineskin.org/blob/793a926cbe4b90887ed8164c9eccfcb542fdeadb/src/generator/Authentication.ts#L580">AuthError</a> &amp; <a href="https://github.com/MineSkin/api.mineskin.org/blob/47a5f51dc664e0f730b0073f70b2fc295e14ca3b/src/generator/Generator.ts#L1093">GenError</a> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_generate_upload_post_429_response"><code>_generate_upload_post_429_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">delay (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The API's current delay in seconds </div>
+<div class="param">error </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Error message </div>
+<div class="param">nextRequest (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Unix timestamp when the next request is allowed </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_generate_url_post_request"><code>_generate_url_post_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">steve</div><div class="param-enum">slim</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">variant (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Skin variant - automatically determined based on the image if not specified </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">classic</div><div class="param-enum">slim</div>
+<div class="param">visibility (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Visibility of the generated skin. 0 for public, 1 for private </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">0</div><div class="param-enum">1</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_generate_user_post_request"><code>_generate_user_post_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">steve</div><div class="param-enum">slim</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">variant (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Skin variant - automatically determined based on the image if not specified </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">classic</div><div class="param-enum">slim</div>
+<div class="param">visibility (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Visibility of the generated skin. 0 for public, 1 for private </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">0</div><div class="param-enum">1</div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_get_delay_get_200_response"><code>_get_delay_get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">delay (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">next (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">nextRelative (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_get_list__page__get_200_response"><code>_get_list__page__get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">filter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">page </div><div class="param-desc"><span class="param-type"><a href="#_get_list__page__get_200_response_page">_get_list__page__get_200_response_page</a></span>  </div>
+<div class="param">skins </div><div class="param-desc"><span class="param-type"><a href="#PartialSkinInfo">array[PartialSkinInfo]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_get_list__page__get_200_response_page"><code>_get_list__page__get_200_response_page</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">index (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">total (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

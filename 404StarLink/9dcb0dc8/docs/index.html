@@ -1,0 +1,1555 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The SureVoIP RESTful API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>The SureVoIP RESTful API</h1>
+    <div class="app-desc"><h1>Introduction</h1>
+<p>Welcome to the SureVoIP RESTful hypermedia API (sometimes known as a VoIP REST API, Telecom REST API, SIP API, Hypermedia API or just VoIP API.)</p>
+<p>The SureVoIP API is a way for you to automate your interaction with the SureVoIP platforms. With the API, you can create your own scripts, applications or mashups which can:</p>
+<ul>
+<li>List calls</li>
+<li>create customers</li>
+<li>search numbers</li>
+<li>provision numbers</li>
+<li>send SMS texts</li>
+<li>create outbound calls</li>
+<li>schedule announcements</li>
+<li>schedule call hangups with an announcement</li>
+<li>subscribe to events/alerts</li>
+<li>track calls</li>
+<li>retrieve invoices</li>
+<li>grab your SIP details</li>
+<li>check your IP address</li>
+<li>be 100% self-sufficient</li>
+<li>and much more!</li>
+</ul>
+</div>
+    <div class="app-desc">More information: <a href="https://www.surevoip.co.uk/contact-surevoip">https://www.surevoip.co.uk/contact-surevoip</a></div>
+    <div class="app-desc">Contact Info: <a href="support@surevoip.co.uk">support@surevoip.co.uk</a></div>
+    <div class="app-desc">Version: 9dcb0dc8</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Proprietry</div>
+    <div class="license-url">https://api.surevoip.co.uk</div>
+  <h2>Access</h2>
+    <ol>
+      <li>HTTP Basic Authentication</li>
+      <li>OAuth AuthorizationUrl:https://authz.surevoip.co.uk/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:TokenUrl:https://authz.surevoip.co.uk/oauth2/token</li>
+      <li>OAuth AuthorizationUrl:https://authz.surevoip.co.uk/oauth2/authTokenUrl:https://authz.surevoip.co.uk/oauth2/token</li>
+      <li></li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Announcements">Announcements</a></h4>
+  <ul>
+  <li><a href="#announcementsGet"><code><span class="http-method">get</span> /announcements</code></a></li>
+  <li><a href="#announcementsPost"><code><span class="http-method">post</span> /announcements</code></a></li>
+  <li><a href="#customersAccountAnnouncementsAnnouncementIdDelete"><code><span class="http-method">delete</span> /customers/{account}/announcements/{announcement_id}</code></a></li>
+  <li><a href="#customersAccountAnnouncementsAnnouncementIdGet"><code><span class="http-method">get</span> /customers/{account}/announcements/{announcement_id}</code></a></li>
+  <li><a href="#customersAccountAnnouncementsGet"><code><span class="http-method">get</span> /customers/{account}/announcements</code></a></li>
+  </ul>
+  <h4><a href="#Areacodes">Areacodes</a></h4>
+  <ul>
+  <li><a href="#areacodesGet"><code><span class="http-method">get</span> /areacodes</code></a></li>
+  <li><a href="#numbersAreacodesGet"><code><span class="http-method">get</span> /numbers/areacodes</code></a></li>
+  </ul>
+  <h4><a href="#Billing">Billing</a></h4>
+  <ul>
+  <li><a href="#billingGet"><code><span class="http-method">get</span> /billing</code></a></li>
+  </ul>
+  <h4><a href="#Calls">Calls</a></h4>
+  <ul>
+  <li><a href="#callsGet"><code><span class="http-method">get</span> /calls</code></a></li>
+  <li><a href="#callsPost"><code><span class="http-method">post</span> /calls</code></a></li>
+  </ul>
+  <h4><a href="#Charges">Charges</a></h4>
+  <ul>
+  <li><a href="#chargesGet"><code><span class="http-method">get</span> /charges</code></a></li>
+  <li><a href="#chargesPost"><code><span class="http-method">post</span> /charges</code></a></li>
+  </ul>
+  <h4><a href="#Contacts">Contacts</a></h4>
+  <ul>
+  <li><a href="#contactsGet"><code><span class="http-method">get</span> /contacts</code></a></li>
+  </ul>
+  <h4><a href="#Customers">Customers</a></h4>
+  <ul>
+  <li><a href="#customersGet"><code><span class="http-method">get</span> /customers</code></a></li>
+  <li><a href="#getCustomer"><code><span class="http-method">get</span> /customers/{account}</code></a></li>
+  </ul>
+  <h4><a href="#Echo">Echo</a></h4>
+  <ul>
+  <li><a href="#supportEchoPost"><code><span class="http-method">post</span> /support/echo</code></a></li>
+  </ul>
+  <h4><a href="#Faxes">Faxes</a></h4>
+  <ul>
+  <li><a href="#faxesGet"><code><span class="http-method">get</span> /faxes</code></a></li>
+  </ul>
+  <h4><a href="#Global">Global</a></h4>
+  <ul>
+  <li><a href="#rootGet"><code><span class="http-method">get</span> /</code></a></li>
+  </ul>
+  <h4><a href="#Hosted">Hosted</a></h4>
+  <ul>
+  <li><a href="#hostedGet"><code><span class="http-method">get</span> /hosted</code></a></li>
+  </ul>
+  <h4><a href="#Mobile">Mobile</a></h4>
+  <ul>
+  <li><a href="#mobileGet"><code><span class="http-method">get</span> /mobile</code></a></li>
+  </ul>
+  <h4><a href="#Numbers">Numbers</a></h4>
+  <ul>
+  <li><a href="#numbersGet"><code><span class="http-method">get</span> /numbers</code></a></li>
+  </ul>
+  <h4><a href="#Partners">Partners</a></h4>
+  <ul>
+  <li><a href="#partnersGet"><code><span class="http-method">get</span> /partners</code></a></li>
+  </ul>
+  <h4><a href="#Porting">Porting</a></h4>
+  <ul>
+  <li><a href="#portingGet"><code><span class="http-method">get</span> /porting</code></a></li>
+  </ul>
+  <h4><a href="#Sip">Sip</a></h4>
+  <ul>
+  <li><a href="#sipGet"><code><span class="http-method">get</span> /sip</code></a></li>
+  </ul>
+  <h4><a href="#Sms">Sms</a></h4>
+  <ul>
+  <li><a href="#smsGet"><code><span class="http-method">get</span> /sms</code></a></li>
+  </ul>
+  <h4><a href="#Support">Support</a></h4>
+  <ul>
+  <li><a href="#ipAddressGet"><code><span class="http-method">get</span> /ip-address</code></a></li>
+  <li><a href="#serviceStatusGet"><code><span class="http-method">get</span> /service-status</code></a></li>
+  <li><a href="#supportIpAddressGet"><code><span class="http-method">get</span> /support/ip-address</code></a></li>
+  <li><a href="#supportServiceStatusGet"><code><span class="http-method">get</span> /support/service-status</code></a></li>
+  </ul>
+  <h4><a href="#Topups">Topups</a></h4>
+  <ul>
+  <li><a href="#topupsGet"><code><span class="http-method">get</span> /topups</code></a></li>
+  </ul>
+
+  <h1><a name="Announcements">Announcements</a></h1>
+  <div class="method"><a name="announcementsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /announcements</code></pre></div>
+    <div class="method-summary">List global announcements (<span class="nickname">announcementsGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: text/xml</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: text/xml</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Return Status OK and/or resource list
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="announcementsPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /announcements</code></pre></div>
+    <div class="method-summary">Add a new announcement audio file (<span class="nickname">announcementsPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>multipart/form-data</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">description (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">file (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null format: audio/x-wav</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_announcements_post_201_response">_announcements_post_201_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "announcement" : {
+    "filename" : "filename",
+    "size" : 0,
+    "src_ip_address" : "src_ip_address",
+    "description" : "description",
+    "creation_date" : "creation_date",
+    "file_internal" : "file_internal",
+    "id" : "id",
+    "url" : {
+      "download" : "download",
+      "href" : "href",
+      "title" : "title"
+    }
+  }
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errors" : [ {
+    "field" : "field",
+    "message" : [ "message", "message" ]
+  }, {
+    "field" : "field",
+    "message" : [ "message", "message" ]
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "message"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    File created on filesystem.
+        <a href="#_announcements_post_201_response">_announcements_post_201_response</a>
+    <h4 class="field-label">400</h4>
+    Bad data
+        <a href="#_announcements_post_400_response">_announcements_post_400_response</a>
+    <h4 class="field-label">403</h4>
+    Sorry, you have reached your max quota of 10 announcement files. Please delete some.
+        <a href="#_announcements_post_403_response">_announcements_post_403_response</a>
+    <h4 class="field-label">500</h4>
+    Problem saving file
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="customersAccountAnnouncementsAnnouncementIdDelete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /customers/{account}/announcements/{announcement_id}</code></pre></div>
+    <div class="method-summary">Delete an announcement audio file (<span class="nickname">customersAccountAnnouncementsAnnouncementIdDelete</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">404</h4>
+    Not found
+        <a href="#Object">Object</a>
+    <h4 class="field-label">410</h4>
+    Gone
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="customersAccountAnnouncementsAnnouncementIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customers/{account}/announcements/{announcement_id}</code></pre></div>
+    <div class="method-summary">Represents an announcement audio file (<span class="nickname">customersAccountAnnouncementsAnnouncementIdGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">announcement_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Announcement ID of audio file default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "error" : "error"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+    <h4 class="field-label">404</h4>
+    Not found
+        <a href="#_customers__account__announcements__announcement_id__get_404_response">_customers__account__announcements__announcement_id__get_404_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="customersAccountAnnouncementsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customers/{account}/announcements</code></pre></div>
+    <div class="method-summary">List of announcement audio files (<span class="nickname">customersAccountAnnouncementsGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">account (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Account ID of customer default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_customers__account__announcements_get_200_response">_customers__account__announcements_get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "list" : [ "{}", "{}" ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#_customers__account__announcements_get_200_response">_customers__account__announcements_get_200_response</a>
+    <h4 class="field-label">404</h4>
+    Not found
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Areacodes">Areacodes</a></h1>
+  <div class="method"><a name="areacodesGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /areacodes</code></pre></div>
+    <div class="method-summary">List areacodes (<span class="nickname">areacodesGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="numbersAreacodesGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /numbers/areacodes</code></pre></div>
+    <div class="method-summary">Search available numbers by areacode (<span class="nickname">numbersAreacodesGet</span>)</div>
+    <div class="method-notes">You can search by area name, area code or filter using both.</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_numbers_areacodes_get_200_response">_numbers_areacodes_get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "id" : 0
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#_numbers_areacodes_get_200_response">_numbers_areacodes_get_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Billing">Billing</a></h1>
+  <div class="method"><a name="billingGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /billing</code></pre></div>
+    <div class="method-summary">List global billing detail (<span class="nickname">billingGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Calls">Calls</a></h1>
+  <div class="method"><a name="callsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /calls</code></pre></div>
+    <div class="method-summary">Validate a phone number by calling it once (<span class="nickname">callsGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">validate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Validate a phone number by calling it for one ring. Note; not 100% proof the number is in service. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+    <h4 class="field-label">400</h4>
+    Bad query data
+        <a href="#Object">Object</a>
+    <h4 class="field-label">404</h4>
+    Only partners or admins can list all live calls.
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="callsPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /calls</code></pre></div>
+    <div class="method-summary">Create phone calls with or without announcements and scheduled hangups (<span class="nickname">callsPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">_calls_post_request <a href="#_calls_post_request">_calls_post_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_calls_post_202_response">_calls_post_202_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Call" : "Call",
+  "Location" : "Location"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/json</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">202</h4>
+    Call creation request accepted.
+        <a href="#_calls_post_202_response">_calls_post_202_response</a>
+    <h4 class="field-label">400</h4>
+    Bad data
+        <a href="#Object">Object</a>
+    <h4 class="field-label">403</h4>
+    Only customer accounts can create calls.
+        <a href="#Object">Object</a>
+    <h4 class="field-label">500</h4>
+    Issue with API interface to core platform.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Charges">Charges</a></h1>
+  <div class="method"><a name="chargesGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /charges</code></pre></div>
+    <div class="method-summary">List charges (<span class="nickname">chargesGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="chargesPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /charges</code></pre></div>
+    <div class="method-summary">Create charges for invoices (<span class="nickname">chargesPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created,
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Contacts">Contacts</a></h1>
+  <div class="method"><a name="contactsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /contacts</code></pre></div>
+    <div class="method-summary">List contacts (<span class="nickname">contactsGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Customers">Customers</a></h1>
+  <div class="method"><a name="customersGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customers</code></pre></div>
+    <div class="method-summary">List all customers or find your own account (<span class="nickname">customersGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "location" : "location"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">302</h4>
+    Found
+        <a href="#_customers_get_302_response">_customers_get_302_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCustomer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customers/{account}</code></pre></div>
+    <div class="method-summary">Represents a customer (<span class="nickname">getCustomer</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">account (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Account ID of customer default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#getCustomer_200_response">getCustomer_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "country" : "country",
+  "firstname" : "firstname",
+  "address" : "address",
+  "city" : "city",
+  "company_website" : "company_website",
+  "postcode" : "postcode",
+  "lastname" : "lastname",
+  "balance" : 0,
+  "phone" : "phone",
+  "company_name" : "company_name",
+  "state" : "state",
+  "creditlimit" : "creditlimit",
+  "fax" : "fax",
+  "email" : "email",
+  "username" : 6
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Found
+        <a href="#getCustomer_200_response">getCustomer_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Echo">Echo</a></h1>
+  <div class="method"><a name="supportEchoPost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /support/echo</code></pre></div>
+    <div class="method-summary">Return your POSTed data for testing (<span class="nickname">supportEchoPost</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Faxes">Faxes</a></h1>
+  <div class="method"><a name="faxesGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /faxes</code></pre></div>
+    <div class="method-summary">List global ongoing faxes (<span class="nickname">faxesGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Global">Global</a></h1>
+  <div class="method"><a name="rootGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /</code></pre></div>
+    <div class="method-summary">List global resources (<span class="nickname">rootGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">hypermedia (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Disable Hypermedia default: true </div><div class="param">content-type (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Content Type default: application/json </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#__get_200_response">__get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "status" : "OK"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: text/xml</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: text/xml</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Return Status OK and/or resource list
+        <a href="#__get_200_response">__get_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Hosted">Hosted</a></h1>
+  <div class="method"><a name="hostedGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /hosted</code></pre></div>
+    <div class="method-summary">List Hosted VoIP domains (<span class="nickname">hostedGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Mobile">Mobile</a></h1>
+  <div class="method"><a name="mobileGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /mobile</code></pre></div>
+    <div class="method-summary">List mobile accounts (<span class="nickname">mobileGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Numbers">Numbers</a></h1>
+  <div class="method"><a name="numbersGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /numbers</code></pre></div>
+    <div class="method-summary">List available SureVoIP Ofcom number allocations for purchase (<span class="nickname">numbersGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Partners">Partners</a></h1>
+  <div class="method"><a name="partnersGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /partners</code></pre></div>
+    <div class="method-summary">List SureVoIP Partner accounts (<span class="nickname">partnersGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Porting">Porting</a></h1>
+  <div class="method"><a name="portingGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /porting</code></pre></div>
+    <div class="method-summary">List ported numbers (<span class="nickname">portingGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Sip">Sip</a></h1>
+  <div class="method"><a name="sipGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /sip</code></pre></div>
+    <div class="method-summary">List all SIP accounts (<span class="nickname">sipGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Sms">Sms</a></h1>
+  <div class="method"><a name="smsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /sms</code></pre></div>
+    <div class="method-summary">List SMS (<span class="nickname">smsGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Support">Support</a></h1>
+  <div class="method"><a name="ipAddressGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ip-address</code></pre></div>
+    <div class="method-summary">Return the IP address from where your API request originated (<span class="nickname">ipAddressGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="serviceStatusGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /service-status</code></pre></div>
+    <div class="method-summary">List all Service Status messages (<span class="nickname">serviceStatusGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="supportIpAddressGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /support/ip-address</code></pre></div>
+    <div class="method-summary">Return the IP address from where your API request originated (<span class="nickname">supportIpAddressGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="supportServiceStatusGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /support/service-status</code></pre></div>
+    <div class="method-summary">List all Service Status messages (<span class="nickname">supportServiceStatusGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Topups">Topups</a></h1>
+  <div class="method"><a name="topupsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /topups</code></pre></div>
+    <div class="method-summary">List all account credit topups (<span class="nickname">topupsGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#__get_200_response"><code>__get_200_response</code> - </a></li>
+    <li><a href="#_announcements_post_201_response"><code>_announcements_post_201_response</code> - </a></li>
+    <li><a href="#_announcements_post_201_response_announcement"><code>_announcements_post_201_response_announcement</code> - </a></li>
+    <li><a href="#_announcements_post_201_response_announcement_url"><code>_announcements_post_201_response_announcement_url</code> - </a></li>
+    <li><a href="#_announcements_post_400_response"><code>_announcements_post_400_response</code> - </a></li>
+    <li><a href="#_announcements_post_400_response_errors_inner"><code>_announcements_post_400_response_errors_inner</code> - </a></li>
+    <li><a href="#_announcements_post_403_response"><code>_announcements_post_403_response</code> - </a></li>
+    <li><a href="#_calls_post_202_response"><code>_calls_post_202_response</code> - </a></li>
+    <li><a href="#_calls_post_request"><code>_calls_post_request</code> - </a></li>
+    <li><a href="#_calls_post_request_options"><code>_calls_post_request_options</code> - </a></li>
+    <li><a href="#_calls_post_request_options_play_audio_inner"><code>_calls_post_request_options_play_audio_inner</code> - </a></li>
+    <li><a href="#_customers__account__announcements__announcement_id__get_404_response"><code>_customers__account__announcements__announcement_id__get_404_response</code> - </a></li>
+    <li><a href="#_customers__account__announcements_get_200_response"><code>_customers__account__announcements_get_200_response</code> - </a></li>
+    <li><a href="#_customers_get_302_response"><code>_customers_get_302_response</code> - </a></li>
+    <li><a href="#_numbers_areacodes_get_200_response"><code>_numbers_areacodes_get_200_response</code> - </a></li>
+    <li><a href="#getCustomer_200_response"><code>getCustomer_200_response</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="__get_200_response"><code>__get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">OK</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_announcements_post_201_response"><code>_announcements_post_201_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">announcement (optional)</div><div class="param-desc"><span class="param-type"><a href="#_announcements_post_201_response_announcement">_announcements_post_201_response_announcement</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_announcements_post_201_response_announcement"><code>_announcements_post_201_response_announcement</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">creation_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">file_internal (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">filename (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">src_ip_address (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#_announcements_post_201_response_announcement_url">_announcements_post_201_response_announcement_url</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_announcements_post_201_response_announcement_url"><code>_announcements_post_201_response_announcement_url</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">download (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_announcements_post_400_response"><code>_announcements_post_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">errors </div><div class="param-desc"><span class="param-type"><a href="#_announcements_post_400_response_errors_inner">array[_announcements_post_400_response_errors_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_announcements_post_400_response_errors_inner"><code>_announcements_post_400_response_errors_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">field </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">message </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_announcements_post_403_response"><code>_announcements_post_403_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_calls_post_202_response"><code>_calls_post_202_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Call (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Location (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_calls_post_request"><code>_calls_post_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">announcement_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> is in seconds. Just take 120 secs away from the hangup_at time for a announcement to be played 2 mins before the end of the call. If provided announcement_id is required </div>
+<div class="param">announcement_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> is the announcement id (from https://api.surevoip.co.uk/customers/{customer}/announcements/{announcement_id}) to play for example “your call is about to end in 2 mins”. We only allow a wav file, but we may allow &quot;words&quot;, which will use SureVoIP provided text to speech. If provided announcement_at is required </div>
+<div class="param">caller_id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The caller ID to show the b leg (to). </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The person making the call, i.e the a leg. This person must answer in order for the b leg to be rung </div>
+<div class="param">hangup_announcement_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> the id of a thank you announcement or similar. You can manage these as you would with any RESTful resource at https://api.surevoip.co.uk/announcements and https://api.surevoip.co.uk/customers/{customer}/announcements/{announcement_id}. It will be played at the end of the call at hangup. If provided hangup_at is required. </div>
+<div class="param">hangup_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> length in seconds from when the call is <em>answered</em> to when the system hangs up. If &quot;hangup_announcement_id&quot; is present, this will be played at hangup </div>
+<div class="param">options (optional)</div><div class="param-desc"><span class="param-type"><a href="#_calls_post_request_options">_calls_post_request_options</a></span>  </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The b leg of the call, i.e. the person you are calling </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_calls_post_request_options"><code>_calls_post_request_options</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">a_leg_caller_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Change the caller ID shown to the a leg (from) </div>
+<div class="param">a_leg_only (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Do not ring the &quot;to&quot; number, only the from and show &quot;caller_id&quot; </div>
+<div class="param">cancel_key (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The phone keypad number to press to hangup the call and not place the second leg of the call. Default 2 </div>
+<div class="param">connect_key (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The phone keypad number to press in order to place the call to the b leg, i.e. press to confirm. Default 1 </div>
+<div class="param">play_audio (optional)</div><div class="param-desc"><span class="param-type"><a href="#_calls_post_request_options_play_audio_inner">array[_calls_post_request_options_play_audio_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_calls_post_request_options_play_audio_inner"><code>_calls_post_request_options_play_audio_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">announcement_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Id of announcement audio file which will play to the a leg of the call, i.e. the person that must answer the call first. This plays one or more audio files you have uploaded. The use case being you want to play audio to let the a leg of the call know what the call is about. Imagine a call center agent needs to know that they are calling a customer. These audio files may play a customer account number to the agent for example.
+Have lots of audio files in this array to build up a message </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_customers__account__announcements__announcement_id__get_404_response"><code>_customers__account__announcements__announcement_id__get_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_customers__account__announcements_get_200_response"><code>_customers__account__announcements_get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">list (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_customers_get_302_response"><code>_customers_get_302_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_numbers_areacodes_get_200_response"><code>_numbers_areacodes_get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="getCustomer_200_response"><code>getCustomer_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">balance (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">company_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">company_website (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">creditlimit (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">fax (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">firstname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">lastname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">phone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">postcode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">username (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

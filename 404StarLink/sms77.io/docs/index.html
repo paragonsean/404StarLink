@@ -1,0 +1,1187 @@
+<!doctype html>
+<html>
+  <head>
+    <title>sms77.io API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>sms77.io API</h1>
+    <div class="app-desc">sms77.io Swagger API. Get your API-Key now at sms77.io.</div>
+    <div class="app-desc">More information: <a href="https://sms77.io/en/company/contact">https://sms77.io/en/company/contact</a></div>
+    <div class="app-desc">Contact Info: <a href="support@sms77.io">support@sms77.io</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/api</div>
+    <div class="license-info">Licensed by Apache 2.0</div>
+    <div class="license-url">https://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:X-API-Key KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Analytics">Analytics</a></h4>
+  <ul>
+  <li><a href="#analytics"><code><span class="http-method">get</span> /analytics</code></a></li>
+  </ul>
+  <h4><a href="#Balance">Balance</a></h4>
+  <ul>
+  <li><a href="#balance"><code><span class="http-method">get</span> /balance</code></a></li>
+  </ul>
+  <h4><a href="#Contacts">Contacts</a></h4>
+  <ul>
+  <li><a href="#contactsGet"><code><span class="http-method">get</span> /contacts</code></a></li>
+  <li><a href="#contactsPOST"><code><span class="http-method">post</span> /contacts</code></a></li>
+  </ul>
+  <h4><a href="#Hooks">Hooks</a></h4>
+  <ul>
+  <li><a href="#hooksGet"><code><span class="http-method">get</span> /hooks</code></a></li>
+  <li><a href="#hooksPOST"><code><span class="http-method">post</span> /hooks</code></a></li>
+  </ul>
+  <h4><a href="#Lookup">Lookup</a></h4>
+  <ul>
+  <li><a href="#lookup"><code><span class="http-method">post</span> /lookup</code></a></li>
+  <li><a href="#lookupCnam"><code><span class="http-method">post</span> /lookup/cnam</code></a></li>
+  <li><a href="#lookupFormat"><code><span class="http-method">post</span> /lookup/format</code></a></li>
+  <li><a href="#lookupHlr"><code><span class="http-method">post</span> /lookup/hlr</code></a></li>
+  <li><a href="#lookupMnp"><code><span class="http-method">post</span> /lookup/mnp</code></a></li>
+  </ul>
+  <h4><a href="#Pricing">Pricing</a></h4>
+  <ul>
+  <li><a href="#pricing"><code><span class="http-method">get</span> /pricing</code></a></li>
+  </ul>
+  <h4><a href="#Sms">Sms</a></h4>
+  <ul>
+  <li><a href="#sms"><code><span class="http-method">post</span> /sms</code></a></li>
+  </ul>
+  <h4><a href="#Status">Status</a></h4>
+  <ul>
+  <li><a href="#status"><code><span class="http-method">get</span> /status</code></a></li>
+  </ul>
+  <h4><a href="#ValidateForVoice">ValidateForVoice</a></h4>
+  <ul>
+  <li><a href="#validateForVoice"><code><span class="http-method">post</span> /validate_for_voice</code></a></li>
+  </ul>
+  <h4><a href="#Voice">Voice</a></h4>
+  <ul>
+  <li><a href="#voice"><code><span class="http-method">post</span> /voice</code></a></li>
+  </ul>
+
+  <h1><a name="Analytics">Analytics</a></h1>
+  <div class="method"><a name="analytics"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">analytics</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">start (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date of the statistics in the format YYYY-MM-DD. By default, the date of 30 days ago is set. default: null </div><div class="param">end (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End date of the statistics in the format YYYY-MM-DD. By default, the current day. default: null </div><div class="param">label (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Shows only data of a specific label. default: null </div><div class="param">subaccounts (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Receive the data only for the main account, all your (sub-)accounts or only for specific subaccounts. default: null </div><div class="param">group_by (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Defines the grouping of the data. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Analytics_200_response">Analytics_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "date" : "date",
+  "voice" : 7,
+  "inbound" : 5,
+  "direct" : 0,
+  "economy" : 6,
+  "usage_eur" : 2.302136,
+  "mnp" : 5,
+  "hlr" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Analytics_200_response">Analytics_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Balance">Balance</a></h1>
+  <div class="method"><a name="balance"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /balance</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">balance</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Float
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Float">Float</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Contacts">Contacts</a></h1>
+  <div class="method"><a name="contactsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /contacts</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">contactsGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">action (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines the action to execute. default: null </div><div class="param">json (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Defines whether to return the response as JSON or CSV separated by semicolon. default: 0 </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>"\"1\";\"Tommy Tester\";\"0049179876543210\""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/csv</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK (CSV)
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="contactsPOST"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /contacts</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">contactsPOST</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">action (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines the action to execute. default: null </div><div class="param">json (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Defines whether to return the response as JSON or CSV separated by semicolon. default: 0 </div><div class="param">id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The contact ID for editing/deletion. default: null </div><div class="param">nick (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The contacts name. default: null </div><div class="param">empfaenger (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The contacts phone number. default: null </div><div class="param">email (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The contacts email address. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>"152"</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Hooks">Hooks</a></h1>
+  <div class="method"><a name="hooksGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /hooks</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">hooksGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">action (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines the action to execute. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#HooksGet_200_response">HooksGet_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "success" : true,
+  "hooks" : [ {
+    "event_type" : "event_type",
+    "created" : "created",
+    "target_url" : "target_url",
+    "id" : "id",
+    "request_method" : "request_method"
+  }, {
+    "event_type" : "event_type",
+    "created" : "created",
+    "target_url" : "target_url",
+    "id" : "id",
+    "request_method" : "request_method"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#HooksGet_200_response">HooksGet_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="hooksPOST"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /hooks</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">hooksPOST</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">action (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines the action to execute. default: null </div><div class="param">id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The Webhook ID you wish to unsubscribe. default: null </div><div class="param">target_url (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Target URL of your Webhook. default: null </div><div class="param">event_type (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Type of event for which you would like to receive a webhook. default: null </div><div class="param">request_method (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Request method in which you want to receive the webhook. default: POST </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#HooksPOST_200_response">HooksPOST_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "success" : true,
+  "id" : 0
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Hook subscribed
+        <a href="#HooksPOST_200_response">HooksPOST_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Lookup">Lookup</a></h1>
+  <div class="method"><a name="lookup"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /lookup</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">lookup</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Allowed values are &quot;cnam&quot;, &quot;format&quot;, &quot;hlr&quot; and &quot;mnp&quot;. default: null </div><div class="param">number (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The phone number to look up. default: null </div><div class="param">json (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines whether the response shall be returned in JSON format. Does not work with type &quot;format&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="lookupCnam"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /lookup/cnam</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">lookupCnam</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">number (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The phone number to look up. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="lookupFormat"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /lookup/format</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">lookupFormat</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">number (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The phone number to look up. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="lookupHlr"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /lookup/hlr</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">lookupHlr</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">number (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The phone number to look up. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="lookupMnp"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /lookup/mnp</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">lookupMnp</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">number (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The phone number to look up. default: null </div><div class="param">json (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines whether the response shall be returned in JSON format. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Pricing">Pricing</a></h1>
+  <div class="method"><a name="pricing"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /pricing</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">pricing</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">country (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The countries ISO code to get pricings for. Allowed values are de, fr, at. Omit to show pricings for all channels. default: null </div><div class="param">format (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines the response format. Allowed values are json and csv. The default value is json. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/csv</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Sms">Sms</a></h1>
+  <div class="method"><a name="sms"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /sms</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">sms</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">text (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The actual text message to send. default: null </div><div class="param">to (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The recipient number or group name. default: null </div><div class="param">from (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Set a custom sender name. default: null </div><div class="param">foreign_id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Identifier to return in callbacks. default: null </div><div class="param">label (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A custom label. default: null </div><div class="param">udh (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A custom User Data Header. default: null </div><div class="param">delay (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Date/Time for delayed dispatch. default: null </div><div class="param">debug (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Disable message sending. default: 0 </div><div class="param">no_reload (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Enable sending of duplicated messages within 180 seconds. default: 0 </div><div class="param">unicode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Force unicode encoding. Reduces sms length to 70 chars. default: 0 </div><div class="param">flash (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Send as flash. default: 0 </div><div class="param">utf8 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Force UTF8 encoding. default: 0 </div><div class="param">details (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Attach message details to response. default: 0 </div><div class="param">return_msg_id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Attach message ID to second row in a text response. default: 0 </div><div class="param">json (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return a detailed JSON response. default: 0 </div><div class="param">performance_tracking (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Enable performance tracking for found URLs. default: 0 </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Sms_200_response">Sms_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "debug" : "debug",
+  "balance" : 0.8008282,
+  "total_price" : 5.962134,
+  "success" : "success",
+  "messages" : [ {
+    "error_text" : "error_text",
+    "sender" : "sender",
+    "price" : 1,
+    "success" : true,
+    "parts" : 6,
+    "recipient" : "recipient",
+    "messages" : [ "messages", "messages" ],
+    "id" : "id",
+    "text" : "text",
+    "encoding" : "encoding",
+    "error" : "error"
+  }, {
+    "error_text" : "error_text",
+    "sender" : "sender",
+    "price" : 1,
+    "success" : true,
+    "parts" : 6,
+    "recipient" : "recipient",
+    "messages" : [ "messages", "messages" ],
+    "id" : "id",
+    "text" : "text",
+    "encoding" : "encoding",
+    "error" : "error"
+  } ],
+  "sms_type" : "economy"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: text/plain</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: text/plain</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Sms_200_response">Sms_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Status">Status</a></h1>
+  <div class="method"><a name="status"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /status</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">status</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">msg_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The ID from the SMS. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ValidateForVoice">ValidateForVoice</a></h1>
+  <div class="method"><a name="validateForVoice"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /validate_for_voice</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">validateForVoice</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">number (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines the recipient. Can only be a number, not a contact from your address book. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The callback URL which gets queried right after validation. default: null format: uri</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ValidateForVoice_200_response">ValidateForVoice_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "code" : "code",
+  "success" : true,
+  "error" : "error"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ValidateForVoice_200_response">ValidateForVoice_200_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Voice">Voice</a></h1>
+  <div class="method"><a name="voice"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /voice</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">voice</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">to (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines the receiver. Must be a valid phone number or contact from the address book. default: null </div><div class="param">text (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The text to convert to a voice message. Accepts valid XML too. default: null </div><div class="param">xml (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Decides whether the parameter &quot;text&quot; is plain text or XML. The default value is 0. default: null </div><div class="param">from (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sets the sender. Must be a verified sender. Use an inbound number of yours or one of ours. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Analytics_200_response"><code>Analytics_200_response</code> - </a></li>
+    <li><a href="#Carrier"><code>Carrier</code> - </a></li>
+    <li><a href="#HooksGet_200_response"><code>HooksGet_200_response</code> - </a></li>
+    <li><a href="#HooksGet_200_response_hooks_inner"><code>HooksGet_200_response_hooks_inner</code> - </a></li>
+    <li><a href="#HooksPOST_200_response"><code>HooksPOST_200_response</code> - </a></li>
+    <li><a href="#Mnp"><code>Mnp</code> - </a></li>
+    <li><a href="#Roaming"><code>Roaming</code> - </a></li>
+    <li><a href="#Sms_200_response"><code>Sms_200_response</code> - </a></li>
+    <li><a href="#Sms_200_response_messages_inner"><code>Sms_200_response_messages_inner</code> - </a></li>
+    <li><a href="#ValidateForVoice_200_response"><code>ValidateForVoice_200_response</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Analytics_200_response"><code>Analytics_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">direct (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">economy (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">hlr (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">inbound (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">mnp (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">usage_eur (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">voice (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Carrier"><code>Carrier</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">network_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">network_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">fixed_line</div><div class="param-enum">fixed_line_or_mobile</div><div class="param-enum">mobile</div><div class="param-enum">pager</div><div class="param-enum">personal_number</div><div class="param-enum">premium_rate</div><div class="param-enum">shared_cost</div><div class="param-enum">toll_free</div><div class="param-enum">uan</div><div class="param-enum">unknown</div><div class="param-enum">voicemail</div><div class="param-enum">voip</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="HooksGet_200_response"><code>HooksGet_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">hooks (optional)</div><div class="param-desc"><span class="param-type"><a href="#HooksGet_200_response_hooks_inner">array[HooksGet_200_response_hooks_inner]</a></span>  </div>
+<div class="param">success (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="HooksGet_200_response_hooks_inner"><code>HooksGet_200_response_hooks_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">created (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">event_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">request_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">target_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="HooksPOST_200_response"><code>HooksPOST_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">success (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mnp"><code>Mnp</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">international_formatted (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">isPorted (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">mccmnc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">national_format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">network (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Roaming"><code>Roaming</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">roaming_country_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">roaming_network_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">roaming_network_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">unknown</div><div class="param-enum">roaming</div><div class="param-enum">not_roaming</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Sms_200_response"><code>Sms_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">balance (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">debug (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">messages (optional)</div><div class="param-desc"><span class="param-type"><a href="#Sms_200_response_messages_inner">array[Sms_200_response_messages_inner]</a></span>  </div>
+<div class="param">sms_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">economy</div><div class="param-enum">direct</div>
+<div class="param">success (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">total_price (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Sms_200_response_messages_inner"><code>Sms_200_response_messages_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">encoding (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">error_text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">messages (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">parts (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">recipient (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">sender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">success (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ValidateForVoice_200_response"><code>ValidateForVoice_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">success (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

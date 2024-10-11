@@ -1,0 +1,2759 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Vonage Integration Suite</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Vonage Integration Suite</h1>
+    <div class="app-desc"><p>The Vonage Integration Suite API enables call control and webhooks for call events.</p>
+<p>Your application must subscribe to the VonageIntegrationSuite API suite to use this API.</p>
+</div>
+    <div class="app-desc">More information: <a href="https://integrate.vonage.com">https://integrate.vonage.com</a></div>
+    <div class="app-desc">Contact Info: <a href="gunifydevops@vonage.com">gunifydevops@vonage.com</a></div>
+    <div class="app-desc">Version: 1.0.1</div>
+    <div class="app-desc">BasePath:/t/vbc.prod/vis/v1</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Accounts">Accounts</a></h4>
+  <ul>
+  <li><a href="#getAccount"><code><span class="http-method">get</span> /self/account</code></a></li>
+  </ul>
+  <h4><a href="#Calls">Calls</a></h4>
+  <ul>
+  <li><a href="#callAnswer"><code><span class="http-method">put</span> /self/calls/{id}/answer</code></a></li>
+  <li><a href="#callHold"><code><span class="http-method">put</span> /self/calls/{id}/hold</code></a></li>
+  <li><a href="#callTransfer"><code><span class="http-method">post</span> /self/calls/{id}/transfer</code></a></li>
+  <li><a href="#callUnold"><code><span class="http-method">delete</span> /self/calls/{id}/hold</code></a></li>
+  <li><a href="#callVMTransfer"><code><span class="http-method">put</span> /self/calls/{id}/vmtransfer</code></a></li>
+  <li><a href="#createCall"><code><span class="http-method">post</span> /self/calls</code></a></li>
+  <li><a href="#destroyCall"><code><span class="http-method">delete</span> /self/calls/{id}</code></a></li>
+  <li><a href="#getCallsCount"><code><span class="http-method">get</span> /self/calls/count</code></a></li>
+  <li><a href="#getRoles"><code><span class="http-method">get</span> /self/calls/{id}</code></a></li>
+  <li><a href="#listCalls"><code><span class="http-method">get</span> /self/calls</code></a></li>
+  </ul>
+  <h4><a href="#Events">Events</a></h4>
+  <ul>
+  <li><a href="#getEvent"><code><span class="http-method">get</span> /self/events/{id}</code></a></li>
+  <li><a href="#getEventsCount"><code><span class="http-method">get</span> /self/events/count</code></a></li>
+  <li><a href="#listEvents"><code><span class="http-method">get</span> /self/events</code></a></li>
+  </ul>
+  <h4><a href="#Users">Users</a></h4>
+  <ul>
+  <li><a href="#getUser"><code><span class="http-method">get</span> /self</code></a></li>
+  </ul>
+  <h4><a href="#Webhooks">Webhooks</a></h4>
+  <ul>
+  <li><a href="#createWebhook"><code><span class="http-method">post</span> /self/webhooks</code></a></li>
+  <li><a href="#destroyWebhook"><code><span class="http-method">delete</span> /self/webhooks/{id}</code></a></li>
+  <li><a href="#listWebhooks"><code><span class="http-method">get</span> /self/webhooks</code></a></li>
+  <li><a href="#renewWebhook"><code><span class="http-method">put</span> /self/webhooks/{id}/renew</code></a></li>
+  <li><a href="#viewWebhook"><code><span class="http-method">get</span> /self/webhooks/{id}</code></a></li>
+  </ul>
+
+  <h1><a name="Accounts">Accounts</a></h1>
+  <div class="method"><a name="getAccount"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/account</code></pre></div>
+    <div class="method-summary">Account info (<span class="nickname">getAccount</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Account">Account</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "org" : "Vonage",
+  "name" : "Vonage",
+  "id" : 257073,
+  "ucis" : [ {
+    "health" : {
+      "message" : "message",
+      "status" : "status"
+    },
+    "ucpAccountId" : "ucpAccountId",
+    "id" : 0,
+    "type" : "ACCOUNT_UCI",
+    "ucpLabel" : "ucpLabel"
+  }, {
+    "health" : {
+      "message" : "message",
+      "status" : "status"
+    },
+    "ucpAccountId" : "ucpAccountId",
+    "id" : 0,
+    "type" : "ACCOUNT_UCI",
+    "ucpLabel" : "ucpLabel"
+  } ],
+  "status" : "ACTIVE"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#Account">Account</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Calls">Calls</a></h1>
+  <div class="method"><a name="callAnswer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /self/calls/{id}/answer</code></pre></div>
+    <div class="method-summary">Answer call (On supported devices) (<span class="nickname">callAnswer</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the call default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Call">Call</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#Call">Call</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="callHold"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /self/calls/{id}/hold</code></pre></div>
+    <div class="method-summary">Put call on hold (<span class="nickname">callHold</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the call default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Call">Call</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#Call">Call</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="callTransfer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /self/calls/{id}/transfer</code></pre></div>
+    <div class="method-summary">Transfer call (<span class="nickname">callTransfer</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the call default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">CallTransfer <a href="#CallTransfer">CallTransfer</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Call">Call</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#Call">Call</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="callUnold"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /self/calls/{id}/hold</code></pre></div>
+    <div class="method-summary">Unhold (<span class="nickname">callUnold</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the call default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Call">Call</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#Call">Call</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="callVMTransfer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /self/calls/{id}/vmtransfer</code></pre></div>
+    <div class="method-summary">Send call to voicemail (<span class="nickname">callVMTransfer</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the call default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Call">Call</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#Call">Call</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createCall"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /self/calls</code></pre></div>
+    <div class="method-summary">Place a call (<span class="nickname">createCall</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">CallCreate <a href="#CallCreate">CallCreate</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Call">Call</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}, {
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+} ]</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Successful
+        
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="destroyCall"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /self/calls/{id}</code></pre></div>
+    <div class="method-summary">End a call (<span class="nickname">destroyCall</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the call default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Call">Call</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}, {
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+} ]</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCallsCount"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/calls/count</code></pre></div>
+    <div class="method-summary">Get calls count (<span class="nickname">getCallsCount</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">fromDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return calls that occurred after this point in time default: null </div><div class="param">toDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return calls that occurred before this point in time default: null </div><div class="param">direction (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by call direction. For multiple criteria, seperate values by a comma. default: null </div><div class="param">states (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter calls by state. For multiple criteria, seperate values by a comma. default: ACTIVE </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#EventsCount">EventsCount</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "count" : 0
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#EventsCount">EventsCount</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getRoles"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/calls/{id}</code></pre></div>
+    <div class="method-summary">Get a call (<span class="nickname">getRoles</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the call default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Call">Call</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}, {
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+} ]</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listCalls"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/calls</code></pre></div>
+    <div class="method-summary">List active calls (<span class="nickname">listCalls</span>)</div>
+    <div class="method-notes">Lists currently active calls</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">fromDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return calls that occurred after this point in time default: null </div><div class="param">toDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return calls that occurred before this point in time default: null </div><div class="param">direction (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by call direction. For multiple criteria, seperate values by a comma. default: null </div><div class="param">states (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter calls by state. For multiple criteria, seperate values by a comma. default: ACTIVE </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number of calls to return default: null format: int64</div><div class="param">size (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return this amount of calls in the response default: 20 </div><div class="param">order (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sort in either ascending or descending order default: ASC </div><div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sort calls by property default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Call">Call</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}, {
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+} ]</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Events">Events</a></h1>
+  <div class="method"><a name="getEvent"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/events/{id}</code></pre></div>
+    <div class="method-summary">Get event (<span class="nickname">getEvent</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the event default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Event">Event</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "smsData" : "smsData",
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}, {
+  "smsData" : "smsData",
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+} ]</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getEventsCount"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/events/count</code></pre></div>
+    <div class="method-summary">Get events count (<span class="nickname">getEventsCount</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">fromDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return events that occurred after this point in time default: null </div><div class="param">toDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return events that occurred before this point in time default: null </div><div class="param">direction (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by event direction default: null </div><div class="param">states (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by state default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#EventsCount">EventsCount</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "count" : 0
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#EventsCount">EventsCount</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listEvents"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/events</code></pre></div>
+    <div class="method-summary">List events (<span class="nickname">listEvents</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">types (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Record type default: null </div><div class="param">fromDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return events that occurred after this point in time default: null </div><div class="param">toDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return events that occurred before this point in time default: null </div><div class="param">direction (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by event direction default: null </div><div class="param">states (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by state default: null </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number of events to return default: null format: int64</div><div class="param">size (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Return this amount of events in the response default: 20 </div><div class="param">order (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sort in either ascending or descending order' default: ASC </div><div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sort events by property default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Event">Event</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "smsData" : "smsData",
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+}, {
+  "smsData" : "smsData",
+  "answerTime" : "2000-01-23",
+  "externalId" : "externalId",
+  "uciId" : 5,
+  "type" : "CALL",
+  "userId" : 5,
+  "duration" : 6,
+  "accountId" : 0,
+  "phoneNumber" : "phoneNumber",
+  "startTime" : "2000-01-23",
+  "callerId" : "callerId",
+  "endTime" : "2000-01-23",
+  "id" : 1,
+  "state" : "INITIALIZING",
+  "direction" : "INBOUND"
+} ]</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Users">Users</a></h1>
+  <div class="method"><a name="getUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self</code></pre></div>
+    <div class="method-summary">User info (<span class="nickname">getUser</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#User">User</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "accountId" : 257073,
+  "firstName" : "Robert",
+  "lastName" : "Smith",
+  "emailAddress" : "john.smith@example.com",
+  "acountLabel" : "Vonage",
+  "roles" : [ {
+    "code" : "AU",
+    "name" : "Account User"
+  }, {
+    "code" : "AU",
+    "name" : "Account User"
+  } ],
+  "contactNumber" : "14155550100",
+  "id" : 522078,
+  "ucis" : [ {
+    "health" : {
+      "message" : "message",
+      "status" : "status"
+    },
+    "id" : 0,
+    "type" : "USER_UCI",
+    "ucpLabel" : "ucpLabel"
+  }, {
+    "health" : {
+      "message" : "message",
+      "status" : "status"
+    },
+    "id" : 0,
+    "type" : "USER_UCI",
+    "ucpLabel" : "ucpLabel"
+  } ],
+  "status" : "ACTIVE"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#User">User</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Webhooks">Webhooks</a></h1>
+  <div class="method"><a name="createWebhook"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /self/webhooks</code></pre></div>
+    <div class="method-summary">Create a new webhook subscription (<span class="nickname">createWebhook</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">WebhookCreate <a href="#WebhookCreate">WebhookCreate</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Webhook">Webhook</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "purgeAt" : "2019-01-01T00:00:00.000Z",
+  "signingAlgo" : "HMAC_SHA256",
+  "expireAt" : "2019-01-01T00:00:00.000Z",
+  "renewedAt" : "2019-01-01T00:00:00.000Z",
+  "userId" : "522078",
+  "url" : "https://www.example.com",
+  "accountId" : "257073",
+  "createdAt" : "2019-01-01T00:00:00.000Z",
+  "signingKey" : "signingKey",
+  "id" : "184094",
+  "metadataPolicy" : "NONE",
+  "events" : [ "CALL" ],
+  "statistics" : {
+    "totalFailures" : 10,
+    "totalSuccesses" : 10,
+    "totalAttempts" : 10,
+    "failed" : false
+  },
+  "status" : "ACTIVE"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Successful
+        <a href="#Webhook">Webhook</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="destroyWebhook"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /self/webhooks/{id}</code></pre></div>
+    <div class="method-summary">Remove a web hook (<span class="nickname">destroyWebhook</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the webhook default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    Successful
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listWebhooks"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/webhooks</code></pre></div>
+    <div class="method-summary">List web hooks (<span class="nickname">listWebhooks</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Webhook">Webhook</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "purgeAt" : "2019-01-01T00:00:00.000Z",
+  "signingAlgo" : "HMAC_SHA256",
+  "expireAt" : "2019-01-01T00:00:00.000Z",
+  "renewedAt" : "2019-01-01T00:00:00.000Z",
+  "userId" : "522078",
+  "url" : "https://www.example.com",
+  "accountId" : "257073",
+  "createdAt" : "2019-01-01T00:00:00.000Z",
+  "signingKey" : "signingKey",
+  "id" : "184094",
+  "metadataPolicy" : "NONE",
+  "events" : [ "CALL" ],
+  "statistics" : {
+    "totalFailures" : 10,
+    "totalSuccesses" : 10,
+    "totalAttempts" : 10,
+    "failed" : false
+  },
+  "status" : "ACTIVE"
+}, {
+  "purgeAt" : "2019-01-01T00:00:00.000Z",
+  "signingAlgo" : "HMAC_SHA256",
+  "expireAt" : "2019-01-01T00:00:00.000Z",
+  "renewedAt" : "2019-01-01T00:00:00.000Z",
+  "userId" : "522078",
+  "url" : "https://www.example.com",
+  "accountId" : "257073",
+  "createdAt" : "2019-01-01T00:00:00.000Z",
+  "signingKey" : "signingKey",
+  "id" : "184094",
+  "metadataPolicy" : "NONE",
+  "events" : [ "CALL" ],
+  "statistics" : {
+    "totalFailures" : 10,
+    "totalSuccesses" : 10,
+    "totalAttempts" : 10,
+    "failed" : false
+  },
+  "status" : "ACTIVE"
+} ]</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="renewWebhook"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /self/webhooks/{id}/renew</code></pre></div>
+    <div class="method-summary">Renews a web hook (<span class="nickname">renewWebhook</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Webhook ID default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Webhook">Webhook</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "purgeAt" : "2019-01-01T00:00:00.000Z",
+  "signingAlgo" : "HMAC_SHA256",
+  "expireAt" : "2019-01-01T00:00:00.000Z",
+  "renewedAt" : "2019-01-01T00:00:00.000Z",
+  "userId" : "522078",
+  "url" : "https://www.example.com",
+  "accountId" : "257073",
+  "createdAt" : "2019-01-01T00:00:00.000Z",
+  "signingKey" : "signingKey",
+  "id" : "184094",
+  "metadataPolicy" : "NONE",
+  "events" : [ "CALL" ],
+  "statistics" : {
+    "totalFailures" : 10,
+    "totalSuccesses" : 10,
+    "totalAttempts" : 10,
+    "failed" : false
+  },
+  "status" : "ACTIVE"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#Webhook">Webhook</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="viewWebhook"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /self/webhooks/{id}</code></pre></div>
+    <div class="method-summary">Get web hook details (<span class="nickname">viewWebhook</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier of the webhook default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Webhook">Webhook</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "purgeAt" : "2019-01-01T00:00:00.000Z",
+  "signingAlgo" : "HMAC_SHA256",
+  "expireAt" : "2019-01-01T00:00:00.000Z",
+  "renewedAt" : "2019-01-01T00:00:00.000Z",
+  "userId" : "522078",
+  "url" : "https://www.example.com",
+  "accountId" : "257073",
+  "createdAt" : "2019-01-01T00:00:00.000Z",
+  "signingKey" : "signingKey",
+  "id" : "184094",
+  "metadataPolicy" : "NONE",
+  "events" : [ "CALL" ],
+  "statistics" : {
+    "totalFailures" : 10,
+    "totalSuccesses" : 10,
+    "totalAttempts" : 10,
+    "failed" : false
+  },
+  "status" : "ACTIVE"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode",
+  "errors" : [ {
+    "field" : "field",
+    "message" : "message"
+  }, {
+    "field" : "field",
+    "message" : "message"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful
+        <a href="#Webhook">Webhook</a>
+    <h4 class="field-label">400</h4>
+    Bad Request: The client should not repeat the request without modifications
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized: Invalid access token
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden: The user has no rights to access the resource(s)
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Timeout: The client may repeat the request without modifications
+        <a href="#"></a>
+    <h4 class="field-label">422</h4>
+    Validation Error
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Bad Gateway
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Account"><code>Account</code> - </a></li>
+    <li><a href="#Account_ucis_inner"><code>Account_ucis_inner</code> - </a></li>
+    <li><a href="#Account_ucis_inner_health"><code>Account_ucis_inner_health</code> - </a></li>
+    <li><a href="#Call"><code>Call</code> - </a></li>
+    <li><a href="#CallCreate"><code>CallCreate</code> - </a></li>
+    <li><a href="#CallTransfer"><code>CallTransfer</code> - </a></li>
+    <li><a href="#Error"><code>Error</code> - </a></li>
+    <li><a href="#ErrorResponse"><code>ErrorResponse</code> - </a></li>
+    <li><a href="#Event"><code>Event</code> - </a></li>
+    <li><a href="#EventsCount"><code>EventsCount</code> - </a></li>
+    <li><a href="#User"><code>User</code> - </a></li>
+    <li><a href="#User_roles_inner"><code>User_roles_inner</code> - </a></li>
+    <li><a href="#User_ucis_inner"><code>User_ucis_inner</code> - </a></li>
+    <li><a href="#Webhook"><code>Webhook</code> - </a></li>
+    <li><a href="#WebhookCreate"><code>WebhookCreate</code> - </a></li>
+    <li><a href="#Webhook_statistics"><code>Webhook_statistics</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Account"><code>Account</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Unique identifier of the account </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the account </div>
+<div class="param">org (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Organization of the account </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Status of the account </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PENDING</div><div class="param-enum">ACTIVE</div><div class="param-enum">DELETED</div><div class="param-enum">ARCHIVED</div>
+<div class="param">ucis (optional)</div><div class="param-desc"><span class="param-type"><a href="#Account_ucis_inner">array[Account_ucis_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Account_ucis_inner"><code>Account_ucis_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">health (optional)</div><div class="param-desc"><span class="param-type"><a href="#Account_ucis_inner_health">Account_ucis_inner_health</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ucpAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ucpLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Account_ucis_inner_health"><code>Account_ucis_inner_health</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Call"><code>Call</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountId </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier of the account format: int64</div>
+<div class="param">answerTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Time to answer the call format: date</div>
+<div class="param">callerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Remote caller ID </div>
+<div class="param">direction </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Direction of the call </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INBOUND</div><div class="param-enum">OUTBOUND</div>
+<div class="param">duration </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Duration of the call in milliseconds format: int64</div>
+<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> End time of the call format: date</div>
+<div class="param">externalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> External identifier of the call </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier of the call format: int64</div>
+<div class="param">phoneNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier of the account </div>
+<div class="param">startTime </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Start time of the call format: date</div>
+<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Status of the call </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INITIALIZING</div><div class="param-enum">RINGING</div><div class="param-enum">ACTIVE</div><div class="param-enum">HELD</div><div class="param-enum">REMOTE_HELD</div><div class="param-enum">DETACHED</div><div class="param-enum">REJECTED</div><div class="param-enum">CANCELLED</div><div class="param-enum">ANSWERED</div><div class="param-enum">MISSED</div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Record type </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">CALL</div>
+<div class="param">uciId </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier of communications provider format: int64</div>
+<div class="param">userId </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier of the user format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CallCreate"><code>CallCreate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">phoneNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Phone number to call </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CallTransfer"><code>CallTransfer</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">phoneNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Phone number to transfer to </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Error"><code>Error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">field (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorResponse"><code>ErrorResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">errorCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">errorMessage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">errors (optional)</div><div class="param-desc"><span class="param-type"><a href="#Error">array[Error]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Event"><code>Event</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountId </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier of the account format: int64</div>
+<div class="param">answerTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Time to answer the event format: date</div>
+<div class="param">callerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Remote caller ID </div>
+<div class="param">direction </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Direction of the event </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INBOUND</div><div class="param-enum">OUTBOUND</div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Duration of the call in milliseconds format: int64</div>
+<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> End time of the event format: date</div>
+<div class="param">externalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> External identifier of the event </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier of the event format: int64</div>
+<div class="param">phoneNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier of the account </div>
+<div class="param">smsData (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">startTime </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Start time of the event format: date</div>
+<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Status of the event </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INITIALIZING</div><div class="param-enum">RINGING</div><div class="param-enum">ACTIVE</div><div class="param-enum">HELD</div><div class="param-enum">REMOTE_HELD</div><div class="param-enum">DETACHED</div><div class="param-enum">REJECTED</div><div class="param-enum">CANCELLED</div><div class="param-enum">ANSWERED</div><div class="param-enum">MISSED</div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Record type </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">CALL</div>
+<div class="param">uciId </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier of communications provider format: int64</div>
+<div class="param">userId </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier of the user format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EventsCount"><code>EventsCount</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">count (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Number of events found format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="User"><code>User</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Unique identifier of the user's account </div>
+<div class="param">acountLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the user's account </div>
+<div class="param">contactNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contact number of the user </div>
+<div class="param">emailAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Email address of the user </div>
+<div class="param">firstName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> First name of the user </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Unique identifier of the user </div>
+<div class="param">lastName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Last name of the user </div>
+<div class="param">roles (optional)</div><div class="param-desc"><span class="param-type"><a href="#User_roles_inner">array[User_roles_inner]</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Status of the user </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PENDING</div><div class="param-enum">ACTIVE</div><div class="param-enum">DELETED</div><div class="param-enum">ARCHIVED</div>
+<div class="param">ucis (optional)</div><div class="param-desc"><span class="param-type"><a href="#User_ucis_inner">array[User_ucis_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="User_roles_inner"><code>User_roles_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Code for the role </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name for the role </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="User_ucis_inner"><code>User_ucis_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">health (optional)</div><div class="param-desc"><span class="param-type"><a href="#Account_ucis_inner_health">Account_ucis_inner_health</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ucpLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Webhook"><code>Webhook</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier of the account </div>
+<div class="param">createdAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Created time for the webhook </div>
+<div class="param">events (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Subscribed events for the webhook </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">expireAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Expiration time for the webhook </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier for the webhook </div>
+<div class="param">metadataPolicy (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Metadata policy for the webhook </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NONE</div><div class="param-enum">HEADER</div><div class="param-enum">BODY</div>
+<div class="param">purgeAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Scheduled purge time for the webhook </div>
+<div class="param">renewedAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Last renewed time for the webhook </div>
+<div class="param">signingAlgo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Signing algorithm for the webhook </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">HMAC_SHA256</div><div class="param-enum">NONE</div>
+<div class="param">signingKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Signing key for the webhook </div>
+<div class="param">statistics (optional)</div><div class="param-desc"><span class="param-type"><a href="#Webhook_statistics">Webhook_statistics</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Status for the webhook </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">ACTIVE</div><div class="param-enum">PAUSED</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Destination URL for events </div>
+<div class="param">userId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier of the user </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WebhookCreate"><code>WebhookCreate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">events (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Events to subscribe to the webhook </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">metadataPolicy (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Metadata policy for the webhook </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NONE</div><div class="param-enum">HEADER</div><div class="param-enum">BODY</div>
+<div class="param">signingAlgo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Signing algorithm for the webhook </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">HMAC_SHA256</div>
+<div class="param">signingKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Signing key for the webhook </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Destination URL for events </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Webhook_statistics"><code>Webhook_statistics</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">failed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Current delivery status </div>
+<div class="param">totalAttempts (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total delivery attempts </div>
+<div class="param">totalFailures (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total failed deliveries </div>
+<div class="param">totalSuccesses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total successful deliveries </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

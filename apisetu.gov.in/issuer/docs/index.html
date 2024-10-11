@@ -1,0 +1,460 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DigiLocker Issuer APIs</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>DigiLocker Issuer APIs</h1>
+    <div class="app-desc">This document provides detailed specification of the Digital Locker Pull APIs. The Pull model of integration with Digital Locker enables a Digital Locker user to search a document/certificate from issuer repository and fetch (pull) it into Digital Locker. The issuer departments can use these APIs for the documents that are not Aadhaar seeded. The issuer organization integrating with Digital Locker maintains the documents/certificates in its own repository (database or file system). The issuer application provides APIs to Digital Locker to access the documents in this repository. Each issuer organization will have to implement 2 APIs to integrate with the Digital Locker system.</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="support@digitallocker.gov.in">support@digitallocker.gov.in</a></div>
+    <div class="app-desc">Version: 3.0.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#APIs">APIs</a></h4>
+  <ul>
+  <li><a href="#pull Doc"><code><span class="http-method">post</span> /Your Pull DOC Request API Path</code></a></li>
+  <li><a href="#pull Uri"><code><span class="http-method">post</span> /Your Pull URI Request API Path</code></a></li>
+  </ul>
+
+  <h1><a name="APIs">APIs</a></h1>
+  <div class="method"><a name="pull Doc"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /Your Pull DOC Request API Path</code></pre></div>
+    <div class="method-summary">Pull Doc Request API. (<span class="nickname">pull Doc</span>)</div>
+    <div class="method-notes">The Pull Doc Request API has to be implemented by the issuers and will be consumed by Digital Locker system. This API will be invoked when the resident clicks on the URI displayed in the Issued documents section of DigLocker. The issuer API will by sending the certificate data. The certificate data should be sent in one of the two formats depending on the request send by Digital Locker:|- a. PDF document format b. XML format for machine readable metadata</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">PullDocRequest <a href="#PullDocRequest">PullDocRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; application/xml default: null </div>
+<div class="param">x-digilocker-hmac (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; This is used for authentication and to verify the integrity of the request. DigiLocker calculates the hash message authentication code (hmac) of the HTTP request body using SHA256 hashing algorithm and the API Key provided by the issuer as the hashing key. The API Key is specified by the issuer while configuring the Pull Doc API in DigiLocker Partner Portal. The resulting hmac is converted to Base64 format and sent in this parameter. It is strongly recommended that the issuer API calculates the hmac of the HTTP request body, convert it to Base64 and match it with this parameter to ensure authenticity of the request. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PullDocResponse">PullDocResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/xml</div>
+    <pre class="example"><code><null>
+</null></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#PullDocResponse">PullDocResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pull Uri"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /Your Pull URI Request API Path</code></pre></div>
+    <div class="method-summary">Pull URI Request API . (<span class="nickname">pull Uri</span>)</div>
+    <div class="method-notes">The Pull URI Request API has to be implemented by the issuers and will be consumed by Digital Locker application. This API will be invoked when a citizen searches the issuer repository for his/her certificate. If the certificate data is Aadhaar seeded, the issuer may choose to use Aadhaar number as the search parameter. Digital Locker provides Aadhaar number, name and date of birth as on Aadhaar to the issuer API as additional parameters. The option for these Aadhaar based parameters can be selected while configuring this API in Digital Locker Partner’s Portal. If the certificate data is not Aadhaar seeded then the issuer may use any other unique parameter e.g. driving license number to search for a driving license. These custom parameters will be passed in the UDF elements as shown in the sample request below. The custom parameter(s) can be configured while configuring the API in the DigiLocker Partner’s Portal. The Digital Locker system will query the issuer repository to fetch the URI for any document that match the search criteria. The citizen can save this URI in his/her Digital Locker. It is strongly recommended that the issuer API validate that the name, date of birth details sent by DigiLocker in Aadhaar parameters match with the corresponding details on the certificate before returning the certificate data. This will ensure that only authentic owners get access to a certificate.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">PullURIRequest <a href="#PullURIRequest">PullURIRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; application/xml default: null </div>
+<div class="param">x-digilocker-hmac (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; This is used for authentication and to verify the integrity of the request. DigiLocker calculates the hash message authentication code (hmac) of the HTTP request body using SHA256 hashing algorithm and the API Key provided by the issuer as the hashing key. The API Key is specified by the issuer while configuring the Pull Doc API in DigiLocker Partner Portal. The resulting hmac is converted to Base64 format and sent in this parameter. It is strongly recommended that the issuer API calculates the hmac of the HTTP request body, convert it to Base64 and match it with this parameter to ensure authenticity of the request. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PullURIResponse">PullURIResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/xml</div>
+    <pre class="example"><code><null>
+</null></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#PullURIResponse">PullURIResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#PullDocRequest"><code>PullDocRequest</code> - </a></li>
+    <li><a href="#PullDocRequest_DocDetails"><code>PullDocRequest_DocDetails</code> - </a></li>
+    <li><a href="#PullDocResponse"><code>PullDocResponse</code> - </a></li>
+    <li><a href="#PullDocResponse_DocDetails"><code>PullDocResponse_DocDetails</code> - </a></li>
+    <li><a href="#PullDocResponse_ResponseStatus"><code>PullDocResponse_ResponseStatus</code> - </a></li>
+    <li><a href="#PullURIRequest"><code>PullURIRequest</code> - </a></li>
+    <li><a href="#PullURIRequest_DocDetails"><code>PullURIRequest_DocDetails</code> - </a></li>
+    <li><a href="#PullURIResponse"><code>PullURIResponse</code> - </a></li>
+    <li><a href="#PullURIResponse_DocDetails"><code>PullURIResponse_DocDetails</code> - </a></li>
+    <li><a href="#PullURIResponse_ResponseStatus"><code>PullURIResponse_ResponseStatus</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="PullDocRequest"><code>PullDocRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">DocDetails </div><div class="param-desc"><span class="param-type"><a href="#PullDocRequest_DocDetails">PullDocRequest_DocDetails</a></span>  </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The certificate data in the response. Possible values of this attribute are:
+xml: for certificate data in machine readable xml format
+pdf: for certificate data in printable pdf format
+both: for certificate data in both xml and pdf format. If the format attribute is not present in the request, then the API must return Base64 encoded PDF data in the response. Please see the response section below for more details. </div>
+<div class="param">orgId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Org Id is the user id provided to the Digital Locker application by the issuer application for accessing the API. </div>
+<div class="param">ts </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A timestamp value. This will be used to decode the keyHash element described below. </div>
+<div class="param">txn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Transaction id. </div>
+<div class="param">ver </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> API version. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullDocRequest_DocDetails"><code>PullDocRequest_DocDetails</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">DOB </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Date of birth of the DigiLocker user accessing the document/certificate as in Aadhaar in DD-MM-YYYY format. This is an optional parameter and will be sent only if the issuer opts for it while configuring the API on Digital Locker Issuer Portal. </div>
+<div class="param">DigiLockerId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique 36 character DigiLocker Id of the user account. </div>
+<div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the DigiLocker user accessing the document/certificate as in Aadhaar. This is an optional parameter and will be sent only if the issuer opts for it while configuring the API on Digital Locker Issuer Portal. </div>
+<div class="param">UID </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Aadhaar number of the DigiLocker user accessing the document/certificate. This is an optional parameter and will be sent only if the issuer opts for it while configuring the API on Digital Locker Issuer Portal. </div>
+<div class="param">URI </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI identifies the document uniquely. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullDocResponse"><code>PullDocResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">DocDetails </div><div class="param-desc"><span class="param-type"><a href="#PullDocResponse_DocDetails">PullDocResponse_DocDetails</a></span>  </div>
+<div class="param">ResponseStatus </div><div class="param-desc"><span class="param-type"><a href="#PullDocResponse_ResponseStatus">PullDocResponse_ResponseStatus</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullDocResponse_DocDetails"><code>PullDocResponse_DocDetails</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Issuer can add meta content specific to document here.</div>
+    <div class="field-items">
+      <div class="param">DataContent </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enclose the Base64 byte encoded certificate metadata in XML format. The DataContent element should be sent only if the original request contains format attribute as “xml” or “both”. </div>
+<div class="param">DocContent </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enclose the Base64 byte encoded contents of PDF file in this element. The DocContent element should be sent only if the format attribute in the original request is sent as “pdf” or “both” or is absent. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullDocResponse_ResponseStatus"><code>PullDocResponse_ResponseStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> 1 for success, 0 for error. </div>
+<div class="param">ts </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A timestamp value as sent in the request. </div>
+<div class="param">txn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Transaction id value as sent in the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullURIRequest"><code>PullURIRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">DocDetails </div><div class="param-desc"><span class="param-type"><a href="#PullURIRequest_DocDetails">PullURIRequest_DocDetails</a></span>  </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Indicates the desired format of the certificate data in the response. Possible values of this attribute are:
+xml: for certificate data in machine readable xml format.
+pdf: for certificate data in printable pdf format
+both: for certificate data in both xml and pdf format. If the format attribute is not present in the request, then the API must return Base64 encoded PDF data in the response. Please see the response section below for more details </div>
+<div class="param">orgId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Org Id is the user id provided to the Digital Locker application by the issuer application for accessing the API. </div>
+<div class="param">ts </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A timestamp value. This will be used to decode the keyHash element described below. </div>
+<div class="param">txn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Transaction id. </div>
+<div class="param">ver </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> API version. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullURIRequest_DocDetails"><code>PullURIRequest_DocDetails</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">DOB </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> Date of birth of the DigiLocker user searching for the document/certificate as on Aadhaar in DD-MM-YYYY format. This is an optional parameter and will be sent only if the issuer opts for it while configuring the API on Digital Locker Issuer Portal. </div>
+<div class="param">DigiLockerId </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> A unique 36 character DigiLocker Id of the user account. </div>
+<div class="param">DocType </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> Digital Locker will pass the document type being searched in this parameter. </div>
+<div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> Name of the DigiLocker user searching for the document/certificate as on Aadhaar. This is an optional parameter and will be sent only if the issuer opts for it while configuring the API on Digital Locker Issuer Portal. </div>
+<div class="param">Photo </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> The base 64 encoded contents of JPEG photograph as on Aadhaar. This is an optional parameter and will be sent only if the issuer opts for it while configuring the API on Digital Locker Issuer Portal. </div>
+<div class="param">UDF1 </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> User defined search parameters to search a unique document/certificate. The <UDF> may be <RollNo> for CBSE, <RegistrationNo> for Transportation Dept. and <PAN> for Income Tax Dept. The search parameters for the API will be configured in the issuer portal of Digital Locker while configuring this API. </div>
+<div class="param">UDF2 </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">UDF3 </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">UDFn </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">UID </div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> Aadhaar number of the DigiLocker user searching for the document/certificate. This is an optional parameter and will be sent only if the issuer opts for it while configuring the API on Digital Locker Issuer Portal. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullURIResponse"><code>PullURIResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">DocDetails </div><div class="param-desc"><span class="param-type"><a href="#PullURIResponse_DocDetails">PullURIResponse_DocDetails</a></span>  </div>
+<div class="param">ResponseStatus </div><div class="param-desc"><span class="param-type"><a href="#PullURIResponse_ResponseStatus">PullURIResponse_ResponseStatus</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullURIResponse_DocDetails"><code>PullURIResponse_DocDetails</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Issuer can add meta content specific to document here.</div>
+    <div class="field-items">
+      <div class="param">DOB </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The date of birth if sent in the original request. </div>
+<div class="param">DataContent </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enclose the base64 byte encoded certificate metadata in XML format. The DataContent element should be sent only if the original request contains format attribute as “xml” or “both”. </div>
+<div class="param">DigiLockerId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique 36 character DigiLocker Id as sent in the original request. </div>
+<div class="param">DocContent </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enclose the Base64 byte encoded contents of PDF file in this element. </div>
+<div class="param">DocType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The document type sent in the original request. </div>
+<div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The full name if sent in the original request. </div>
+<div class="param">UDF1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Search parameters sent in the original request. </div>
+<div class="param">UDF2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Search parameters sent in the original request. </div>
+<div class="param">UID </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Aadhaar number if sent in the original request. </div>
+<div class="param">URI </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI corresponding to the search criteria that identifies the document uniquely. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PullURIResponse_ResponseStatus"><code>PullURIResponse_ResponseStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> 1 for success, 0 for error and 9 for pending. </div>
+<div class="param">ts </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A timestamp value as sent in the request. </div>
+<div class="param">txn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Transaction id value as sent in the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

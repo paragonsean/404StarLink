@@ -1,0 +1,621 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Arespass</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Arespass</h1>
+    <div class="app-desc">Analyzes a password and calculates its entropy.</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0</div>
+    <div class="app-desc">BasePath:/v1.0</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#aboutGet"><code><span class="http-method">get</span> /about</code></a></li>
+  <li><a href="#ecGet"><code><span class="http-method">get</span> /ec</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="aboutGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /about</code></pre></div>
+    <div class="method-summary"><p>Metadata about this API: version number, release date and available languages.</p>
+<p>Metadata requests are NOT billed.</p>
+ (<span class="nickname">aboutGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">outputFormat (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p><strong>The format of the returned metadata.</strong></p>
+<p>Allowed values are <em>json</em>, <em>xml</em> and <em>yaml</em>.</p>
+<p>The default value is <em>xml</em>.</p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#about">about</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "apiVersion" : {
+    "majorNumber" : 0,
+    "minorNumber" : 6
+  },
+  "availableLanguagesIso639_1" : "availableLanguagesIso639_1",
+  "apiReleaseDateIso8601" : "apiReleaseDateIso8601"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/x-yaml</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/x-yaml</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/xml</div>
+    <pre class="example"><code><null>
+  <apiReleaseDateIso8601>aeiou</apiReleaseDateIso8601>
+  <availableLanguagesIso639_1>aeiou</availableLanguagesIso639_1>
+</null></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/x-yaml</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <strong>The metadata about this API: version number, release date and available languages.</strong>
+        <a href="#about">about</a>
+    <h4 class="field-label">400</h4>
+    <strong>At least one error was found in the request parameters.</strong>
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    <strong>HTTP method POST is not allowed.</strong>
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <strong>Unexpected server error.</strong>
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ecGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ec</code></pre></div>
+    <div class="method-summary"><p>The entropy calculator - alias ec -, analyzes a password and calculates its entropy.</p>
+<p>Entropy calculator requests are billed.</p>
+ (<span class="nickname">ecGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">password (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p><strong>The password to be analyzed.</strong></p>
+<p>Minimum length is 4 characters; maximum length is 128 characters.</p>
+<p>Beware that certain characters like '#', '=' or '?' must be properly encoded.</p>
+<p>For more information about this issue, please refer to RFC 3986 (&quot;<em>Uniform Resource Identifier (URI): Generic Syntax</em>&quot;), sections 2.1, 2.2 and 2.4.</p>
+ default: null </div><div class="param">outputFormat (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p><strong>The format of the returned analysis.</strong></p>
+<p>Allowed values are <em>json</em>, <em>xml</em> and <em>yaml</em>.</p>
+<p>The default value is <em>xml</em>.</p>
+ default: null </div><div class="param">penalty (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p><strong>The penalty applied to each character that is part of a word, number sequence, alphabet sequence, etc.</strong></p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+<p>The character used as decimal separator is always '.'. Hence, a parameter value like <em>0,33</em> would be illegal.</p>
+<p>The default value is <em>0.25</em>.</p>
+ default: null </div><div class="param">reqId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p><strong>An identifier for this request.</strong></p>
+<p>The request identifier is a string that must match the regular expression <em>/(?i)^[a-z0-9]{8,16}$/</em>.</p>
+<p>This identifier is echoed in the returned response. Its value has no effect on the password analysis.</p>
+<p>If this parameter is unset, a randomly generated identifier will be automatically assigned to this request.</p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ec">ec</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "summary" : [ "summary", "summary" ],
+  "efficiency" : 6.027456183070403,
+  "requestTimestamp" : 7.386281948385884,
+  "keyboardSequence" : [ {
+    "penalty" : 2.3021358869347655,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  }, {
+    "penalty" : 2.3021358869347655,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  } ],
+  "penalty" : 2.027123023002322,
+  "idealEntropy" : 5.637376656633329,
+  "words" : [ {
+    "penalty" : 1.0246457001441578,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  }, {
+    "penalty" : 1.0246457001441578,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  } ],
+  "l33tPassword" : "l33tPassword",
+  "repeatedChars" : [ {
+    "penalty" : 4.145608029883936,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  }, {
+    "penalty" : 4.145608029883936,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  } ],
+  "passwordLength" : 3,
+  "alphabetSequence" : [ {
+    "penalty" : 0.8008281904610115,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  }, {
+    "penalty" : 0.8008281904610115,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  } ],
+  "detectedKeyboard" : "detectedKeyboard",
+  "password" : "password",
+  "total" : [ {
+    "penalty" : 1.2315135367772556,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  }, {
+    "penalty" : 1.2315135367772556,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  } ],
+  "apiVersion" : "apiVersion",
+  "entropy" : 1.4658129805029452,
+  "numberSequence" : [ {
+    "penalty" : 9.301444243932576,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  }, {
+    "penalty" : 9.301444243932576,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  } ],
+  "requestId" : "requestId",
+  "entropyDistribution" : [ {
+    "percentage" : 5.962133916683182,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  }, {
+    "percentage" : 5.962133916683182,
+    "char" : "char",
+    "l33tchar" : "l33tchar"
+  } ],
+  "nonUniformEntropyDistributionPenalty" : 7.061401241503109
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/x-yaml</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/x-yaml</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/xml</div>
+    <pre class="example"><code><null>
+  <apiVersion>aeiou</apiVersion>
+  <detectedKeyboard>aeiou</detectedKeyboard>
+  <efficiency>3.149</efficiency>
+  <entropy>3.149</entropy>
+  <idealEntropy>3.149</idealEntropy>
+  <l33tPassword>aeiou</l33tPassword>
+  <nonUniformEntropyDistributionPenalty>3.149</nonUniformEntropyDistributionPenalty>
+  <password>aeiou</password>
+  <passwordLength>123</passwordLength>
+  <penalty>3.149</penalty>
+  <requestId>aeiou</requestId>
+  <requestTimestamp>3.149</requestTimestamp>
+  <summary>aeiou</summary>
+</null></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/x-yaml</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    The password analysis, including the calculated entropy.
+        <a href="#ec">ec</a>
+    <h4 class="field-label">400</h4>
+    <strong>At least one error was found in the request parameters.</strong>
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    <strong>HTTP method POST is not allowed.</strong>
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <strong>Unexpected server error.</strong>
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#about"><code>about</code> - </a></li>
+    <li><a href="#about_apiVersion"><code>about_apiVersion</code> - </a></li>
+    <li><a href="#ec"><code>ec</code> - </a></li>
+    <li><a href="#ec_alphabetSequence_inner"><code>ec_alphabetSequence_inner</code> - </a></li>
+    <li><a href="#ec_entropyDistribution_inner"><code>ec_entropyDistribution_inner</code> - </a></li>
+    <li><a href="#ec_keyboardSequence_inner"><code>ec_keyboardSequence_inner</code> - </a></li>
+    <li><a href="#ec_numberSequence_inner"><code>ec_numberSequence_inner</code> - </a></li>
+    <li><a href="#ec_repeatedChars_inner"><code>ec_repeatedChars_inner</code> - </a></li>
+    <li><a href="#ec_total_inner"><code>ec_total_inner</code> - </a></li>
+    <li><a href="#ec_words_inner"><code>ec_words_inner</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="about"><code>about</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><strong>This API version number</strong>.</div>
+    <div class="field-items">
+      <div class="param">apiReleaseDateIso8601 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <strong>The release date of this API, ISO 8601 format.</strong> </div>
+<div class="param">apiVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#about_apiVersion">about_apiVersion</a></span>  </div>
+<div class="param">availableLanguagesIso639_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p><strong>The list of available languages.</strong></p>
+<p>Each language is identified by its ISO 639-1, two-letter code.</p>
+<p>The list elements are comma-separated and sorted in ascending order.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="about_apiVersion"><code>about_apiVersion</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">majorNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> This API version major number. </div>
+<div class="param">minorNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> This API version minor number. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ec"><code>ec</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">alphabetSequence (optional)</div><div class="param-desc"><span class="param-type"><a href="#ec_alphabetSequence_inner">array[ec_alphabetSequence_inner]</a></span> <p><strong>The penalty applied to each character that has been found to be part of an alphabet sequence.</strong></p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+<div class="param">apiVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <strong>This API version number.</strong> </div>
+<div class="param">detectedKeyboard (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <strong>The detected keyboard, QWERTY or Dvorak.</strong> </div>
+<div class="param">efficiency (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p><strong>The ratio entropy / idealEntropy.</strong></p>
+<p>It is a float number in the range [0, 1].</p>
+ </div>
+<div class="param">entropy (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p><strong>The entropy calculated for the input password.</strong></p>
+<p>It is measured in bits.</p>
+ </div>
+<div class="param">entropyDistribution (optional)</div><div class="param-desc"><span class="param-type"><a href="#ec_entropyDistribution_inner">array[ec_entropyDistribution_inner]</a></span> <strong>The distribution of the calculated entropy among the password characters.</strong> </div>
+<div class="param">idealEntropy (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p><strong>The Shannon entropy.</strong></p>
+<p>The Shannon entropy is the entropy calculated if no penalizations - words, number sequence, alphabet sequence, etc - were found in the password.</p>
+<p>It is measured in bits.</p>
+ </div>
+<div class="param">keyboardSequence (optional)</div><div class="param-desc"><span class="param-type"><a href="#ec_keyboardSequence_inner">array[ec_keyboardSequence_inner]</a></span> <p><strong>The penalty applied to each character that has been found to be part of a keyboard sequence.</strong></p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+<div class="param">l33tPassword (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The analyzed password after the l33t substitution. </div>
+<div class="param">nonUniformEntropyDistributionPenalty (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p><strong>The penalty applied to the whole password because of irregular entropy distribution.</strong></p>
+<p>This penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+<div class="param">numberSequence (optional)</div><div class="param-desc"><span class="param-type"><a href="#ec_numberSequence_inner">array[ec_numberSequence_inner]</a></span> <p><strong>The penalty applied to each character that has been found to be part of a number sequence.</strong></p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The analyzed password. </div>
+<div class="param">passwordLength (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of characters the password has. </div>
+<div class="param">penalty (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p><strong>The penalty applied to each character that has been found to be part of a word, number sequence, alphabet sequence, etc.</strong></p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+<p>Its value is equal to the value of the input parameter <em>penalty</em>.</p>
+ </div>
+<div class="param">repeatedChars (optional)</div><div class="param-desc"><span class="param-type"><a href="#ec_repeatedChars_inner">array[ec_repeatedChars_inner]</a></span> <p><strong>The penalty applied to each character that are repeated</strong></p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+<div class="param">requestId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <strong>The identifier of the request that corresponds to this response.</strong> </div>
+<div class="param">requestTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p><strong>The timestamp for this response.</strong></p>
+<p>Milliseconds from the epoch of 1970-01-01T00:00:00Z.</p>
+ </div>
+<div class="param">summary (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">total (optional)</div><div class="param-desc"><span class="param-type"><a href="#ec_total_inner">array[ec_total_inner]</a></span> <p><strong>The total penalty applied to each character.</strong></p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+<div class="param">words (optional)</div><div class="param-desc"><span class="param-type"><a href="#ec_words_inner">array[ec_words_inner]</a></span> <p><strong>The penalty applied to each character that has been found to be part of a word.</strong></p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ec_alphabetSequence_inner"><code>ec_alphabetSequence_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">char (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character. </div>
+<div class="param">l33tchar (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character after the l33t transformation. </div>
+<div class="param">penalty (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p>The penalty applied to this character if it is part of an alphabet sequence.</p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ec_entropyDistribution_inner"><code>ec_entropyDistribution_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">char (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character. </div>
+<div class="param">l33tchar (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character after the l33t transformation. </div>
+<div class="param">percentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> The amount of entropy contributed by this character, expressed as percentage of the total. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ec_keyboardSequence_inner"><code>ec_keyboardSequence_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">char (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character. </div>
+<div class="param">l33tchar (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character after the l33t transformation. </div>
+<div class="param">penalty (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p>The penalty applied to this character if it is part of a keyboard sequence.</p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ec_numberSequence_inner"><code>ec_numberSequence_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">char (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character. </div>
+<div class="param">l33tchar (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character after the l33t transformation. </div>
+<div class="param">penalty (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p>The penalty applied to this character if it is part of a number sequence.</p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ec_repeatedChars_inner"><code>ec_repeatedChars_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">char (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character. </div>
+<div class="param">l33tchar (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character after the l33t transformation. </div>
+<div class="param">penalty (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p>The penalty applied to this character if it is repeated.</p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ec_total_inner"><code>ec_total_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">char (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character. </div>
+<div class="param">l33tchar (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character after the l33t transformation. </div>
+<div class="param">penalty (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p>The total penalty applied to each character.</p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ec_words_inner"><code>ec_words_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">char (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character. </div>
+<div class="param">l33tchar (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The n-th character after the l33t transformation. </div>
+<div class="param">penalty (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> <p>The penalty applied to this character if it is part of a word.</p>
+<p>The penalty is a float number in the range [0, 1]. Full penalty, 0; no penalty, 1.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

@@ -1,0 +1,2181 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Profile System</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Profile System</h1>
+    <div class="app-desc">Create shopper profiles and manage their information.</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:X-VTEX-API-AppKey KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:X-VTEX-API-AppToken KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Addresses">Addresses</a></h4>
+  <ul>
+  <li><a href="#createClientAddress"><code><span class="http-method">post</span> /api/storage/profile-system/profiles/{profileId}/addresses</code></a></li>
+  <li><a href="#deleteAddress"><code><span class="http-method">delete</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}</code></a></li>
+  <li><a href="#getAddress"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}</code></a></li>
+  <li><a href="#getAddressByVersion"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}/versions/{addressVersionId}</code></a></li>
+  <li><a href="#getClientAddresses"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses</code></a></li>
+  <li><a href="#getUnmaskedAddress"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}/unmask</code></a></li>
+  <li><a href="#getUnmaskedAddressByVersion"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}/versions/{addressVersionId}/unmask</code></a></li>
+  <li><a href="#getUnmaskedClientAddresses"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/unmask</code></a></li>
+  <li><a href="#updateClientAddress"><code><span class="http-method">patch</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}</code></a></li>
+  </ul>
+  <h4><a href="#Profiles">Profiles</a></h4>
+  <ul>
+  <li><a href="#createClientProfile"><code><span class="http-method">post</span> /api/storage/profile-system/profiles</code></a></li>
+  <li><a href="#deleteClientProfile"><code><span class="http-method">delete</span> /api/storage/profile-system/profiles/{profileId}</code></a></li>
+  <li><a href="#getProfile"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}</code></a></li>
+  <li><a href="#getProfileByVersion"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/versions/{profileVersionId}</code></a></li>
+  <li><a href="#getUnmaskedProfile"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/unmask</code></a></li>
+  <li><a href="#getUnmaskedProfileByVersion"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/versions/{profileVersionId}/unmask</code></a></li>
+  <li><a href="#updateClientProfile"><code><span class="http-method">patch</span> /api/storage/profile-system/profiles/{profileId}</code></a></li>
+  </ul>
+  <h4><a href="#Prospects">Prospects</a></h4>
+  <ul>
+  <li><a href="#createProspect"><code><span class="http-method">post</span> /api/storage/profile-system/prospects</code></a></li>
+  <li><a href="#deleteProspect"><code><span class="http-method">delete</span> /api/storage/profile-system/prospects/{prospectId}</code></a></li>
+  <li><a href="#getProspect"><code><span class="http-method">get</span> /api/storage/profile-system/prospects/{prospectId}</code></a></li>
+  <li><a href="#getUnmaskedProspect"><code><span class="http-method">get</span> /api/storage/profile-system/prospects/{prospectId}/unmask</code></a></li>
+  <li><a href="#updateProspect"><code><span class="http-method">patch</span> /api/storage/profile-system/prospects/{prospectId}</code></a></li>
+  </ul>
+  <h4><a href="#PurchaseInformation">PurchaseInformation</a></h4>
+  <ul>
+  <li><a href="#createPurchaseInformation"><code><span class="http-method">post</span> /api/storage/profile-system/profiles/{profileId}/purchase-info</code></a></li>
+  <li><a href="#deletePurchaseInformation"><code><span class="http-method">delete</span> /api/storage/profile-system/profiles/{profileId}/purchase-info</code></a></li>
+  <li><a href="#getPurchaseInformation"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/purchase-info</code></a></li>
+  <li><a href="#getUnmaskedPurchaseInformation"><code><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/purchase-info/unmask</code></a></li>
+  <li><a href="#updatePurchaseInformation"><code><span class="http-method">patch</span> /api/storage/profile-system/profiles/{profileId}/purchase-info</code></a></li>
+  </ul>
+  <h4><a href="#Schemas">Schemas</a></h4>
+  <ul>
+  <li><a href="#createOrUpdateProfileSchema"><code><span class="http-method">put</span> /api/storage/profile-system/profiles/schema</code></a></li>
+  </ul>
+
+  <h1><a name="Addresses">Addresses</a></h1>
+  <div class="method"><a name="createClientAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/storage/profile-system/profiles/{profileId}/addresses</code></pre></div>
+    <div class="method-summary">Create client address (<span class="nickname">createClientAddress</span>)</div>
+    <div class="method-notes"><p>Creates new address for a given client profile.</p>
+<blockquote>
+<p>The <code>id</code> field returned by this request is the <code>addressId</code> used to retrieve or update information of a specific address later.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">address <a href="#address">address</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}</code></pre></div>
+    <div class="method-summary">Delete address (<span class="nickname">deleteAddress</span>)</div>
+    <div class="method-notes"><p>Deletes a client's address by <code>profileId</code> and <code>addressId</code>.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div><div class="param">addressId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of a client's specific address as returned in the Create client address endpoint's response, in the <code>id</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}</code></pre></div>
+    <div class="method-summary">Get address (<span class="nickname">getAddress</span>)</div>
+    <div class="method-notes"><p>Retrieves information of a specific address of a given client, by its respectives <code>adderssId</code> and <code>profileId</code>.</p>
+<blockquote>
+<p>For security and privacy reasons, this request returns masked address data. For unmasked information, see Get unmasked address.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div><div class="param">addressId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of a client's specific address as returned in the Create client address endpoint's response, in the <code>id</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAddressByVersion"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}/versions/{addressVersionId}</code></pre></div>
+    <div class="method-summary">Get address by version (<span class="nickname">getAddressByVersion</span>)</div>
+    <div class="method-notes"><p>Retrieves information of a specific version address of a given client.</p>
+<blockquote>
+<p>For security and privacy reasons, this request returns masked address data by version. For unmasked information, see Get unmasked address by version.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div><div class="param">addressId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of a client's specific address as returned in the Create client address endpoint's response, in the <code>id</code> field. default: null </div><div class="param">addressVersionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the version of a given client's address as returned by endpoints that create or update address information in the <code>version</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">reason (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Reason for requesting unmasked data. default: null </div><div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getClientAddresses"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses</code></pre></div>
+    <div class="method-summary">Get client addresses (<span class="nickname">getClientAddresses</span>)</div>
+    <div class="method-notes"><p>Retrieves information of all addresses of a given client, by its <code>profileId</code>.</p>
+<blockquote>
+<p>For security and privacy reasons, this request returns masked address data. For unmasked information, see Get unmasked client addresses.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[oas_any_type_not_mapped]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUnmaskedAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}/unmask</code></pre></div>
+    <div class="method-summary">Get unmasked address (<span class="nickname">getUnmaskedAddress</span>)</div>
+    <div class="method-notes"><p>Retrieves unmasked information of a specific address of a given client, by its respectives <code>adderssId</code> and <code>profileId</code>.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div><div class="param">addressId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of a client's specific address as returned in the Create client address endpoint's response, in the <code>id</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">reason (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Reason for requesting unmasked data. default: null </div><div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUnmaskedAddressByVersion"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}/versions/{addressVersionId}/unmask</code></pre></div>
+    <div class="method-summary">Get unmasked address by version (<span class="nickname">getUnmaskedAddressByVersion</span>)</div>
+    <div class="method-notes"><p>Retrieves unmasked information of a specific address version of a given client.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div><div class="param">addressId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of a client's specific address as returned in the Create client address endpoint's response, in the <code>id</code> field. default: null </div><div class="param">addressVersionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the version of a given client's address as returned by endpoints that create or update address information in the <code>version</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">reason (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Reason for requesting unmasked data. default: null </div><div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUnmaskedClientAddresses"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/addresses/unmask</code></pre></div>
+    <div class="method-summary">Get unmasked client addresses (<span class="nickname">getUnmaskedClientAddresses</span>)</div>
+    <div class="method-notes"><p>Retrieves unmasked information of all addresses of a given client, by its <code>profileId</code>.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[map[String, oas_any_type_not_mapped]]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "key" : ""
+}, {
+  "key" : ""
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateClientAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/storage/profile-system/profiles/{profileId}/addresses/{addressId}</code></pre></div>
+    <div class="method-summary">Update client address (<span class="nickname">updateClientAddress</span>)</div>
+    <div class="method-notes"><p>Updates one or more fields of an existing address for a given client profile.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div><div class="param">addressId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of a client's specific address as returned in the Create client address endpoint's response, in the <code>id</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpdateClientAddress_request <a href="#UpdateClientAddress_request">UpdateClientAddress_request</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Profiles">Profiles</a></h1>
+  <div class="method"><a name="createClientProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/storage/profile-system/profiles</code></pre></div>
+    <div class="method-summary">Create client profile (<span class="nickname">createClientProfile</span>)</div>
+    <div class="method-notes"><p>Creates new client profile.</p>
+<blockquote>
+<p>Since your store's profile schema is customizable, the schema and examples presented below may differ from yours. Your integration must be adapted accordingly.</p>
+</blockquote>
+<blockquote>
+<p>The <code>id</code> field returned by this request is the <code>profileId</code> used to retrieve information on a specific profile later.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">profile <a href="#profile">profile</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">ttl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>This parameter sets the the Time To Live (TTL), in days, of the specific document being created or updated with this request. After this period of time from the moment of the request, the document is deleted. By sending this parameter you override the TTL set for the schema.</p>
+<blockquote>
+<p>Currently, the available default document schemas have no TTL. This means that documents are stored indefinitely, unless a TTL is sent when creating or updating.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteClientProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/storage/profile-system/profiles/{profileId}</code></pre></div>
+    <div class="method-summary">Delete client profile (<span class="nickname">deleteClientProfile</span>)</div>
+    <div class="method-notes"><p>Deletes a client profile by <code>profileId</code>.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}</code></pre></div>
+    <div class="method-summary">Get profile (<span class="nickname">getProfile</span>)</div>
+    <div class="method-notes"><p>Retrieves the information of a specific client, by its <code>profileId</code>.</p>
+<blockquote>
+<p>Since your store's profile schema is customizable, the schema and examples presented below may differ from yours. Your integration must be adapted accordingly.</p>
+</blockquote>
+<blockquote>
+<p>For security and privacy reasons, this request returns masked profile data. For unmasked information, see Get unmasked profile.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[oas_any_type_not_mapped]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProfileByVersion"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/versions/{profileVersionId}</code></pre></div>
+    <div class="method-summary">Get profile by version (<span class="nickname">getProfileByVersion</span>)</div>
+    <div class="method-notes"><p>Retrieves the information of a specific version of a client profile.</p>
+<blockquote>
+<p>Since your store's profile schema is customizable, the schema and examples presented below may differ from yours. Your integration must be adapted accordingly.</p>
+</blockquote>
+<blockquote>
+<p>For security and privacy reasons, this request returns masked profile data. For unmasked information, see Get unmasked profile by version.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div><div class="param">profileVersionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the version of the client's profile as returned by endpoints that create or update profile information in the <code>version</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[oas_any_type_not_mapped]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUnmaskedProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/unmask</code></pre></div>
+    <div class="method-summary">Get unmasked profile (<span class="nickname">getUnmaskedProfile</span>)</div>
+    <div class="method-notes"><p>Retrieves unmasked information of a specific client, by its <code>profileId</code>.</p>
+<blockquote>
+<p>Since your store's profile schema is customizable, the schema and examples presented below may differ from yours. Your integration must be adapted accordingly.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">reason (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Reason for requesting unmasked data. default: null </div><div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[oas_any_type_not_mapped]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUnmaskedProfileByVersion"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/versions/{profileVersionId}/unmask</code></pre></div>
+    <div class="method-summary">Get unmasked profile by version (<span class="nickname">getUnmaskedProfileByVersion</span>)</div>
+    <div class="method-notes"><p>Retrieves unmasked information of a specific version of a client profile.</p>
+<blockquote>
+<p>Since your store's profile schema is customizable, the schema and examples presented below may differ from yours. Your integration must be adapted accordingly.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div><div class="param">profileVersionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the version of the client's profile as returned by endpoints that create or update profile information in the <code>version</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">reason (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Reason for requesting unmasked data. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[oas_any_type_not_mapped]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateClientProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/storage/profile-system/profiles/{profileId}</code></pre></div>
+    <div class="method-summary">Updates client profile (<span class="nickname">updateClientProfile</span>)</div>
+    <div class="method-notes"><p>Updates one or more fields of an existing client profile.</p>
+<blockquote>
+<p>Since your store's profile schema is customizable, the schema and examples presented below may differ from yours. Your integration must be adapted accordingly.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpdateClientProfile_request <a href="#UpdateClientProfile_request">UpdateClientProfile_request</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div><div class="param">ttl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>This parameter sets the the Time To Live (TTL), in days, of the specific document being created or updated with this request. After this period of time from the moment of the request, the document is deleted. By sending this parameter you override the TTL set for the schema.</p>
+<blockquote>
+<p>Currently, the available default document schemas have no TTL. This means that documents are stored indefinitely, unless a TTL is sent when creating or updating.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Prospects">Prospects</a></h1>
+  <div class="method"><a name="createProspect"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/storage/profile-system/prospects</code></pre></div>
+    <div class="method-summary">Create prospect (<span class="nickname">createProspect</span>)</div>
+    <div class="method-notes"><p>Creates new prospect.</p>
+<blockquote>
+<p>The <code>id</code> field returned by this request is the <code>prospectId</code> used to retrieve information on a specific prospect later.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#AnyType">AnyType</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteProspect"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/storage/profile-system/prospects/{prospectId}</code></pre></div>
+    <div class="method-summary">Delete prospect (<span class="nickname">deleteProspect</span>)</div>
+    <div class="method-notes"><p>Deletes a prospect by <code>prospectId</code>.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">prospectId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the prospect as returned by the Create prospect endpoint's response, in the <code>id</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProspect"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/prospects/{prospectId}</code></pre></div>
+    <div class="method-summary">Get prospect (<span class="nickname">getProspect</span>)</div>
+    <div class="method-notes"><p>Retrieves the information of a specific prospect, by its <code>prospectId</code>.</p>
+<blockquote>
+<p>For security and privacy reasons, this request returns masked prospect data. For unmasked information, see Get unmasked prospect.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">prospectId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the prospect as returned by the Create prospect endpoint's response, in the <code>id</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[oas_any_type_not_mapped]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUnmaskedProspect"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/prospects/{prospectId}/unmask</code></pre></div>
+    <div class="method-summary">Get unmasked prospect (<span class="nickname">getUnmaskedProspect</span>)</div>
+    <div class="method-notes"><p>Retrieves unmasked information of a specific prospect, by its <code>prospectId</code>.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">prospectId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the prospect as returned by the Create prospect endpoint's response, in the <code>id</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">reason (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Reason for requesting unmasked data. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[oas_any_type_not_mapped]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateProspect"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/storage/profile-system/prospects/{prospectId}</code></pre></div>
+    <div class="method-summary">Update prospect (<span class="nickname">updateProspect</span>)</div>
+    <div class="method-notes"><p>Updates one or more fields of an existing prospect.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">prospectId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the prospect as returned by the Create prospect endpoint's response, in the <code>id</code> field. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#AnyType">AnyType</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="PurchaseInformation">PurchaseInformation</a></h1>
+  <div class="method"><a name="createPurchaseInformation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/storage/profile-system/profiles/{profileId}/purchase-info</code></pre></div>
+    <div class="method-summary">Create purchase information (<span class="nickname">createPurchaseInformation</span>)</div>
+    <div class="method-notes"><p>Creates purchase information for a given client profile.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#AnyType">AnyType</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deletePurchaseInformation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/storage/profile-system/profiles/{profileId}/purchase-info</code></pre></div>
+    <div class="method-summary">Delete purchase information (<span class="nickname">deletePurchaseInformation</span>)</div>
+    <div class="method-notes"><p>Deletes purchase informaiton by <code>profileId</code>.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getPurchaseInformation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/purchase-info</code></pre></div>
+    <div class="method-summary">Get purchase information (<span class="nickname">getPurchaseInformation</span>)</div>
+    <div class="method-notes"><p>Retrieves purchase information of a given client, by its <code>profileId</code>.</p>
+<blockquote>
+<p>For security and privacy reasons, this request returns masked data. For unmasked information, see Get unmasked purchase information.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[oas_any_type_not_mapped]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUnmaskedPurchaseInformation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/storage/profile-system/profiles/{profileId}/purchase-info/unmask</code></pre></div>
+    <div class="method-summary">Get unmasked purchase information (<span class="nickname">getUnmaskedPurchaseInformation</span>)</div>
+    <div class="method-notes"><p>Retrieves unmasked purchase information of a given client, by its <code>profileId</code>.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[Object]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "{}", "{}" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePurchaseInformation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/storage/profile-system/profiles/{profileId}/purchase-info</code></pre></div>
+    <div class="method-summary">Update purchase information (<span class="nickname">updatePurchaseInformation</span>)</div>
+    <div class="method-notes"><p>Updates one or more fields of existing purchase information for a given client profile.</p>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">profileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the client's profile as returned by the Create profile endpoint's response, in the <code>id</code> field. It can also be an <code>alternativeKey</code> according to your custom profile schema. In this case, this request should also send the <code>alternativeKey</code> parameter. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#AnyType">AnyType</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alternativeKey (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>The <code>profileId</code> path parameter may be substituted by other profile fields in this request. When making this request, send the <code>alternativeKey</code> parameter with a value equal to the key of the field you wish to use as <code>profileId</code>.</p>
+<blockquote>
+<p>Currently, there are two possible values for this parameter: <code>email</code> and <code>document</code>.</p>
+</blockquote>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Schemas">Schemas</a></h1>
+  <div class="method"><a name="createOrUpdateProfileSchema"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/storage/profile-system/profiles/schema</code></pre></div>
+    <div class="method-summary">Create or update profile schema (<span class="nickname">createOrUpdateProfileSchema</span>)</div>
+    <div class="method-notes"><p>Creates or updates profile schema.</p>
+<blockquote>
+<p>Each account has one profile schema. Updating it with this request will substitute the previous version.</p>
+</blockquote>
+<blockquote>
+<p>Learn more about the <a href="https://developers.vtex.com/vtex-rest-api/docs/profile-system">Profile System</a> and its other API endpoints.</p>
+</blockquote>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">schema <a href="#schema">schema</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#UpdateClientAddress_request"><code>UpdateClientAddress_request</code> - </a></li>
+    <li><a href="#UpdateClientProfile_request"><code>UpdateClientProfile_request</code> - </a></li>
+    <li><a href="#address"><code>address</code> - Address</a></li>
+    <li><a href="#profile"><code>profile</code> - Profile.</a></li>
+    <li><a href="#schema"><code>schema</code> - Schema</a></li>
+    <li><a href="#schema_properties"><code>schema_properties</code> - </a></li>
+    <li><a href="#schema_properties__fieldName_"><code>schema_properties__fieldName_</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="UpdateClientAddress_request"><code>UpdateClientAddress_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">administrativeAreaLevel1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of administrative area, such as the state or province. </div>
+<div class="param">countryCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Two letter country code. </div>
+<div class="param">countryName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the address country. </div>
+<div class="param">locality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of address locality, such as the city. </div>
+<div class="param">localityAreaLevel1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the address locality area, such as the neighborhood or district. </div>
+<div class="param">postalCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address postal code. </div>
+<div class="param">route (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the address country. </div>
+<div class="param">streetNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the address country. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateClientProfile_request"><code>UpdateClientProfile_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">birthDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's birth date in ISO 8601 format. </div>
+<div class="param">document (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's document. </div>
+<div class="param">documentType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of document informed in <code>document</code>. </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's email address. </div>
+<div class="param">firstName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's first name. </div>
+<div class="param">lastName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's last name. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="address"><code>address</code> - Address</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">administrativeAreaLevel1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of administrative area, such as the state or province. </div>
+<div class="param">countryCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Two letter country code. </div>
+<div class="param">countryName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the address country. </div>
+<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of address locality, such as the city. </div>
+<div class="param">localityAreaLevel1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the address locality area, such as the neighborhood or district. </div>
+<div class="param">postalCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address postal code. </div>
+<div class="param">route </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address route or street name. </div>
+<div class="param">streetNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address street number. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="profile"><code>profile</code> - Profile.</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">birthDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's birth date in ISO 8601 format. </div>
+<div class="param">document </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's document. </div>
+<div class="param">documentType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of document informed in <code>document</code>. </div>
+<div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's email address. </div>
+<div class="param">firstName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's first name. </div>
+<div class="param">lastName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client's last name. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="schema"><code>schema</code> - Schema</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">description </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Schema's human readable description. </div>
+<div class="param">documentTTL (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Document time to live, in days. After this many days from its creation or update, any document cerated from this schema will be deleted. </div>
+<div class="param">properties </div><div class="param-desc"><span class="param-type"><a href="#schema_properties">schema_properties</a></span>  </div>
+<div class="param">required </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Schema required fields. </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Schema title. </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Schema type. </div>
+<div class="param">vMinusindexed (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">vMinusunique (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span>  </div>
+<div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Schema version. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="schema_properties"><code>schema_properties</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Object describing each field in your desired schema. In this object, each property is a new object, describing the field according to: <code>type</code> (string); <code>sensitive</code> (boolean); <code>pii</code> (boolean) and; <code>items.type</code> (if field is array).</div>
+    <div class="field-items">
+      <div class="param">Left_Curly_BracketfieldNameRight_Curly_Bracket (optional)</div><div class="param-desc"><span class="param-type"><a href="#schema_properties__fieldName_">schema_properties__fieldName_</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="schema_properties__fieldName_"><code>schema_properties__fieldName_</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Schema of any given field described in the <code>properties</code> field.</div>
+    <div class="field-items">
+      <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span> Object containing the type of the items if the field is an array. Typically, arrays will contain strings and will be used for fields such as <code>email</code>. </div>
+<div class="param">pii </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Indicates whether property is Personal Identifiable Information. </div>
+<div class="param">sensitive </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Indicates whether property is sensitive data. </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Schema property type. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

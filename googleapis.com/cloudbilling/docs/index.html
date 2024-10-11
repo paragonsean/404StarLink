@@ -1,0 +1,2793 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Cloud Billing API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Cloud Billing API</h1>
+    <div class="app-desc">Allows developers to manage billing for their Google Cloud Platform projects programmatically.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v1beta</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#BillingAccounts">BillingAccounts</a></h4>
+  <ul>
+  <li><a href="#cloudbilling.billingAccounts.estimateCostScenario"><code><span class="http-method">post</span> /v1beta/{billingAccount}:estimateCostScenario</code></a></li>
+  </ul>
+  <h4><a href="#V1beta">V1beta</a></h4>
+  <ul>
+  <li><a href="#cloudbilling.estimateCostScenario"><code><span class="http-method">post</span> /v1beta:estimateCostScenario</code></a></li>
+  </ul>
+
+  <h1><a name="BillingAccounts">BillingAccounts</a></h1>
+  <div class="method"><a name="cloudbilling.billingAccounts.estimateCostScenario"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1beta/{billingAccount}:estimateCostScenario</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">cloudbilling.billingAccounts.estimateCostScenario</span>)</div>
+    <div class="method-notes">Use custom pricing in the estimate, using a <code>CostScenario</code> with a defined <code>billingAccount</code>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">billingAccount (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Resource name of the billing account for the cost estimate. The resource name has the form <code>billingAccounts/{billing_acount_id}</code>. For example, <code>billingAccounts/012345-567890-ABCDEF</code> is the resource name for billing account <code>012345-567890-ABCDEF</code>. Must be specified. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">EstimateCostScenarioForBillingAccountRequest <a href="#EstimateCostScenarioForBillingAccountRequest">EstimateCostScenarioForBillingAccountRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#EstimateCostScenarioForBillingAccountResponse">EstimateCostScenarioForBillingAccountResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "costEstimationResult" : {
+    "skus" : [ {
+      "displayName" : "displayName",
+      "prices" : [ {
+        "rate" : {
+          "tiers" : [ {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          }, {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          } ],
+          "unit" : "unit",
+          "unitCount" : 5.962133916683182
+        },
+        "effectiveTime" : {
+          "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+        },
+        "priceType" : "priceType"
+      }, {
+        "rate" : {
+          "tiers" : [ {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          }, {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          } ],
+          "unit" : "unit",
+          "unitCount" : 5.962133916683182
+        },
+        "effectiveTime" : {
+          "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+        },
+        "priceType" : "priceType"
+      } ],
+      "sku" : "sku"
+    }, {
+      "displayName" : "displayName",
+      "prices" : [ {
+        "rate" : {
+          "tiers" : [ {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          }, {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          } ],
+          "unit" : "unit",
+          "unitCount" : 5.962133916683182
+        },
+        "effectiveTime" : {
+          "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+        },
+        "priceType" : "priceType"
+      }, {
+        "rate" : {
+          "tiers" : [ {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          }, {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          } ],
+          "unit" : "unit",
+          "unitCount" : 5.962133916683182
+        },
+        "effectiveTime" : {
+          "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+        },
+        "priceType" : "priceType"
+      } ],
+      "sku" : "sku"
+    } ],
+    "segmentCostEstimates" : [ {
+      "commitmentCostEstimates" : [ {
+        "commitmentTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "name" : "name"
+      }, {
+        "commitmentTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "name" : "name"
+      } ],
+      "segmentStartTime" : {
+        "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+      },
+      "segmentTotalCostEstimate" : {
+        "preCreditCostEstimate" : {
+          "nanos" : 0,
+          "units" : "units",
+          "currencyCode" : "currencyCode"
+        },
+        "netCostEstimate" : {
+          "nanos" : 0,
+          "units" : "units",
+          "currencyCode" : "currencyCode"
+        },
+        "creditEstimates" : [ {
+          "creditDescription" : "creditDescription",
+          "creditAmount" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditType" : "creditType"
+        }, {
+          "creditDescription" : "creditDescription",
+          "creditAmount" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditType" : "creditType"
+        } ]
+      },
+      "workloadCostEstimates" : [ {
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "workloadTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "name" : "name"
+      }, {
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "workloadTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "name" : "name"
+      } ]
+    }, {
+      "commitmentCostEstimates" : [ {
+        "commitmentTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "name" : "name"
+      }, {
+        "commitmentTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "name" : "name"
+      } ],
+      "segmentStartTime" : {
+        "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+      },
+      "segmentTotalCostEstimate" : {
+        "preCreditCostEstimate" : {
+          "nanos" : 0,
+          "units" : "units",
+          "currencyCode" : "currencyCode"
+        },
+        "netCostEstimate" : {
+          "nanos" : 0,
+          "units" : "units",
+          "currencyCode" : "currencyCode"
+        },
+        "creditEstimates" : [ {
+          "creditDescription" : "creditDescription",
+          "creditAmount" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditType" : "creditType"
+        }, {
+          "creditDescription" : "creditDescription",
+          "creditAmount" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditType" : "creditType"
+        } ]
+      },
+      "workloadCostEstimates" : [ {
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "workloadTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "name" : "name"
+      }, {
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "workloadTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "name" : "name"
+      } ]
+    } ],
+    "currencyCode" : "currencyCode"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#EstimateCostScenarioForBillingAccountResponse">EstimateCostScenarioForBillingAccountResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="V1beta">V1beta</a></h1>
+  <div class="method"><a name="cloudbilling.estimateCostScenario"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1beta:estimateCostScenario</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">cloudbilling.estimateCostScenario</span>)</div>
+    <div class="method-notes">Estimate list prices using a <code>CostScenario</code> without a defined <code>billingAccount</code>.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">EstimateCostScenarioWithListPriceRequest <a href="#EstimateCostScenarioWithListPriceRequest">EstimateCostScenarioWithListPriceRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#EstimateCostScenarioWithListPriceResponse">EstimateCostScenarioWithListPriceResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "costEstimationResult" : {
+    "skus" : [ {
+      "displayName" : "displayName",
+      "prices" : [ {
+        "rate" : {
+          "tiers" : [ {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          }, {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          } ],
+          "unit" : "unit",
+          "unitCount" : 5.962133916683182
+        },
+        "effectiveTime" : {
+          "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+        },
+        "priceType" : "priceType"
+      }, {
+        "rate" : {
+          "tiers" : [ {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          }, {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          } ],
+          "unit" : "unit",
+          "unitCount" : 5.962133916683182
+        },
+        "effectiveTime" : {
+          "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+        },
+        "priceType" : "priceType"
+      } ],
+      "sku" : "sku"
+    }, {
+      "displayName" : "displayName",
+      "prices" : [ {
+        "rate" : {
+          "tiers" : [ {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          }, {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          } ],
+          "unit" : "unit",
+          "unitCount" : 5.962133916683182
+        },
+        "effectiveTime" : {
+          "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+        },
+        "priceType" : "priceType"
+      }, {
+        "rate" : {
+          "tiers" : [ {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          }, {
+            "startAmount" : 1.4658129805029452,
+            "price" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            }
+          } ],
+          "unit" : "unit",
+          "unitCount" : 5.962133916683182
+        },
+        "effectiveTime" : {
+          "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+        },
+        "priceType" : "priceType"
+      } ],
+      "sku" : "sku"
+    } ],
+    "segmentCostEstimates" : [ {
+      "commitmentCostEstimates" : [ {
+        "commitmentTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "name" : "name"
+      }, {
+        "commitmentTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "name" : "name"
+      } ],
+      "segmentStartTime" : {
+        "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+      },
+      "segmentTotalCostEstimate" : {
+        "preCreditCostEstimate" : {
+          "nanos" : 0,
+          "units" : "units",
+          "currencyCode" : "currencyCode"
+        },
+        "netCostEstimate" : {
+          "nanos" : 0,
+          "units" : "units",
+          "currencyCode" : "currencyCode"
+        },
+        "creditEstimates" : [ {
+          "creditDescription" : "creditDescription",
+          "creditAmount" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditType" : "creditType"
+        }, {
+          "creditDescription" : "creditDescription",
+          "creditAmount" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditType" : "creditType"
+        } ]
+      },
+      "workloadCostEstimates" : [ {
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "workloadTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "name" : "name"
+      }, {
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "workloadTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "name" : "name"
+      } ]
+    }, {
+      "commitmentCostEstimates" : [ {
+        "commitmentTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "name" : "name"
+      }, {
+        "commitmentTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "name" : "name"
+      } ],
+      "segmentStartTime" : {
+        "estimationTimeFrameOffset" : "estimationTimeFrameOffset"
+      },
+      "segmentTotalCostEstimate" : {
+        "preCreditCostEstimate" : {
+          "nanos" : 0,
+          "units" : "units",
+          "currencyCode" : "currencyCode"
+        },
+        "netCostEstimate" : {
+          "nanos" : 0,
+          "units" : "units",
+          "currencyCode" : "currencyCode"
+        },
+        "creditEstimates" : [ {
+          "creditDescription" : "creditDescription",
+          "creditAmount" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditType" : "creditType"
+        }, {
+          "creditDescription" : "creditDescription",
+          "creditAmount" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditType" : "creditType"
+        } ]
+      },
+      "workloadCostEstimates" : [ {
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "workloadTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "name" : "name"
+      }, {
+        "skuCostEstimates" : [ {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        }, {
+          "usageUnit" : "usageUnit",
+          "costEstimate" : {
+            "preCreditCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "netCostEstimate" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditEstimates" : [ {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            }, {
+              "creditDescription" : "creditDescription",
+              "creditAmount" : {
+                "nanos" : 0,
+                "units" : "units",
+                "currencyCode" : "currencyCode"
+              },
+              "creditType" : "creditType"
+            } ]
+          },
+          "usageAmount" : 6.027456183070403,
+          "sku" : "sku"
+        } ],
+        "workloadTotalCostEstimate" : {
+          "preCreditCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "netCostEstimate" : {
+            "nanos" : 0,
+            "units" : "units",
+            "currencyCode" : "currencyCode"
+          },
+          "creditEstimates" : [ {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          }, {
+            "creditDescription" : "creditDescription",
+            "creditAmount" : {
+              "nanos" : 0,
+              "units" : "units",
+              "currencyCode" : "currencyCode"
+            },
+            "creditType" : "creditType"
+          } ]
+        },
+        "name" : "name"
+      } ]
+    } ],
+    "currencyCode" : "currencyCode"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#EstimateCostScenarioWithListPriceResponse">EstimateCostScenarioWithListPriceResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#CacheFillRegions"><code>CacheFillRegions</code> - </a></li>
+    <li><a href="#CloudCdnEgressWorkload"><code>CloudCdnEgressWorkload</code> - </a></li>
+    <li><a href="#CloudCdnWorkload"><code>CloudCdnWorkload</code> - </a></li>
+    <li><a href="#CloudInterconnectEgressWorkload"><code>CloudInterconnectEgressWorkload</code> - </a></li>
+    <li><a href="#CloudInterconnectWorkload"><code>CloudInterconnectWorkload</code> - </a></li>
+    <li><a href="#CloudStorageEgressWorkload"><code>CloudStorageEgressWorkload</code> - </a></li>
+    <li><a href="#CloudStorageWorkload"><code>CloudStorageWorkload</code> - </a></li>
+    <li><a href="#Commitment"><code>Commitment</code> - </a></li>
+    <li><a href="#CommitmentCostEstimate"><code>CommitmentCostEstimate</code> - </a></li>
+    <li><a href="#ComputeVmWorkload"><code>ComputeVmWorkload</code> - </a></li>
+    <li><a href="#CostEstimate"><code>CostEstimate</code> - </a></li>
+    <li><a href="#CostEstimationResult"><code>CostEstimationResult</code> - </a></li>
+    <li><a href="#CostScenario"><code>CostScenario</code> - </a></li>
+    <li><a href="#CreditEstimate"><code>CreditEstimate</code> - </a></li>
+    <li><a href="#CustomMachineType"><code>CustomMachineType</code> - </a></li>
+    <li><a href="#DualRegional"><code>DualRegional</code> - </a></li>
+    <li><a href="#EstimateCostScenarioForBillingAccountRequest"><code>EstimateCostScenarioForBillingAccountRequest</code> - </a></li>
+    <li><a href="#EstimateCostScenarioForBillingAccountResponse"><code>EstimateCostScenarioForBillingAccountResponse</code> - </a></li>
+    <li><a href="#EstimateCostScenarioWithListPriceRequest"><code>EstimateCostScenarioWithListPriceRequest</code> - </a></li>
+    <li><a href="#EstimateCostScenarioWithListPriceResponse"><code>EstimateCostScenarioWithListPriceResponse</code> - </a></li>
+    <li><a href="#EstimationTimePoint"><code>EstimationTimePoint</code> - </a></li>
+    <li><a href="#GuestAccelerator"><code>GuestAccelerator</code> - </a></li>
+    <li><a href="#InterRegionEgress"><code>InterRegionEgress</code> - </a></li>
+    <li><a href="#IntraRegionEgress"><code>IntraRegionEgress</code> - </a></li>
+    <li><a href="#MachineType"><code>MachineType</code> - </a></li>
+    <li><a href="#Money"><code>Money</code> - </a></li>
+    <li><a href="#MultiRegional"><code>MultiRegional</code> - </a></li>
+    <li><a href="#PersistentDisk"><code>PersistentDisk</code> - </a></li>
+    <li><a href="#PredefinedMachineType"><code>PredefinedMachineType</code> - </a></li>
+    <li><a href="#PremiumTierEgressWorkload"><code>PremiumTierEgressWorkload</code> - </a></li>
+    <li><a href="#Price"><code>Price</code> - </a></li>
+    <li><a href="#Rate"><code>Rate</code> - </a></li>
+    <li><a href="#RateTier"><code>RateTier</code> - </a></li>
+    <li><a href="#Regional"><code>Regional</code> - </a></li>
+    <li><a href="#ScenarioConfig"><code>ScenarioConfig</code> - </a></li>
+    <li><a href="#SegmentCostEstimate"><code>SegmentCostEstimate</code> - </a></li>
+    <li><a href="#Sku"><code>Sku</code> - </a></li>
+    <li><a href="#SkuCostEstimate"><code>SkuCostEstimate</code> - </a></li>
+    <li><a href="#StandardTierEgressWorkload"><code>StandardTierEgressWorkload</code> - </a></li>
+    <li><a href="#Usage"><code>Usage</code> - </a></li>
+    <li><a href="#UsageRateTimeline"><code>UsageRateTimeline</code> - </a></li>
+    <li><a href="#UsageRateTimelineEntry"><code>UsageRateTimelineEntry</code> - </a></li>
+    <li><a href="#VlanAttachment"><code>VlanAttachment</code> - </a></li>
+    <li><a href="#VmResourceBasedCud"><code>VmResourceBasedCud</code> - </a></li>
+    <li><a href="#VmToVmEgressWorkload"><code>VmToVmEgressWorkload</code> - </a></li>
+    <li><a href="#Workload"><code>Workload</code> - </a></li>
+    <li><a href="#WorkloadCostEstimate"><code>WorkloadCostEstimate</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="CacheFillRegions"><code>CacheFillRegions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies the regions for Cache Fill.</div>
+    <div class="field-items">
+      <div class="param">destinationRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The destination region for cache fill. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">CACHE_FILL_DESTINATION_REGION_UNSPECIFIED</div><div class="param-enum">CACHE_FILL_DESTINATION_REGION_ASIA_PACIFIC</div><div class="param-enum">CACHE_FILL_DESTINATION_REGION_EUROPE</div><div class="param-enum">CACHE_FILL_DESTINATION_REGION_NORTH_AMERICA</div><div class="param-enum">CACHE_FILL_DESTINATION_REGION_OCEANIA</div><div class="param-enum">CACHE_FILL_DESTINATION_REGION_SOUTH_AMERICA</div><div class="param-enum">CACHE_FILL_DESTINATION_REGION_CHINA</div><div class="param-enum">CACHE_FILL_DESTINATION_REGION_OTHERS</div>
+<div class="param">sourceRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The source region for cache fill. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">CACHE_FILL_SOURCE_REGION_UNSPECIFIED</div><div class="param-enum">CACHE_FILL_REGION_ASIA_PACIFIC</div><div class="param-enum">CACHE_FILL_SOURCE_REGION_EUROPE</div><div class="param-enum">CACHE_FILL_SOURCE_REGION_NORTH_AMERICA</div><div class="param-enum">CACHE_FILL_SOURCE_REGION_OCEANIA</div><div class="param-enum">CACHE_FILL_SOURCE_REGION_SOUTH_AMERICA</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CloudCdnEgressWorkload"><code>CloudCdnEgressWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies usage for Cloud CDN egress.</div>
+    <div class="field-items">
+      <div class="param">cacheEgressDestination (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The destination for the cache egress charges. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">CACHE_EGRESS_DESTINATION_UNSPECIFIED</div><div class="param-enum">CACHE_EGRESS_DESTINATION_ASIA_PACIFIC</div><div class="param-enum">CACHE_EGRESS_DESTINATION_CHINA</div><div class="param-enum">CACHE_EGRESS_DESTINATION_EUROPE</div><div class="param-enum">CACHE_EGRESS_DESTINATION_NORTH_AMERICA</div><div class="param-enum">CACHE_EGRESS_DESTINATION_OCEANIA</div><div class="param-enum">CACHE_EGRESS_DESTINATION_LATIN_AMERICA</div><div class="param-enum">CACHE_EGRESS_DESTINATION_OTHER_DESTINATIONS</div>
+<div class="param">cacheEgressRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CloudCdnWorkload"><code>CloudCdnWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies usage for Cloud CDN resources.</div>
+    <div class="field-items">
+      <div class="param">cacheFillOriginService (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The source service for the cache fill. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">CACHE_FILL_ORIGIN_SERVICE_UNSPECIFIED</div><div class="param-enum">CACHE_FILL_ORIGIN_SERVICE_GOOGLE_CLOUD_STORAGE_BUCKET</div><div class="param-enum">CACHE_FILL_ORIGIN_SERVICE_BACKEND_SERVICE</div>
+<div class="param">cacheFillRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">cacheFillRegions (optional)</div><div class="param-desc"><span class="param-type"><a href="#CacheFillRegions">CacheFillRegions</a></span>  </div>
+<div class="param">cacheLookUpRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CloudInterconnectEgressWorkload"><code>CloudInterconnectEgressWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The interconnect egress only includes the Interconnect Egress. Please use the standard egress traffic interface to specify your standard egress usage.</div>
+    <div class="field-items">
+      <div class="param">egressRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">interconnectConnectionLocation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Locations in the <a href="https://cloud.google.com/vpc/network-pricing#interconnect-pricing">Interconnect connection location table</a>. This is the interconnect egress charges. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INTERCONNECT_CONNECTION_LOCATION_UNSPECIFIED</div><div class="param-enum">INTERCONNECT_CONNECTION_LOCATION_ASIA</div><div class="param-enum">INTERCONNECT_CONNECTION_LOCATION_EUROPE</div><div class="param-enum">INTERCONNECT_CONNECTION_LOCATION_NORTH_AMERICA</div><div class="param-enum">INTERCONNECT_CONNECTION_LOCATION_SOUTH_AMERICA</div><div class="param-enum">INTERCONNECT_CONNECTION_LOCATION_AUSTRALIA</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CloudInterconnectWorkload"><code>CloudInterconnectWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies usage for Cloud Interconnect resources.</div>
+    <div class="field-items">
+      <div class="param">interconnectAttachments (optional)</div><div class="param-desc"><span class="param-type"><a href="#VlanAttachment">array[VlanAttachment]</a></span> VLAN attachment used for interconnect. </div>
+<div class="param">interconnectType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Vlan attachment type. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INTERCONNECT_TYPE_UNSPECIFIED</div><div class="param-enum">INTERCONNECT_TYPE_DEDICATED</div><div class="param-enum">INTERCONNECT_TYPE_PARTNER</div>
+<div class="param">linkType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Interconnect circuit link type. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">LINK_TYPE_UNSPECIFIED</div><div class="param-enum">LINK_TYPE_ETHERNET_10G_LR</div><div class="param-enum">LINK_TYPE_ETHERNET_100G_LR</div>
+<div class="param">provisionedLinkCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CloudStorageEgressWorkload"><code>CloudStorageEgressWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specification of a network type. Network egress within Google Cloud applies when you move or copy data from one Cloud Storage bucket to another or when another Google Cloud service accesses data in your Cloud Storage bucket.This includes the network egress within Google Cloud and the general network usage.</div>
+    <div class="field-items">
+      <div class="param">destinationContinent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Where the data is sent to. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">DESTINATION_CONTINENT_UNSPECIFIED</div><div class="param-enum">DESTINATION_CONTINENT_ASIA_PACIFIC</div><div class="param-enum">DESTINATION_CONTINENT_AUTRALIA</div><div class="param-enum">DESTINATION_CONTINENT_EUROPE</div><div class="param-enum">DESTINATION_CONTINENT_NORTH_AMERICA</div><div class="param-enum">DESTINATION_CONTINENT_SOUTH_AMERICA</div>
+<div class="param">egressRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">sourceContinent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Where the data comes from. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">SOURCE_CONTINENT_UNSPECIFIED</div><div class="param-enum">SOURCE_CONTINENT_ASIA_PACIFIC</div><div class="param-enum">SOURCE_CONTINENT_AUSTRALIA</div><div class="param-enum">SOURCE_CONTINENT_EUROPE</div><div class="param-enum">SOURCE_CONTINENT_NORTH_AMERICA</div><div class="param-enum">SOURCE_CONTINENT_SOUTH_AMERICA</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CloudStorageWorkload"><code>CloudStorageWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies usage of Cloud Storage resources.</div>
+    <div class="field-items">
+      <div class="param">dataRetrieval (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">dataStored (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">dualRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#DualRegional">DualRegional</a></span>  </div>
+<div class="param">multiRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#MultiRegional">MultiRegional</a></span>  </div>
+<div class="param">operationA (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">operationB (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">region (optional)</div><div class="param-desc"><span class="param-type"><a href="#Regional">Regional</a></span>  </div>
+<div class="param">storageClass (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://cloud.google.com/storage/docs/storage-classes#classes">storage class</a> of the data and operation. For example: &quot;standard&quot; and &quot;nearline&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Commitment"><code>Commitment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Commitments give you the ability to pay a recurring fee in exchange for a benefit, such as a discount for your use. For example, this object might contain details of a <a href="https://cloud.google.com/docs/cuds#spend_based_commitments">spend-based committed use discount (CUD)</a>. Within a CostScenario, adding a commitment includes the cost of the commitment and any discounts.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. A name for this commitment. All commitments in a CostScenario must have unique names. Each name may be at most 128 characters long. </div>
+<div class="param">vmResourceBasedCud (optional)</div><div class="param-desc"><span class="param-type"><a href="#VmResourceBasedCud">VmResourceBasedCud</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CommitmentCostEstimate"><code>CommitmentCostEstimate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Estimated cost for a commitment.</div>
+    <div class="field-items">
+      <div class="param">commitmentTotalCostEstimate (optional)</div><div class="param-desc"><span class="param-type"><a href="#CostEstimate">CostEstimate</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the commitment, as specified in the <code>CostScenario</code>. </div>
+<div class="param">skuCostEstimates (optional)</div><div class="param-desc"><span class="param-type"><a href="#SkuCostEstimate">array[SkuCostEstimate]</a></span> Estimated costs for each SKU in the commitment. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ComputeVmWorkload"><code>ComputeVmWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specificies usage of a set of identical compute VM instances.</div>
+    <div class="field-items">
+      <div class="param">enableConfidentialCompute (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Defines whether each instance has confidential compute enabled. </div>
+<div class="param">guestAccelerator (optional)</div><div class="param-desc"><span class="param-type"><a href="#GuestAccelerator">GuestAccelerator</a></span>  </div>
+<div class="param">instancesRunning (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">licenses (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Premium image licenses used by each instance. </div>
+<div class="param">machineType (optional)</div><div class="param-desc"><span class="param-type"><a href="#MachineType">MachineType</a></span>  </div>
+<div class="param">persistentDisks (optional)</div><div class="param-desc"><span class="param-type"><a href="#PersistentDisk">array[PersistentDisk]</a></span> Persistent disks attached to each instance. Must include a boot disk. </div>
+<div class="param">preemptible (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Defines whether each instance is preemptible. </div>
+<div class="param">region (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://cloud.google.com/compute/docs/regions-zones">region</a> where the VMs run. For example: &quot;us-central1&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CostEstimate"><code>CostEstimate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An estimated cost.</div>
+    <div class="field-items">
+      <div class="param">creditEstimates (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditEstimate">array[CreditEstimate]</a></span> The estimated credits applied. </div>
+<div class="param">netCostEstimate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Money">Money</a></span>  </div>
+<div class="param">preCreditCostEstimate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Money">Money</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CostEstimationResult"><code>CostEstimationResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The result of a estimating the costs of a <code>CostScenario</code>.</div>
+    <div class="field-items">
+      <div class="param">currencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The ISO 4217 currency code for the cost estimate. </div>
+<div class="param">segmentCostEstimates (optional)</div><div class="param-desc"><span class="param-type"><a href="#SegmentCostEstimate">array[SegmentCostEstimate]</a></span> Required. Estimated costs for each idealized month of a <code>CostScenario</code>. </div>
+<div class="param">skus (optional)</div><div class="param-desc"><span class="param-type"><a href="#Sku">array[Sku]</a></span> Required. Information about SKUs used in the estimate. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CostScenario"><code>CostScenario</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Encapsulates all the information needed to perform a cost estimate. It includes a specification of the Google Cloud usage whose costs are estimated, and configuration options.</div>
+    <div class="field-items">
+      <div class="param">commitments (optional)</div><div class="param-desc"><span class="param-type"><a href="#Commitment">array[Commitment]</a></span> New commitments to estimate the costs for. The cost of the commitments will be included in the estimate result and discounts the commitment entitles will be included in the workload cost estimates. A maximum of 100 workloads can be provided. </div>
+<div class="param">scenarioConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#ScenarioConfig">ScenarioConfig</a></span>  </div>
+<div class="param">workloads (optional)</div><div class="param-desc"><span class="param-type"><a href="#Workload">array[Workload]</a></span> The Google Cloud usage whose costs are estimated. A maximum of 100 workloads can be provided. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreditEstimate"><code>CreditEstimate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An estimated credit applied to the costs on a SKU.</div>
+    <div class="field-items">
+      <div class="param">creditAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Money">Money</a></span>  </div>
+<div class="param">creditDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The credit description. </div>
+<div class="param">creditType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The credit type. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CustomMachineType"><code>CustomMachineType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specification of a custom machine type.</div>
+    <div class="field-items">
+      <div class="param">machineSeries (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The machine series. Only certain <a href="https://cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types">machine series</a> support custom configurations. For example: &quot;n1&quot;. </div>
+<div class="param">memorySizeGb (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Required. Memory size of the VM in GB (2^30 bytes). Must be an increment of 0.25 (256 MB). Each <a href="https://cloud.google.com/compute/docs/machine-types#machine_type_comparison">machine series</a> has limitations on allowed values for the ratio of memory-to-vCPU count. format: double</div>
+<div class="param">virtualCpuCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The number of vCPUs. The allowed values depend on the <a href="https://cloud.google.com/compute/docs/machine-types#machine_type_comparison">machine series</a>. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DualRegional"><code>DualRegional</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Area contains dual locations.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://cloud.google.com/storage/docs/locations#available-locations">location name</a> where the data is stored. For example: &quot;asia1&quot; for dual region. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EstimateCostScenarioForBillingAccountRequest"><code>EstimateCostScenarioForBillingAccountRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request for EstimateCostScenarioForBillingAccount.</div>
+    <div class="field-items">
+      <div class="param">costScenario (optional)</div><div class="param-desc"><span class="param-type"><a href="#CostScenario">CostScenario</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EstimateCostScenarioForBillingAccountResponse"><code>EstimateCostScenarioForBillingAccountResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response for EstimateCostScenarioForBillingAccount</div>
+    <div class="field-items">
+      <div class="param">costEstimationResult (optional)</div><div class="param-desc"><span class="param-type"><a href="#CostEstimationResult">CostEstimationResult</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EstimateCostScenarioWithListPriceRequest"><code>EstimateCostScenarioWithListPriceRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request for EstimateCostScenarioWithListPrice.</div>
+    <div class="field-items">
+      <div class="param">costScenario (optional)</div><div class="param-desc"><span class="param-type"><a href="#CostScenario">CostScenario</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EstimateCostScenarioWithListPriceResponse"><code>EstimateCostScenarioWithListPriceResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response for EstimateCostScenarioWithListPrice</div>
+    <div class="field-items">
+      <div class="param">costEstimationResult (optional)</div><div class="param-desc"><span class="param-type"><a href="#CostEstimationResult">CostEstimationResult</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EstimationTimePoint"><code>EstimationTimePoint</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a point in time.</div>
+    <div class="field-items">
+      <div class="param">estimationTimeFrameOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The point in time, relative to the start of the time frame covered by the cost estimate. format: google-duration</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GuestAccelerator"><code>GuestAccelerator</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specification of a set of guest accelerators attached to a machine.</div>
+    <div class="field-items">
+      <div class="param">acceleratorCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The number of the guest accelerator cards exposed to each instance. format: int64</div>
+<div class="param">acceleratorType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of the guest accelerator cards. For example: &quot;nvidia-tesla-t4&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InterRegionEgress"><code>InterRegionEgress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Egress traffic between two regions.</div>
+    <div class="field-items">
+      <div class="param">destinationRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Which <a href="https://cloud.google.com/compute/docs/regions-zones">region</a> the egress data goes to. </div>
+<div class="param">egressRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">sourceRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Which <a href="https://cloud.google.com/compute/docs/regions-zones">region</a> the egress data comes from. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="IntraRegionEgress"><code>IntraRegionEgress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Egress traffic within the same region. When source region and destination region are in the same zone, using the internal IP addresses, there isn't any egress charge.</div>
+    <div class="field-items">
+      <div class="param">egressRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MachineType"><code>MachineType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specification of machine series, memory, and number of vCPUs.</div>
+    <div class="field-items">
+      <div class="param">customMachineType (optional)</div><div class="param-desc"><span class="param-type"><a href="#CustomMachineType">CustomMachineType</a></span>  </div>
+<div class="param">predefinedMachineType (optional)</div><div class="param-desc"><span class="param-type"><a href="#PredefinedMachineType">PredefinedMachineType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Money"><code>Money</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents an amount of money with its currency type.</div>
+    <div class="field-items">
+      <div class="param">currencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The three-letter currency code defined in ISO 4217. </div>
+<div class="param">nanos (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If <code>units</code> is positive, <code>nanos</code> must be positive or zero. If <code>units</code> is zero, <code>nanos</code> can be positive, zero, or negative. If <code>units</code> is negative, <code>nanos</code> must be negative or zero. For example $-1.75 is represented as <code>units</code>=-1 and <code>nanos</code>=-750,000,000. format: int32</div>
+<div class="param">units (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The whole units of the amount. For example if <code>currencyCode</code> is <code>&quot;USD&quot;</code>, then 1 unit is one US dollar. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MultiRegional"><code>MultiRegional</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Area contains multiple locations.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://cloud.google.com/storage/docs/locations#available-locations">location name</a> where the data is stored. For example: &quot;us&quot; for multi-region. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PersistentDisk"><code>PersistentDisk</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specification of a persistent disk attached to a VM.</div>
+    <div class="field-items">
+      <div class="param">diskSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">diskType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://cloud.google.com/compute/docs/disks#disk-types">disk type</a>. For example: &quot;pd-standard&quot;. </div>
+<div class="param">provisionedIops (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">scope (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The geographic scope of the disk. Defaults to <code>SCOPE_ZONAL</code> if not specified. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">SCOPE_UNSPECIFIED</div><div class="param-enum">SCOPE_ZONAL</div><div class="param-enum">SCOPE_REGIONAL</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PredefinedMachineType"><code>PredefinedMachineType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specification of a predefined machine type.</div>
+    <div class="field-items">
+      <div class="param">machineType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://cloud.google.com/compute/docs/machine-types">machine type</a>. For example: &quot;n1-standard1&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PremiumTierEgressWorkload"><code>PremiumTierEgressWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specify Premium Tier Internet egress networking.</div>
+    <div class="field-items">
+      <div class="param">destinationContinent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Where the data is sent to. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">DESTINATION_CONTINENT_UNSPECIFIED</div><div class="param-enum">DESTINATION_CONTINENT_ASIA_PACIFIC</div><div class="param-enum">DESTINATION_CONTINENT_AFRICA</div><div class="param-enum">DESTINATION_CONTINENT_NORTH_AMERICA</div><div class="param-enum">DESTINATION_CONTINENT_AUTRALIA</div><div class="param-enum">DESTINATION_CONTINENT_CENTRAL_AMERICA</div><div class="param-enum">DESTINATION_CONTINENT_CHINA</div><div class="param-enum">DESTINATION_CONTINENT_EASTERN_EUROPE</div><div class="param-enum">DESTINATION_CONTINENT_WESTERN_EUROPE</div><div class="param-enum">DESTINATION_CONTINENT_EMEA</div><div class="param-enum">DESTINATION_CONTINENT_INDIA</div><div class="param-enum">DESTINATION_CONTINENT_MIDDLE_EAST</div><div class="param-enum">DESTINATION_CONTINENT_SOUTH_AMERICA</div>
+<div class="param">egressRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">sourceRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Which <a href="https://cloud.google.com/compute/docs/regions-zones">region</a> the egress data comes from. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Price"><code>Price</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The price of a SKU at a point int time.</div>
+    <div class="field-items">
+      <div class="param">effectiveTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#EstimationTimePoint">EstimationTimePoint</a></span>  </div>
+<div class="param">priceType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of price. Possible values: &quot;RATE&quot; </div>
+<div class="param">rate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Rate">Rate</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Rate"><code>Rate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A SKU price consisting of tiered rates.</div>
+    <div class="field-items">
+      <div class="param">tiers (optional)</div><div class="param-desc"><span class="param-type"><a href="#RateTier">array[RateTier]</a></span> The service tiers. </div>
+<div class="param">unit (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SKU's pricing unit. For example, if the tier price is $1 per 1000000 Bytes, then this field will show 'By'. The <code>start_amount</code> field in each tier will be in this unit. </div>
+<div class="param">unitCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> The SKU's count for the pricing unit. For example, if the tier price is $1 per 1000000 Bytes, then this column will show 1000000. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RateTier"><code>RateTier</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Pricing details for a service tier.</div>
+    <div class="field-items">
+      <div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#Money">Money</a></span>  </div>
+<div class="param">startAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> The magnitude of usage in which the tier interval begins. Example: &quot;From 100 GiBi the price is $1 per byte&quot; implies <code>start_amount</code> = 100 format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Regional"><code>Regional</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Area contains only one location.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://cloud.google.com/storage/docs/locations#available-locations">location name</a>. For example: &quot;us-central1&quot; for region. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ScenarioConfig"><code>ScenarioConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Configuration for a CostScenario. Specifies how costs are calculated.</div>
+    <div class="field-items">
+      <div class="param">estimateDuration (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Time frame for the estimate. Workloads must specify usage for this duration. Duration must be at least 1 hour (3,600 seconds) and at most 10 years (315,360,000 seconds). The calculations for years and months are based on a 730-hour (2,628,000-second) month. For durations longer than one month (2,628,000 seconds), the duration is rounded up to the next month, so the estimate shows you the costs for full months. For example, a duration of 3,232,800 seconds (roughly 5 weeks) is rounded up to 2 months. format: google-duration</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SegmentCostEstimate"><code>SegmentCostEstimate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Workload cost estimates for a single time segment.</div>
+    <div class="field-items">
+      <div class="param">commitmentCostEstimates (optional)</div><div class="param-desc"><span class="param-type"><a href="#CommitmentCostEstimate">array[CommitmentCostEstimate]</a></span> Estimated costs for each commitment. </div>
+<div class="param">segmentStartTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#EstimationTimePoint">EstimationTimePoint</a></span>  </div>
+<div class="param">segmentTotalCostEstimate (optional)</div><div class="param-desc"><span class="param-type"><a href="#CostEstimate">CostEstimate</a></span>  </div>
+<div class="param">workloadCostEstimates (optional)</div><div class="param-desc"><span class="param-type"><a href="#WorkloadCostEstimate">array[WorkloadCostEstimate]</a></span> Estimated costs for each workload. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Sku"><code>Sku</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about SKUs appearing in the cost estimate.</div>
+    <div class="field-items">
+      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The display name for the SKU. Example: A2 Instance Core running in Americas </div>
+<div class="param">prices (optional)</div><div class="param-desc"><span class="param-type"><a href="#Price">array[Price]</a></span> A timeline of prices for a SKU in chronological order. Note: The API currently only supports using a constant price for the entire estimation time frame so this list will contain a single value. </div>
+<div class="param">sku (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name for the SKU. Example: &quot;services/DA34-426B-A397/skus/AA95-CD31-42FE&quot; </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SkuCostEstimate"><code>SkuCostEstimate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Estimated cost for usage on a SKU.</div>
+    <div class="field-items">
+      <div class="param">costEstimate (optional)</div><div class="param-desc"><span class="param-type"><a href="#CostEstimate">CostEstimate</a></span>  </div>
+<div class="param">sku (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name for the SKU. Example: &quot;services/DA34-426B-A397/skus/AA95-CD31-42FE&quot; More information about the SKU can be found in the <code>skus</code> field of the <code>CostEstimationResult</code>. </div>
+<div class="param">usageAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> The amount of usage on this SKU. format: double</div>
+<div class="param">usageUnit (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unit for the usage on this SKU. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StandardTierEgressWorkload"><code>StandardTierEgressWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specify Standard Tier Internet egress networking.</div>
+    <div class="field-items">
+      <div class="param">egressRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+<div class="param">sourceRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Which <a href="https://cloud.google.com/compute/docs/regions-zones">region</a> the egress data comes from. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Usage"><code>Usage</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An amount of usage over a time frame.</div>
+    <div class="field-items">
+      <div class="param">usageRateTimeline (optional)</div><div class="param-desc"><span class="param-type"><a href="#UsageRateTimeline">UsageRateTimeline</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UsageRateTimeline"><code>UsageRateTimeline</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A timeline of usage rates. Consists of a series of entries, each of which specifies a constant rate of usage during a time interval. Each entry contains an effective time. The usage rate is in effect from that time until the effective time of the subsequent entry, or, for the last entry, for the remaining portion of estimation time frame. Effective times are specified as an offset into the estimation time frame. Usage is considered to be zero until the <code>effective_time</code> of the first entry. All subsequent entries must have an effective time greater than the previous entry and less than the estimate time frame. The effective time on all entries must be an integer number of hours.</div>
+    <div class="field-items">
+      <div class="param">unit (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unit for the usage rate in each timeline entry. If you provide an incorrect unit for an instance, the correct unit is provided in the error message. The supported units are a subset of <a href="https://ucum.org/ucum.html">The Unified Code for Units of Measure</a> standard: * <strong>Time units (TIME-UNIT)</strong> * <code>s</code> second * <code>min</code> minute * <code>h</code> hour * <code>d</code> day * <code>wk</code> week * <code>mo</code> month * <code>yr</code> year * <code>ms</code> millisecond * <code>us</code> microsecond * <code>ns</code> nanosecond * <strong>Basic storage units (BASIC-STORAGE-UNIT)</strong> * <code>bit</code> bit * <code>By</code> byte * <strong>Count units (COUNT-UNIT)</strong> * <code>count</code> count * <strong>Prefixes (PREFIX)</strong> * <code>k</code> kilo (10^3) * <code>M</code> mega (10^6) * <code>G</code> giga (10^9) * <code>T</code> tera (10^12) * <code>P</code> peta (10^15) * <code>Ki</code> kibi (2^10) * <code>Mi</code> mebi (2^20) * <code>Gi</code> gibi (2^30) * <code>Ti</code> tebi (2^40) * <code>Pi</code> pebi (2^50) <strong>Grammar</strong> The grammar also includes these connectors: * <code>/</code> division or ratio (as an infix operator). For example: <code>kBy/{email}</code> or <code>MiBy/10ms</code>. * <code>.</code> multiplication or composition (as an infix operator). For example: <code>GBy.d</code> or <code>k{watt}.h</code>. The grammar for a unit is as follows: <code>Expression = Component { &quot;.&quot; Component } { &quot;/&quot; Component } ; Component = ( [ PREFIX ] UNIT | &quot;%&quot; ) [ Annotation ] | Annotation | &quot;1&quot; ; UNIT = TIME-UNIT | STORAGE-UNIT | DATA-UNIT | COUNT-UNIT Annotation = &quot;{&quot; NAME &quot;}&quot; ;</code> Examples: * Request per second: <code>1/s</code> or <code>{requests}/s</code> * GibiBytes: <code>GiBy</code> * GibiBytes * seconds: <code>GiBy.s</code> </div>
+<div class="param">usageRateTimelineEntries (optional)</div><div class="param-desc"><span class="param-type"><a href="#UsageRateTimelineEntry">array[UsageRateTimelineEntry]</a></span> The timeline entries. Each entry has a start time and usage rate. The start time specifies the effective time of the usage rate. The entries must be sorted by start time in an increasing order. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UsageRateTimelineEntry"><code>UsageRateTimelineEntry</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A usage rate timeline entry. Each entry specifies a constant usage rate during a time interval.</div>
+    <div class="field-items">
+      <div class="param">effectiveTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#EstimationTimePoint">EstimationTimePoint</a></span>  </div>
+<div class="param">usageRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> The usage rate. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VlanAttachment"><code>VlanAttachment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>VLAN attachment for cloud interconnect.</div>
+    <div class="field-items">
+      <div class="param">bandwidth (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Capacities in the <a href="https://cloud.google.com/vpc/network-pricing#interconnect-pricing">pricing table</a> Examples of capacity are: 50/100/200/300/400/500-Mbps, 1/2/5/10/20/50-Gbps. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">BANDWIDTH_UNSPECIFIED</div><div class="param-enum">BANDWIDTH_BPS_50M</div><div class="param-enum">BANDWIDTH_BPS_100M</div><div class="param-enum">BANDWIDTH_BPS_200M</div><div class="param-enum">BANDWIDTH_BPS_300M</div><div class="param-enum">BANDWIDTH_BPS_400M</div><div class="param-enum">BANDWIDTH_BPS_500M</div><div class="param-enum">BANDWIDTH_BPS_1G</div><div class="param-enum">BANDWIDTH_BPS_2G</div><div class="param-enum">BANDWIDTH_BPS_5G</div><div class="param-enum">BANDWIDTH_BPS_10G</div><div class="param-enum">BANDWIDTH_BPS_20G</div><div class="param-enum">BANDWIDTH_BPS_50G</div>
+<div class="param">vlanCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VmResourceBasedCud"><code>VmResourceBasedCud</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies a resource-based committed use discount (CUD).</div>
+    <div class="field-items">
+      <div class="param">guestAccelerator (optional)</div><div class="param-desc"><span class="param-type"><a href="#GuestAccelerator">GuestAccelerator</a></span>  </div>
+<div class="param">machineSeries (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The machine series for CUD. For example: &quot;n1&quot; for general purpose N1 machine type commitments. &quot;n2&quot; for general purpose N2 machine type commitments. &quot;e2&quot; for general purpose E2 machine type commitments. &quot;n2d&quot; for general purpose N2D machine type commitments. &quot;t2d&quot; for general purpose T2D machine type commitments. &quot;c2&quot;/&quot;c2d&quot; for compute-optimized commitments. &quot;m1&quot;/&quot;m2&quot; for the memory-optimized commitments. &quot;a2' for the accelerator-optimized commitments. </div>
+<div class="param">memorySizeGb (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Memory size of the VM in GB (2^30 bytes). Must be an increment of 0.25 (256 MB). format: double</div>
+<div class="param">plan (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Commitment usage plan. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">COMMITMENT_PLAN_UNSPECIFIED</div><div class="param-enum">TWELVE_MONTH</div><div class="param-enum">THIRTY_SIX_MONTH</div>
+<div class="param">region (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The region where the VM runs. For example: &quot;us-central1&quot; </div>
+<div class="param">virtualCpuCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The number of vCPUs. The number of vCPUs must be an integer of 0 or more and can be even or odd. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VmToVmEgressWorkload"><code>VmToVmEgressWorkload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specify VM to VM egress.</div>
+    <div class="field-items">
+      <div class="param">interRegionEgress (optional)</div><div class="param-desc"><span class="param-type"><a href="#InterRegionEgress">InterRegionEgress</a></span>  </div>
+<div class="param">intraRegionEgress (optional)</div><div class="param-desc"><span class="param-type"><a href="#IntraRegionEgress">IntraRegionEgress</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Workload"><code>Workload</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies usage on a single Google Cloud product over a time frame. Each Google Cloud product has its own message, containing specific product configuration parameters of the product usage amounts along each dimension in which the product is billed.</div>
+    <div class="field-items">
+      <div class="param">cloudCdnEgressWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#CloudCdnEgressWorkload">CloudCdnEgressWorkload</a></span>  </div>
+<div class="param">cloudCdnWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#CloudCdnWorkload">CloudCdnWorkload</a></span>  </div>
+<div class="param">cloudInterconnectEgressWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#CloudInterconnectEgressWorkload">CloudInterconnectEgressWorkload</a></span>  </div>
+<div class="param">cloudInterconnectWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#CloudInterconnectWorkload">CloudInterconnectWorkload</a></span>  </div>
+<div class="param">cloudStorageEgressWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#CloudStorageEgressWorkload">CloudStorageEgressWorkload</a></span>  </div>
+<div class="param">cloudStorageWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#CloudStorageWorkload">CloudStorageWorkload</a></span>  </div>
+<div class="param">computeVmWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#ComputeVmWorkload">ComputeVmWorkload</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. A name for this workload. All workloads in a <code>CostScenario</code> must have a unique <code>name</code>. Each <code>name</code> may be at most 128 characters long. </div>
+<div class="param">premiumTierEgressWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#PremiumTierEgressWorkload">PremiumTierEgressWorkload</a></span>  </div>
+<div class="param">standardTierEgressWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#StandardTierEgressWorkload">StandardTierEgressWorkload</a></span>  </div>
+<div class="param">vmToVmEgressWorkload (optional)</div><div class="param-desc"><span class="param-type"><a href="#VmToVmEgressWorkload">VmToVmEgressWorkload</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WorkloadCostEstimate"><code>WorkloadCostEstimate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Estimated cost for a workload.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the workload, as specified in the <code>CostScenario</code>. </div>
+<div class="param">skuCostEstimates (optional)</div><div class="param-desc"><span class="param-type"><a href="#SkuCostEstimate">array[SkuCostEstimate]</a></span> Estimated costs for each SKU in the workload. </div>
+<div class="param">workloadTotalCostEstimate (optional)</div><div class="param-desc"><span class="param-type"><a href="#CostEstimate">CostEstimate</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
